@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Poppins-bold';
+  src: url(app/assets/fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto-regular';
+  src: url(app/assets/fonts/Roboto-Regular.ttf);
+}
+
+:root {
+  --black: #161616;
+  --milk: #F7F7F7;
+  --white: #FFFFFF;
+  --purple: #D3D4FE;
+  --green: #E1ECE4;
+  --yellow: #FAEFB6;
+}
