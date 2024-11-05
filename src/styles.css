@@ -9,6 +9,16 @@
   src: url(app/assets/fonts/Roboto-Regular.ttf);
 }
 
+@font-face {
+  font-family: 'Poppins-regular';
+  src: url(app/assets/fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Poppins-semiBold';
+  src: url(app/assets/fonts/Poppins-SemiBold.ttf);
+}
+
 :root {
   --black: #161616;
   --milk: #F7F7F7;
@@ -16,4 +26,12 @@
   --purple: #D3D4FE;
   --green: #E1ECE4;
   --yellow: #FAEFB6;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  vertical-align: baseline;
+  list-style: none;
+  border: 0;
 }
