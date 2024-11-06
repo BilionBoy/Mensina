@@ -19,6 +19,15 @@
   src: url(app/assets/fonts/Poppins-SemiBold.ttf);
 }
 
+@font-face {
+  font-family: 'Poppins-Light';
+  src: url(app/assets/fonts/Poppins-Light.ttf);
+}
+
+@font-face {
+  font-family: 'Poppins-Medium';
+  src: url(app/assets/fonts/Poppins-Medium.ttf);
+}
 :root {
   --black: #161616;
   --milk: #F7F7F7;

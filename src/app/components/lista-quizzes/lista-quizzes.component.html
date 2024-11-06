@@ -1,46 +1,94 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
 <div class="container">
-  <div class="lateral-esqueda">
+  <div class="lateral-esquerda">
     <div class="topo-esquerda">
-      <span class="material-symbols-outlined" style="color: var(--white);">settings</span>
-      <h1>meensina</h1>
-      <img src="" alt="foto user">
+      <span class="material-symbols-outlined settings" style="color: var(--white);">settings</span>
+      <h1>mensina</h1>
+      <img src="/images/person.jpg" alt="foto user">
       <p>Maria</p>
     </div>
     <div class="meio-esquerda">
       <div class="circle">
-        <div class="percentage">70%<br><span>de acertos</span></div>
+        <div class="percentage">70%<br><span class="sub-porcentagem">de acertos</span></div>
       </div>
       <button class="score-button">Visualizar pontuação</button>
     </div>
     <div class="meio-final">
-      <h3>Olá, Maria</h3>
-      <p>Seja bem vindo(a) a sua <br> plataforma de estudos</p>
+      <h3 class="welcome-name">Olá, Maria</h3>
+      <p class="welcome-text">Seja bem vindo(a) a sua <br> plataforma de estudos</p>
     </div>
   </div>
 
   <main class="meio">
-    <div class="all">
-      <span class="material-symbols-outlined">grid_view</span>
-      <p>All</p>
-    </div>
-    <div class="all">
-      <span class="material-symbols-outlined">computer</span>
-      <p>Desenvolvimento Web</p>
-    </div>
-    <div class="all">
-      <span class="material-symbols-outlined">database</span>
-      <p>Data Base</p>
-    </div>
-    <p>Mais populares</p>
-    <div class="quizzes-cards">
-      <div>
-        <span class="material-symbols-outlined">database</span>
+    <div class="tags">
+      <div class="tag-card">
+        <span class="material-symbols-outlined icon-card">grid_view</span>
+        <p>All</p>
+      </div>
+      <div class="tag-card">
+        <span class="material-symbols-outlined icon-card">computer</span>
+        <p>Desenvolvimento Web</p>
+      </div>
+      <div class="tag-card">
+        <span class="material-symbols-outlined icon-card">database</span>
         <p>Data Base</p>
+      </div>
+    </div>
+    <p class="popular">Mais populares</p>
+    <div class="quizzes-cards">
+      <div class="quiz">
+        <div class="quizz-name">
+          <span class="material-symbols-outlined icon-card">database</span>
+          <span class="quiz-title">Data Base</span>
+        </div>
+        <p>Banco de dados no SQL</p>
+        <button>COMEÇAR</button>
+      </div>
+      <div class="quiz">
+        <div class="quizz-name">
+          <span class="material-symbols-outlined icon-card">database</span>
+          <span class="quiz-title">Data Base</span>
+        </div>
         <p>Banco de dados no SQL</p>
         <button>COMEÇAR</button>
       </div>
     </div>
   </main>
+
+  <div class="lateral-direita">
+    <p class="ranking-title">Ranking global</p>
+    <div class="ranking">
+      <div class="perfil-ranking">
+        <img src="/images/person.jpg" alt="foto user">
+        <p class="nome-user">Maria</p>
+      </div>
+      <p class="score">200 PX</p>
+    </div>
+    <div class="ranking">
+      <div class="perfil-ranking">
+        <img src="/images/person.jpg" alt="foto user">
+        <p class="nome-user">Maria</p>
+      </div>
+      <p class="score">200 PX</p>
+    </div>
+    <div class="ranking">
+      <div class="perfil-ranking">
+        <img src="/images/person.jpg" alt="foto user">
+        <p class="nome-user">Maria</p>
+      </div>
+      <p class="score">200 PX</p>
+    </div>
+    <p class="meus-quizzes-title">Meus quizzes</p>
+    <div class="meus-quizzes">
+      <div class="meus-quizzes-card">
+        <div class="nome-meusquizzes">
+          <span class="material-symbols-outlined icon-card">computer</span>
+          <span class="quiz-title">Desenvolvimento Web</span>
+        </div>
+        <p style="font-family: 'Poppins-Medium'; padding-left: 5px;">Desenvolvimento seguro</p>
+        <button>CONTINUAR</button>
+      </div>
+    </div>
+  </div>
 </div>

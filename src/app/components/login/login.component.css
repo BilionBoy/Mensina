@@ -114,6 +114,10 @@ button {
   font-size: 20px;
 }
 
+button:hover {
+  background-color: #333333df;
+}
+
 .link {
   font-family: "Poppins-regular";
   font-size: 14px;
