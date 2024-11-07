@@ -21,7 +21,7 @@
 
 .container {
   display: grid;
-  grid-template-columns: 400px 2fr 1fr;
+  grid-template-columns: 350px 3fr 1fr;
 }
 
 .meio-esquerda {
@@ -45,7 +45,7 @@
   align-content: center;
   text-align: center;
   justify-content: space-between;
-  padding: 30px;
+  padding: 30px 0;
 }
 
 
@@ -56,7 +56,6 @@
 }
 
 .topo-esquerda img{
-  width: 100px;
   height: auto;
   border-radius: 50%;
   height: 80px;
@@ -108,31 +107,6 @@ main {
   padding-top: 70px;
 }
 
-.tags {
-  display: flex;
-  gap: 1em;
-}
-
-.tag-card {
-  padding: 7px 8px;
-  display: flex;
-  background-color: #ECE8E8;
-  gap: 1em;
-  border-radius: 50px;
-  align-items: center;
-}
-
-.icon-card {
-  background-color: var(--white);
-  padding: 7px;
-  border-radius: 50%;
-}
-
-.tag-card p {
-  margin-right: 15px;
-  font-family: 'Poppins-Medium';
-}
-
 .popular {
   margin-bottom: 0.5em;
   margin-top: 1em;
@@ -142,41 +116,8 @@ main {
 
 .quizzes-cards {
   display: grid;
-  grid-template-columns: 350px 350px;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1em;
-}
-
-.quiz{
-  background-color: #FCD5D6;
-  border-radius: 15px;
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2em;
-}
-
-.quizz-name {
-  display: flex;
-  gap: 0.5em;
-}
-
-.quiz-title {
-  align-self: center;
-  font-family: 'Poppins-Medium';
-  color: #161616e4;
-}
-
-.quiz p {
-  font-family: 'Poppins-Medium';
-  margin-left: 5px;
-}
-
-.quiz button {
-  padding: 0.3em 2em;
-  font-family: 'Poppins-Medium';
-  border-radius: 15px;
-  background-color: #ffffffd4;
-  align-self: end;
 }
 
 /* Estilo lateral direita  */
@@ -252,3 +193,4 @@ main {
   background-color: #ffffffd4;
   align-self: end;
 }
+
