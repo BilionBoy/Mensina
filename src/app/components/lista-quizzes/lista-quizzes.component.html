@@ -1,120 +1,109 @@
 <div class="container-fluid">
   <div class="row">
-    <!-- Lateral Esquerda (simplificada) -->
+    <!-- Lateral Esquerda -->
     <div class="col-lg-3 col-md-4 col-sm-12 d-flex flex-column align-items-center bg-dark text-white p-4">
-      <!-- Espaço para o ícone de configurações e imagem do usuário -->
+      <!-- Ícone de edição e imagem do usuário -->
       <div class="position-relative w-100 mb-4">
-        <span class="material-symbols-outlined position-absolute top-0 start-0 m-3"
-          style="color: var(--white);">edit</span>
-
-        <!-- Centralizando a imagem com mx-auto para dispositivos móveis -->
+        <span class="material-symbols-outlined position-absolute top-0 start-0 m-3" style="color: var(--white);">edit</span>
         <img src="/images/person.jpg" alt="foto user" class="rounded-circle w-50 mb-3 mx-auto d-block">
-
-        <!-- Título e texto visíveis apenas em dispositivos médios e maiores -->
         <h3 class="welcome-name text-center d-none d-md-block">Olá, Maria</h3>
         <p class="welcome-text text-center d-none d-md-block">Seja bem-vindo(a) à sua <br> plataforma de estudos</p>
       </div>
-
       <!-- Visualizar Pontuação -->
       <button class="btn btn-light w-100 score-button">Visualizar pontuação</button>
-
-      <!-- Mensina -->
+      <!-- Nome do Aplicativo -->
       <h1 class="mt-4 text-center">mensina</h1>
     </div>
-  </div>
-</div>
-<!-- Conteúdo Principal -->
-<main class="col-lg-6 col-md-8 col-sm-12 p-4">
-  <!-- Tags em Linha com Flexbox -->
-  <div class="tags d-flex justify-content-start mb-3 flex-wrap">
-    <!-- Tag All -->
-    <div class="tag-card p-1 d-flex align-items-center me-2 mb-2">
-      <span class="material-symbols-outlined icon-card me-1 fs-4">grid_view</span>
-      <p class="mb-0 text-truncate" style="max-width: 80px; font-size: 0.9rem;">All</p>
-    </div>
-    <!-- Tag Desenvolvimento Web -->
-    <div class="tag-card p-1 d-flex align-items-center me-2 mb-2">
-      <span class="material-symbols-outlined icon-card me-1 fs-4">computer</span>
-      <p class="mb-0 text-truncate" style="max-width: 100px; font-size: 0.9rem;">Desenvolvimento Web</p>
-    </div>
-    <!-- Tag Data Base -->
-    <div class="tag-card p-1 d-flex align-items-center me-2 mb-2">
-      <span class="material-symbols-outlined icon-card me-1 fs-4">database</span>
-      <p class="mb-0 text-truncate" style="max-width: 100px; font-size: 0.9rem;">Data Base</p>
-    </div>
-  </div>
 
-  <p class="popular mb-3">Mais populares</p>
-
-  <!-- Tabela Responsiva para os Quizzes -->
-  <div class="table-responsive">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Título</th>
-          <th>Tag</th>
-        </tr>
-      </thead>
-      <tbody>
-        @for(quiz of quizzes; track quiz.id) {
-        <tr>
-          <td>{{ quiz.id }}</td>
-          <td>{{ quiz.title }}</td>
-          <td>
-            <span class="material-symbols-outlined icon-card me-2 fs-5">
-              {{ quiz.tag.description == 'Desenvolvimento Web' ? 'computer' : (quiz.tag.description == 'Data Base' ?
-              'database' : 'grid_view') }}
-            </span>
-            {{ quiz.tag.description }}
-          </td>
-        </tr>
-        }
-      </tbody>
-    </table>
-  </div>
-</main>
-
-<!-- Lateral Direita -->
-<div class="col-lg-3 col-md-12 col-sm-12 bg-light p-4 rounded">
-  <p class="ranking-title text-center mb-4">Ranking global</p>
-
-  <!-- Ranking dos usuários -->
-  <div class="ranking mb-3 d-flex justify-content-between align-items-center">
-    <div class="perfil-ranking d-flex align-items-center">
-      <img src="/images/person.jpg" alt="foto user" class="rounded-circle me-2" width="40" height="40">
-      <p class="nome-user">Maria</p>
-    </div>
-    <p class="score">200 PX</p>
-  </div>
-
-  <div class="ranking mb-3 d-flex justify-content-between align-items-center">
-    <div class="perfil-ranking d-flex align-items-center">
-      <img src="/images/person.jpg" alt="foto user" class="rounded-circle me-2" width="40" height="40">
-      <p class="nome-user">João</p>
-    </div>
-    <p class="score">200 PX</p>
-  </div>
-
-  <div class="ranking mb-3 d-flex justify-content-between align-items-center">
-    <div class="perfil-ranking d-flex align-items-center">
-      <img src="/images/person.jpg" alt="foto user" class="rounded-circle me-2" width="40" height="40">
-      <p class="nome-user">Pedro</p>
-    </div>
-    <p class="score">200 PX</p>
-  </div>
-
-  <p class="meus-quizzes-title mt-4">Meus quizzes</p>
-  <div class="meus-quizzes bg-primary p-3 rounded">
-    <div class="meus-quizzes-card d-flex flex-column gap-3">
-      <div class="nome-meusquizzes d-flex align-items-center gap-2">
-        <span class="material-symbols-outlined icon-card">computer</span>
-        <span class="quiz-title">Desenvolvimento Web</span>
+    <!-- Conteúdo Principal -->
+    <main class="col-lg-6 col-md-8 col-sm-12 p-4">
+      <!-- Tags em Linha com Flexbox -->
+      <div class="tags d-flex justify-content-start mb-3 flex-wrap">
+        <!-- Exemplo de Tag -->
+        <div class="tag-card p-1 d-flex align-items-center me-2 mb-2">
+          <span class="material-symbols-outlined icon-card me-1 fs-4">grid_view</span>
+          <p class="mb-0 text-truncate" style="max-width: 80px; font-size: 0.9rem;">All</p>
+        </div>
+        <div class="tag-card p-1 d-flex align-items-center me-2 mb-2">
+          <span class="material-symbols-outlined icon-card me-1 fs-4">computer</span>
+          <p class="mb-0 text-truncate" style="max-width: 100px; font-size: 0.9rem;">Desenvolvimento Web</p>
+        </div>
+        <div class="tag-card p-1 d-flex align-items-center me-2 mb-2">
+          <span class="material-symbols-outlined icon-card me-1 fs-4">database</span>
+          <p class="mb-0 text-truncate" style="max-width: 100px; font-size: 0.9rem;">Data Base</p>
+        </div>
       </div>
-      <p class="text-muted">Desenvolvimento seguro</p>
-      <button class="btn btn-light align-self-end">CONTINUAR</button>
+      
+      <p class="popular mb-3">Mais populares</p>
+      
+      <!-- Tabela Responsiva para os Quizzes -->
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Título</th>
+              <th>Tag</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for(quiz of quizzes; track quiz.id) {
+            <tr>
+              <td>{{ quiz.id }}</td>
+              <td>{{ quiz.title }}</td>
+              <td>
+                <span class="material-symbols-outlined icon-card me-2 fs-5">
+                  {{ quiz.tag.description == 'Desenvolvimento Web' ? 'computer' : (quiz.tag.description == 'Data Base' ? 'database' : 'grid_view') }}
+                </span>
+                {{ quiz.tag.description }}
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- Lateral Direita -->
+    <div class="col-lg-3 col-md-12 col-sm-12 bg-light p-4 rounded">
+      <p class="ranking-title text-center mb-4">Ranking global</p>
+
+      <!-- Ranking dos usuários -->
+      <div class="ranking mb-3 d-flex justify-content-between align-items-center">
+        <div class="perfil-ranking d-flex align-items-center">
+          <img src="/images/person.jpg" alt="foto user" class="rounded-circle me-2" width="40" height="40">
+          <p class="nome-user">Maria</p>
+        </div>
+        <p class="score">200 PX</p>
+      </div>
+
+      <div class="ranking mb-3 d-flex justify-content-between align-items-center">
+        <div class="perfil-ranking d-flex align-items-center">
+          <img src="/images/person.jpg" alt="foto user" class="rounded-circle me-2" width="40" height="40">
+          <p class="nome-user">João</p>
+        </div>
+        <p class="score">200 PX</p>
+      </div>
+
+      <div class="ranking mb-3 d-flex justify-content-between align-items-center">
+        <div class="perfil-ranking d-flex align-items-center">
+          <img src="/images/person.jpg" alt="foto user" class="rounded-circle me-2" width="40" height="40">
+          <p class="nome-user">Pedro</p>
+        </div>
+        <p class="score">200 PX</p>
+      </div>
+
+      <p class="meus-quizzes-title mt-4">Meus quizzes</p>
+      <div class="meus-quizzes bg-primary p-3 rounded">
+        <div class="meus-quizzes-card d-flex flex-column gap-3">
+          <div class="nome-meusquizzes d-flex align-items-center gap-2">
+            <span class="material-symbols-outlined icon-card">computer</span>
+            <span class="quiz-title">Desenvolvimento Web</span>
+          </div>
+          <p class="text-muted">Desenvolvimento seguro</p>
+          <button class="btn btn-light align-self-end">CONTINUAR</button>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
 </div>

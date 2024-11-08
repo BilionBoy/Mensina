@@ -1,165 +1,120 @@
-/* Reset  */
 
-.container {
-  background-color: var(--milk);
-  height: 100vh;
-  align-content: center;
+body {
+  background-color: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
 }
 
-/* Flex  */
-
-main {
+.container-custom {
   display: flex;
-  align-content: center;
+  flex-wrap: wrap;
+  max-width: 900px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.welcome-section {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
-/* Estilos do welcome-container*/
+.welcome-section h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.welcome-section .enfeite {
+  color: #ff4081;
+}
+
+.welcome-section p {
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
 
 .cards {
   display: flex;
-  gap: 20px;
-  line-height: 1.1;
-  letter-spacing: 8;
+  gap: 15px;
+  margin-top: 20px;
 }
 
-.aprenda {
-  display: flex;
-  height: 85px;
-  flex-direction: column;
-  width: 85px;
-  border-radius: 15px;
-  font-size: 15px;
-  justify-content: space-between;
-  padding: 10px;
-  background-color: var(--purple);
-}
-
-.acumule {
-  display: flex;
-  height: 85px;
-  flex-direction: column;
-  width: 85px;
-  border-radius: 15px;
-  font-size: 15px;
-  justify-content: space-between;
-  padding: 10px;
-  background-color: var(--green);
-}
-
-.acompanhe {
-  display: flex;
-  height: 85px;
-  flex-direction: column;
-  width: 85px;
-  border-radius: 15px;
-  font-size: 15px;
-  justify-content: space-between;
-  padding: 10px;
-  background-color: var(--yellow);
-}
-
-.texto-card {
-  font-family: "Roboto-regular";
-  text-align: end;
-  font-size: 14px;
-}
-
-.welcome-container {
-  border-radius: 15px 0px 0px 15px;
-  padding: 70px 70px;
-  background-color: var(--black);
-}
-
-.titulo {
-  font-family: "Poppins-bold";
-  line-height: 1;
-}
-
-.texto-branco {
-  color: var(--white);
-}
-
-.subtitulo {
-  font-family: "Roboto-Regular";
-  color: #ffffffd7;
-  margin-bottom: 3em;
-  font-size: 20px;
-}
-
-.enfeite {
-  color: var(--purple);
-}
-
-/* Estilos do Login  */
-
-.login-container {
-  background-color: #ffffff;
+.card-custom {
   display: flex;
   flex-direction: column;
-  align-content: center;
-  padding: 60px 80px;
-  border-radius: 0px 15px 15px 0px;
+  align-items: center;
   justify-content: center;
-  gap: 1em;
-  width: 250px;
-}
-
-button {
-  background-color: #333333;
-  color: var(--white);
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #1a1a1a;
   font-weight: bold;
-  padding: 0.5em;
-  border-radius: 4px;
-  font-size: 20px;
+  text-align: center;
+  width: 100px;
 }
 
-button:hover {
-  background-color: #333333df;
+.aprenda-card {
+  background-color: #d7d4f0;
+}
+
+.acumule-card {
+  background-color: #dcead7;
+}
+
+.acompanhe-card {
+  background-color: #faf1d7;
+}
+
+.login-section {
+  background-color: #ffffff;
+  padding: 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-section h2 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  margin-bottom: 15px;
+  border-radius: 5px;
+  height: 45px;
+}
+
+.btn-primary-custom {
+  background-color: #333;
+  color: #ffffff;
+  font-weight: bold;
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
 }
 
 .link {
-  font-family: "Poppins-regular";
-  font-size: 14px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #333;
   text-align: center;
 }
 
-.titulo-login {
-  font-family: "Poppins-semiBold";
-  text-align: center;
-  font-size: 40px;
-}
-
-input {
-  border: solid #8d8d8d 1px;
-  padding: 0.2em 0.4em;
-  border-radius: 5px;
-  font-size: 19px;
-  font-family: "Poppins-Regular";
-}
-
-a {
+.link a {
+  color: #333;
+  font-weight: bold;
   text-decoration: none;
-  color: var(--black);
-  font-weight: 700;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-
-/* Estilos Sign up  */
-
-.signup-container {
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  padding: 60px 80px;
-  border-radius: 0px 15px 15px 0px;
-  justify-content: center;
-  gap: 1em;
-  width: 250px;
 }

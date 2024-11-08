@@ -1,47 +1,43 @@
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Mensina Login</title>
 
-<div class="container">
 
-  <main>
-    <div class="welcome-container">
-      <h1 class="texto-branco titulo">mensina<span class="enfeite">.</span></h1>
-      <p class="texto-branco subtitulo">Bem-vindo à plataforma definitiva <br> de quizzes.</p>
+<body>
+
+  <div class="container-custom">
+    <!-- Seção de Boas-vindas -->
+    <div class="welcome-section">
+      <h1>mensina<span class="enfeite">.</span></h1>
+      <p>Bem-vindo à plataforma definitiva de quizzes.</p>
       <div class="cards">
-        <div class="aprenda">
+        <div class="card-custom aprenda-card">
           <span class="material-symbols-outlined">quiz</span>
-          <p class="texto-card">Aprenda com quizzes</p>
+          <p>Aprenda com quizzes</p>
         </div>
-        <div class="acumule">
+        <div class="card-custom acumule-card">
           <span class="material-symbols-outlined">scoreboard</span>
-          <p class="texto-card">Acumule pontos</p>
+          <p>Acumule pontos</p>
         </div>
-        <div class="acompanhe">
+        <div class="card-custom acompanhe-card">
           <span class="material-symbols-outlined">timeline</span>
-          <p class="texto-card">Acompanhe seu progresso</p>
+          <p>Acompanhe seu progresso</p>
         </div>
       </div>
     </div>
-    @if(loginCard) {
-    <form class="login-container" [formGroup]="loginForm" (ngSubmit)="submitLogin()">
-      <h1 class="titulo-login">Log in</h1>
-      <input type="text" placeholder="Username" formControlName="username">
-      <input type="text" placeholder="Senha" formControlName="password" type="password">
-      <button [disabled]="!this.loginForm.valid">Log in</button>
-      <p class="link">Ainda não tem uma conta? <a style="cursor: pointer;" (click)="loginCard = !loginCard">Sign up</a>
-      </p>
-    </form>
-    }
 
+    <!-- Seção de Login -->
+    <div class="login-section">
+      <h2>Log in</h2>
+      <form>
+        <input type="text" class="form-control" placeholder="Username">
+        <input type="password" class="form-control" placeholder="Senha">
+        <button type="submit" class="btn btn-primary-custom">Log in</button>
+        <p class="link">Ainda não tem uma conta? <a href="#">Sign up</a></p>
+      </form>
+    </div>
 
-    <form *ngIf="!loginCard" class="signup-container" [formGroup]="signupForm" (ngSubmit)="submitSignup()">
-      <h1 class="titulo-login">Sign up</h1>
-      <input type="text" placeholder="Nome" formControlName="name">
-      <input type="text" placeholder="Username" formControlName="username">
-      <input type="text" placeholder="Senha" formControlName="password" type="password">
-      <button [disabled]="!this.signupForm.valid">Sign up</button>
-      <p class="link">Já possui uma conta? <a style="cursor: pointer;" (click)="loginCard = !loginCard">Log in</a></p>
-    </form>
+  </div>
 
-  </main>
-
-</div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
