@@ -4,6 +4,7 @@ import { ListaQuizzesComponent } from './components/lista-quizzes/lista-quizzes.
 import { authGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: '', component: ListaQuizzesComponent, canActivate: [authGuard],}
+  { path: '', redirectTo: '/lista', pathMatch: 'full' },  // Redirect empty path to 'lista'
+  { path: 'login', component: LoginComponent },
+  { path: 'lista', component: ListaQuizzesComponent }
 ];

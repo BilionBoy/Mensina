@@ -1,109 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Mensina - Plataforma de Estudos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+   
+
+
+</head>
+<body>
+
+<!-- Header para Mobile -->
+<div class="mobile-header d-block d-md-none">
+  <div class="d-flex align-items-center justify-content-between w-100">
+    <span class="h5 mb-0 ">mensina</span>
+    <div class="d-flex align-items-center justify-content-end">
+      <img src="/images/person.jpg" alt="Foto de perfil" class="profile-img">
+      <span class="material-symbols-outlined ms-2">expand_more</span>
+    </div>
+  </div>
+</div>
+
+
 <div class="container-fluid">
   <div class="row">
-    <!-- Lateral Esquerda -->
-    <div class="col-lg-3 col-md-4 col-sm-12 d-flex flex-column align-items-center bg-dark text-white p-4">
-      <!-- Ícone de edição e imagem do usuário -->
-      <div class="position-relative w-100 mb-4">
-        <span class="material-symbols-outlined position-absolute top-0 start-0 m-3" style="color: var(--white);">edit</span>
-        <img src="/images/person.jpg" alt="foto user" class="rounded-circle w-50 mb-3 mx-auto d-block">
-        <h3 class="welcome-name text-center d-none d-md-block">Olá, Maria</h3>
-        <p class="welcome-text text-center d-none d-md-block">Seja bem-vindo(a) à sua <br> plataforma de estudos</p>
+    <!-- Coluna da esquerda (Sidebar) -->
+    <div class="sidebar col-md-3 bg-dark d-none d-md-flex flex-column align-items-center justify-content-between">
+      <div class="profile-section text-center">
+        <span class="material-symbols-outlined mb-2">edit</span>
+        <img src="/images/person.jpg" alt="Foto de perfil" class="rounded-circle mb-2">
+        <h5>Olá, Maria</h5>
+        <p>Seja bem vindo(a) à sua plataforma de estudos</p>
       </div>
-      <!-- Visualizar Pontuação -->
-      <button class="btn btn-light w-100 score-button">Visualizar pontuação</button>
-      <!-- Nome do Aplicativo -->
-      <h1 class="mt-4 text-center">mensina</h1>
+      <div class="progress-circle my-4 text-center">
+        <h2>70%</h2>
+        <p>de acertos</p>
+        <button class="btn btn-outline-light">Visualizar pontuação</button>
+      </div>
+      <footer class="text-center mt-auto">mensina</footer>
     </div>
 
-    <!-- Conteúdo Principal -->
-    <main class="col-lg-6 col-md-8 col-sm-12 p-4">
-      <!-- Tags em Linha com Flexbox -->
-      <div class="tags d-flex justify-content-start mb-3 flex-wrap">
-        <!-- Exemplo de Tag -->
-        <div class="tag-card p-1 d-flex align-items-center me-2 mb-2">
-          <span class="material-symbols-outlined icon-card me-1 fs-4">grid_view</span>
-          <p class="mb-0 text-truncate" style="max-width: 80px; font-size: 0.9rem;">All</p>
-        </div>
-        <div class="tag-card p-1 d-flex align-items-center me-2 mb-2">
-          <span class="material-symbols-outlined icon-card me-1 fs-4">computer</span>
-          <p class="mb-0 text-truncate" style="max-width: 100px; font-size: 0.9rem;">Desenvolvimento Web</p>
-        </div>
-        <div class="tag-card p-1 d-flex align-items-center me-2 mb-2">
-          <span class="material-symbols-outlined icon-card me-1 fs-4">database</span>
-          <p class="mb-0 text-truncate" style="max-width: 100px; font-size: 0.9rem;">Data Base</p>
-        </div>
-      </div>
-      
-      <p class="popular mb-3">Mais populares</p>
-      
-      <!-- Tabela Responsiva para os Quizzes -->
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Título</th>
-              <th>Tag</th>
-            </tr>
-          </thead>
-          <tbody>
-            @for(quiz of quizzes; track quiz.id) {
-            <tr>
-              <td>{{ quiz.id }}</td>
-              <td>{{ quiz.title }}</td>
-              <td>
-                <span class="material-symbols-outlined icon-card me-2 fs-5">
-                  {{ quiz.tag.description == 'Desenvolvimento Web' ? 'computer' : (quiz.tag.description == 'Data Base' ? 'database' : 'grid_view') }}
-                </span>
-                {{ quiz.tag.description }}
-              </td>
-            </tr>
-            }
-          </tbody>
-        </table>
-      </div>
-    </main>
+    <!-- Coluna do meio (Conteúdo Principal) -->
+    <div class="col-md-6 col-12">
 
-    <!-- Lateral Direita -->
-    <div class="col-lg-3 col-md-12 col-sm-12 bg-light p-4 rounded">
-      <p class="ranking-title text-center mb-4">Ranking global</p>
-
-      <!-- Ranking dos usuários -->
-      <div class="ranking mb-3 d-flex justify-content-between align-items-center">
-        <div class="perfil-ranking d-flex align-items-center">
-          <img src="/images/person.jpg" alt="foto user" class="rounded-circle me-2" width="40" height="40">
-          <p class="nome-user">Maria</p>
-        </div>
-        <p class="score">200 PX</p>
+      <!-- Filtro de categorias -->
+      <div class="d-flex justify-content-center my-3">
+        <button class="btn btn-outline-secondary category-btn me-2">
+          <span class="material-symbols-outlined">apps</span> All
+        </button>
+        <button class="btn btn-outline-secondary category-btn me-2">
+          <span class="material-symbols-outlined">database</span> Data Base
+        </button>
+        <button class="btn btn-outline-secondary category-btn">
+          <span class="material-symbols-outlined">computer</span> Desenvolvimento Web
+        </button>
       </div>
-
-      <div class="ranking mb-3 d-flex justify-content-between align-items-center">
-        <div class="perfil-ranking d-flex align-items-center">
-          <img src="/images/person.jpg" alt="foto user" class="rounded-circle me-2" width="40" height="40">
-          <p class="nome-user">João</p>
-        </div>
-        <p class="score">200 PX</p>
-      </div>
-
-      <div class="ranking mb-3 d-flex justify-content-between align-items-center">
-        <div class="perfil-ranking d-flex align-items-center">
-          <img src="/images/person.jpg" alt="foto user" class="rounded-circle me-2" width="40" height="40">
-          <p class="nome-user">Pedro</p>
-        </div>
-        <p class="score">200 PX</p>
-      </div>
-
-      <p class="meus-quizzes-title mt-4">Meus quizzes</p>
-      <div class="meus-quizzes bg-primary p-3 rounded">
-        <div class="meus-quizzes-card d-flex flex-column gap-3">
-          <div class="nome-meusquizzes d-flex align-items-center gap-2">
-            <span class="material-symbols-outlined icon-card">computer</span>
-            <span class="quiz-title">Desenvolvimento Web</span>
+      <!-- Sessão de quizzes populares -->
+      <h5 class="text-center">Mais populares</h5>
+      <div class="row">
+        <!-- Card de Quiz -->
+        <div class="col-lg-6 col-md-12 mb-3">
+          <div class="quiz-card bg-red">
+            <h6>Data Base</h6>
+            <p>Banco de Dados NoSQL</p>
+            <button>Começar</button>
           </div>
-          <p class="text-muted">Desenvolvimento seguro</p>
-          <button class="btn btn-light align-self-end">CONTINUAR</button>
         </div>
+        <div class="col-lg-6 col-md-12 mb-3">
+          <div class="quiz-card bg-green">
+            <h6>Data Base</h6>
+            <p>Banco de Dados SQL</p>
+            <button>Começar</button>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 mb-3">
+          <div class="quiz-card bg-blue">
+            <h6>Desenvolvimento Web</h6>
+            <p>Introdução ao HTML</p>
+            <button>Começar</button>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 mb-3">
+          <div class="quiz-card bg-yellow">
+            <h6>Desenvolvimento Web</h6>
+            <p>CSS Avançado</p>
+            <button>Começar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coluna da direita (Ranking Global e Meus Quizzes) -->
+    <div class="col-md-3 col-12 bg-light py-4">
+      <h5 class="text-center">Ranking global</h5>
+      <ul class="list-unstyled">
+        <li class="ranking-item">
+          <img src="/images/person.jpg" alt="Foto de perfil" class="ranking-avatar me-2">
+          <span>Maria</span>
+          <span class="ms-auto">200 PX</span>
+        </li>
+        <li class="ranking-item">
+          <img src="/images/person.jpg" alt="Foto de perfil" class="ranking-avatar me-2">
+          <span>João</span>
+          <span class="ms-auto">200 PX</span>
+        </li>
+        <li class="ranking-item">
+          <img src="/images/person.jpg" alt="Foto de perfil" class="ranking-avatar me-2">
+          <span>Pedro</span>
+          <span class="ms-auto">200 PX</span>
+        </li>
+        <li class="text-center"><button class="btn btn-link">Ver mais</button></li>
+      </ul>
+
+      <h5 class="text-center mt-4">Meus quizzes</h5>
+      <div class="quiz-card bg-light text-dark p-3 rounded text-center mb-3">
+        <h6>Desenvolvimento Web</h6>
+        <p>Desenvolvimento Seguro</p>
+        <button class="btn btn-outline-dark">Continuar</button>
       </div>
     </div>
   </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
