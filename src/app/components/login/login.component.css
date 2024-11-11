@@ -1,71 +1,99 @@
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f4f4f4;
-    justify-content: center;
-    display: flex;
-    height: 100vh;
-    margin: 0;
-    align-items: center;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
 
-  }
+.container-custom {
+  max-width: 950px;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+}
+
+.welcome-section {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  text-align: center;
+  padding: 2.5rem;
+}
+
+.enfeite {
+  color: #ff4081;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card-custom {
+  width: 100px; /* Define largura fixa para quadrado */
+  height: 100px; /* Define altura fixa para quadrado */
+  text-align: center;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centraliza o conteúdo verticalmente */
+}
+
+.material-icons-outlined {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.aprenda-card {
+  background-color: #d7d4f0;
+}
+
+.acumule-card {
+  background-color: #dcead7;
+}
+
+.acompanhe-card {
+  background-color: #faf1d7;
+}
+
+.login-section {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.btn-primary-custom {
+  background-color: #333;
+  color: #ffffff;
+  width: 100%;
+  padding: 0.75rem;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
   .container-custom {
-    max-width: 950px;
-    border-radius: 1rem;
-    background-color: #ffffff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+      flex-direction: column;
   }
   .welcome-section {
-    background-color: #1a1a1a;
-    color: #ffffff;
-    text-align: center;
+      padding: 2rem;
   }
-  .enfeite {
-    color: #ff4081;
+  .cards {
+      flex-direction: column;
+      align-items: center;
   }
-  .card-custom {
-    width: 120px;
-    text-align: center;
-    color: #1a1a1a;
-    background-color: #ffffff;
-    font-weight: bold;
-  }
-  .material-icons-outlined {
-    font-size: 2rem;
-    color: #333;
-  }
-  .aprenda-card {
-    background-color: #d7d4f0;
-  }
-  .acumule-card {
-    background-color: #dcead7;
-  }
-  .acompanhe-card {
-    background-color: #faf1d7;
-  }
-  .btn-primary-custom {
-    background-color: #333;
-    color: #ffffff;
-  }
-  @media (max-width: 768px) {
-    .welcome-section {
-      padding: 40px 20px;
-    }
-
-    .welcome-section h1 {
-      font-size: 1.8rem;
-    }
-
-    .card-custom {
-      width: 100%;
-      max-width: 100%;
-    }
-
-    .login-section {
-      padding: 20px;
-    }
-
-    .p-5{
-        padding: 5rem !important;
-    }
-  }
+}
