@@ -106,5 +106,20 @@
 }
 
 /* Toastr  */
+.toast-success {
+  background-color: rgba(177, 205, 177, 0.748);
+  font-family: "Poppins-regular";
+  box-shadow: none!important;
+}
 
+.toast-error {
+  background-color: rgb(255, 174, 187);
+  font-family: "Poppins-regular";
+  box-shadow: none!important;
+}
 
+.toast-info {
+  background-color: rgb(162, 208, 240);
+  box-shadow: none!important;
+  font-family: "Poppins-regular";
+}

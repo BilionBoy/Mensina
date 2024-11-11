@@ -37,13 +37,13 @@ export class CadastroComponent implements OnInit {
     if(this.signupForm.invalid) {
       let error = ""
       if(this.signupForm.get('password')?.errors) {
-        error += "senha "
+        error += "Senha "
       }
       if(this.signupForm.get('username')?.errors) {
-        error += "username "
+        error += "Username "
       }
       if(this.signupForm.get('name')?.errors) {
-        error += "nome"
+        error += "Nome"
       }
       this.toast.info(error, "Campos invalidos: ")
 

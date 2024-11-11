@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { LoginService } from '../../../services/login.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent {
   constructor(
     private formBuilder: FormBuilder,
     private loginService: LoginService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ){
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -38,6 +40,7 @@ export class LoginComponent {
       },
       error: (res) => {
         console.log(res);
+        this.toastr.error("Senha ou username incorreto")
       }
     })
   }
