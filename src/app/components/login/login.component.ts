@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { log } from 'console';
 import { LoginService } from '../../../services/login.service';
 import { Router } from '@angular/router';
 
@@ -15,9 +14,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  loginCard = true;
   loginForm: FormGroup
-  signupForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,12 +22,6 @@ export class LoginComponent {
     private router: Router
   ){
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]]
-    })
-
-    this.signupForm = this.formBuilder.group({
-      name: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]]
     })
@@ -51,15 +42,8 @@ export class LoginComponent {
     })
   }
 
-  submitSignup() {
-    this.loginService.signup(this.signupForm.value)
-    .subscribe({
-      next: (res) => {
-        console.log(res);
-      },
-      error: (res) => {
-        console.log(res);
-      }
-    })
+  navigate(){
+    this.router.navigate(['/cadastro'])
   }
+
 }

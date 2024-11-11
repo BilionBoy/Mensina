@@ -4,12 +4,12 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class CadastroService {
 
   constructor(private http: HttpClient) { }
 
-  login(obj: any) {
-    return this.http.post('http://localhost:5000/login', obj)
+  signup(obj: any) {
+    return this.http.post('http://localhost:5000/user/', obj)
   }
 
 }

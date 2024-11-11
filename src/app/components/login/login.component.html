@@ -21,25 +21,14 @@
         </div>
       </div>
     </div>
-    @if(loginCard) {
+
     <form class="login-container" [formGroup]="loginForm" (ngSubmit)="submitLogin()">
       <h1 class="titulo-login">Log in</h1>
       <input type="text" placeholder="Username" formControlName="username">
       <input type="text" placeholder="Senha" formControlName="password" type="password">
-      <button [disabled]="!this.loginForm.valid">Log in</button>
-      <p class="link">Ainda não tem uma conta? <a style="cursor: pointer;" (click)="loginCard = !loginCard">Sign up</a>
+      <button style="cursor: pointer;" [disabled]="!this.loginForm.valid" >Log in</button>
+      <p class="link">Ainda não tem uma conta? <a style="cursor: pointer;" (click)="navigate()">Sign up</a>
       </p>
-    </form>
-    }
-
-
-    <form *ngIf="!loginCard" class="signup-container" [formGroup]="signupForm" (ngSubmit)="submitSignup()">
-      <h1 class="titulo-login">Sign up</h1>
-      <input type="text" placeholder="Nome" formControlName="name">
-      <input type="text" placeholder="Username" formControlName="username">
-      <input type="text" placeholder="Senha" formControlName="password" type="password">
-      <button [disabled]="!this.signupForm.valid">Sign up</button>
-      <p class="link">Já possui uma conta? <a style="cursor: pointer;" (click)="loginCard = !loginCard">Log in</a></p>
     </form>
 
   </main>

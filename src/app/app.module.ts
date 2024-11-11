@@ -7,6 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-  ]
+  ],
+  bootstrap: [],
+
 })
 export class AppModuleTsModule { }

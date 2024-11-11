@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'ngx-toastr/toastr';
+
 @font-face {
   font-family: 'Poppins-bold';
   src: url(app/assets/fonts/Poppins-Bold.ttf);
@@ -103,8 +105,6 @@
   align-self: end;
 }
 
-@media (max-width: 1440px) {
-  .quizzes-cards{
-    grid-template-columns: 1fr 1fr;
-  }
-}
+/* Toastr  */
+
+

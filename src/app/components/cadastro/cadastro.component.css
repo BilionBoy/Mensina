@@ -1,0 +1,145 @@
+/* Reset  */
+
+.container {
+  background-color: var(--milk);
+  height: 100vh;
+  align-content: center;
+}
+
+/* Flex  */
+
+main {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+/* Estilos do welcome-container*/
+
+.cards {
+  display: flex;
+  gap: 20px;
+  line-height: 1.1;
+  letter-spacing: 8;
+}
+
+.aprenda {
+  display: flex;
+  height: 85px;
+  flex-direction: column;
+  width: 85px;
+  border-radius: 15px;
+  font-size: 15px;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: var(--purple);
+}
+
+.acumule {
+  display: flex;
+  height: 85px;
+  flex-direction: column;
+  width: 85px;
+  border-radius: 15px;
+  font-size: 15px;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: var(--green);
+}
+
+.acompanhe {
+  display: flex;
+  height: 85px;
+  flex-direction: column;
+  width: 85px;
+  border-radius: 15px;
+  font-size: 15px;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: var(--yellow);
+}
+
+.texto-card {
+  font-family: "Roboto-regular";
+  text-align: end;
+  font-size: 14px;
+}
+
+.welcome-container {
+  border-radius: 15px 0px 0px 15px;
+  padding: 70px 70px;
+  background-color: var(--black);
+}
+
+.titulo {
+  font-family: "Poppins-bold";
+  line-height: 1;
+}
+
+.texto-branco {
+  color: var(--white);
+}
+
+.subtitulo {
+  font-family: "Roboto-Regular";
+  color: #ffffffd7;
+  margin-bottom: 3em;
+  font-size: 20px;
+}
+
+.enfeite {
+  color: var(--purple);
+}
+
+button {
+  background-color: #333333;
+  color: var(--white);
+  font-weight: bold;
+  padding: 0.5em;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: #333333df;
+}
+
+.link {
+  font-family: "Poppins-regular";
+  font-size: 14px;
+  text-align: center;
+}
+
+.titulo-login {
+  font-family: "Poppins-semiBold";
+  text-align: center;
+  font-size: 40px;
+}
+
+input {
+  border: solid #8d8d8d 1px;
+  padding: 0.2em 0.4em;
+  border-radius: 5px;
+  font-size: 19px;
+  font-family: "Poppins-Regular";
+}
+
+a {
+  text-decoration: none;
+  color: var(--black);
+  font-weight: 700;
+}
+
+/* Estilos Sign up  */
+
+.signup-container {
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding: 60px 80px;
+  border-radius: 0px 15px 15px 0px;
+  justify-content: center;
+  gap: 1em;
+  width: 250px;
+}
