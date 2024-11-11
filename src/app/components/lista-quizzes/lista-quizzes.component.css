@@ -194,3 +194,20 @@ main {
   align-self: end;
 }
 
+
+input {
+  border: solid #F7F7F7 1px;
+  padding: 0.2em 0.4em;
+  border-radius: 5px;
+  font-size: 19px;
+  font-family: "Poppins-Regular";
+  background-color: #161616;
+  color: #F7F7F7;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  margin: 0px 2em 0px 2em;
+  gap: 0.3em;
+}

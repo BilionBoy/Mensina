@@ -14,6 +14,12 @@ import { QuizService } from '../../../services/quiz.service';
 })
 export class ListaQuizzesComponent implements OnInit {
   quizzes: IQuiz[] = []
+  editarPerfil = false;
+
+  ativarEdicao(){
+    this.editarPerfil = !this.editarPerfil
+
+  }
 
   constructor(private quizService: QuizService){}
 
@@ -29,5 +35,4 @@ export class ListaQuizzesComponent implements OnInit {
       }
     })
   }
-
 }
