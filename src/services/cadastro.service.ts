@@ -11,5 +11,4 @@ export class CadastroService {
   signup(obj: any) {
     return this.http.post('http://localhost:5000/user/', obj)
   }
-
 }

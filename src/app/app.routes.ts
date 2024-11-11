@@ -5,7 +5,7 @@ import { authGuard } from './auth/auth.guard';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 
 export const routes: Routes = [
-  {path: 'login', component: LoginComponent},
   {path: '', component: ListaQuizzesComponent, canActivate: [authGuard],},
-  {path: 'cadastro', component: CadastroComponent}
+  {path: 'cadastro', component: CadastroComponent, canActivate: [authGuard],},
+  {path: 'login', component: LoginComponent, canActivate: [authGuard],},
 ];
