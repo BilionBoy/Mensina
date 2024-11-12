@@ -28,7 +28,6 @@ export class CadastroComponent implements OnInit {
       username: ['', [Validators.required, Validators.minLength(6)]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     })
-
   }
   ngOnInit(): void {
   }
@@ -65,7 +64,6 @@ export class CadastroComponent implements OnInit {
       }
     })
   }
-
 
   navigate(){
     this.router.navigate(['/login'])

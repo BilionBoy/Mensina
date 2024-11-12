@@ -7,7 +7,13 @@
     <div class="topo-esquerda">
       <span class="material-symbols-outlined settings" style="cursor: pointer; color: var(--white);"
         (click)="ativarEdicao()">edit</span>
+<<<<<<< HEAD
       <img src="/images/person.jpg" alt="foto user">
+=======
+      @if(userIconUrl) {
+      <img [src]="userIconUrl" alt="Ícone do Usuário">
+      }
+>>>>>>> ae7dd8111bf1d54e850c8904048214d2a00f320b
       <h3 class="welcome-name">Olá, Maria</h3>
       <p class="welcome-text">Seja bem vindo(a) a sua <br> plataforma de estudos</p>
     </div>
@@ -30,15 +36,28 @@
     <div class="topo-esquerda">
       <span class="material-symbols-outlined settings" style="cursor: pointer; color: var(--white);"
         (click)="ativarEdicao()">arrow_back</span>
+<<<<<<< HEAD
       <img src="/images/person.jpg" alt="foto user">
+=======
+      @if(userIconUrl) {
+      <img [src]="userIconUrl" alt="Ícone do Usuário">
+      }
+>>>>>>> ae7dd8111bf1d54e850c8904048214d2a00f320b
       <form>
         <input type="text" placeholder="Nome" formControlName="name">
         <input type="text" placeholder="Username" formControlName="username">
         <input type="text" placeholder="Senha" formControlName="password" type="password">
+<<<<<<< HEAD
         <div class="btn_update">
           <button style="background-color: #D7D3D3; color: #161616;">Salvar</button>
           <button style="background-color: #333333; color: #D7D3D3;">Cancelar</button>
         </div>
+=======
+      </form>
+      <form (submit)="onSubmitUserIcon($event)" style="margin-top: 10px;">
+        <input type="file" accept="image/*" (change)="onFileSelected($event)" />
+        <button type="submit">Enviar Ícone</button>
+>>>>>>> ae7dd8111bf1d54e850c8904048214d2a00f320b
       </form>
     </div>
     <div class="meio-final">
