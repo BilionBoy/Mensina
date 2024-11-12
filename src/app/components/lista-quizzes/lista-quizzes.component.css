@@ -234,3 +234,22 @@ form {
   align-content: left;
   gap: 0.5em;
 }
+
+/* SIDEBAR MOBILE RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .profile-img{
+    max-width: 50px;
+  }
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    background-color: #161616;
+    color: white;
+    padding: 1rem;
+  }
+}

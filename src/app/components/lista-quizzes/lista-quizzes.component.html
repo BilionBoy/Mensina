@@ -2,8 +2,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<div class="container-fluid ">
-  <div class="row">
+
+<!-- Header para Mobile -->
+<div class="mobile-header d-block d-md-none">
+  <div class="d-flex align-items-center justify-content-between w-100">
+    <span class="h5 mb-0">mensina</span>
+    <div class="d-flex align-items-center justify-content-end">
+      <img src="/images/person.jpg" alt="Foto de perfil" class="profile-img">
+      <span class="material-symbols-outlined ms-2">expand_more</span>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid px-0 ">
+  <div class="row mx-0">
 
     @if(!editarPerfil){
     <div class="lateral-esquerda">
@@ -60,7 +72,7 @@
         <button class="btn category-btn">Desenvolvimento Web</button>
       </div>
       <p class="popular">Mais populares</p>
-      <div class="quizzes-cards">
+      <div class="quizzes-cards" style="background-color: #161616">
         @for(quiz of quizzes; track quiz.id){
         <app-quiz-card [tag]="quiz.tag.description" [title]="quiz.title" />
         }
@@ -68,7 +80,7 @@
     </div>
 
     <div class="lateral-direita col-lg-3 col-md-12 py-4">
-      <p class="ranking-title">Ranking global</p>
+      <p class="ranking-title text-center">Ranking global</p>
       <div class="ranking">
         <div class="perfil-ranking">
           <img src="/images/person.jpg" alt="foto user">
