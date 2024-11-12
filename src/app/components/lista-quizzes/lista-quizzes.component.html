@@ -5,18 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <title>Mensina - Plataforma de Estudos</title>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-   
-
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Mensina - Plataforma de Estudos</title>
 </head>
 <body>
 
 <!-- Header para Mobile -->
 <div class="mobile-header d-block d-md-none">
   <div class="d-flex align-items-center justify-content-between w-100">
-    <span class="h5 mb-0 ">mensina</span>
+    <span class="h5 mb-0">mensina</span>
     <div class="d-flex align-items-center justify-content-end">
       <img src="/images/person.jpg" alt="Foto de perfil" class="profile-img">
       <span class="material-symbols-outlined ms-2">expand_more</span>
@@ -24,66 +22,56 @@
   </div>
 </div>
 
-
-<div class="container-fluid">
-  <div class="row">
-    <!-- Coluna da esquerda (Sidebar) -->
-    <div class="sidebar col-md-3 bg-dark d-none d-md-flex flex-column align-items-center justify-content-between">
+<div class="container-fluid px-0">
+  <div class="row gx-0">
+    <!-- Sidebar -->
+    <div class="sidebar col-lg-3 col-md-4 d-none d-md-flex flex-column align-items-center">
       <div class="profile-section text-center">
-        <span class="material-symbols-outlined mb-2">edit</span>
         <img src="/images/person.jpg" alt="Foto de perfil" class="rounded-circle mb-2">
         <h5>Olá, Maria</h5>
         <p>Seja bem vindo(a) à sua plataforma de estudos</p>
       </div>
-      <div class="progress-circle my-4 text-center">
+      <div class="progress-circle my-4">
         <h2>70%</h2>
         <p>de acertos</p>
         <button class="btn btn-outline-light">Visualizar pontuação</button>
       </div>
-      <footer class="text-center mt-auto">mensina</footer>
     </div>
 
-    <!-- Coluna do meio (Conteúdo Principal) -->
-    <div class="col-md-6 col-12">
-
-      <!-- Filtro de categorias -->
+    <!-- Conteúdo Principal -->
+    <div class="col-lg-6 col-md-8 col-12 px-3">
+      <!-- Filtro de Categorias -->
       <div class="d-flex justify-content-center my-3">
-        <button class="btn btn-outline-secondary category-btn me-2">
-          <span class="material-symbols-outlined">apps</span> All
-        </button>
-        <button class="btn btn-outline-secondary category-btn me-2">
-          <span class="material-symbols-outlined">database</span> Data Base
-        </button>
-        <button class="btn btn-outline-secondary category-btn">
-          <span class="material-symbols-outlined">computer</span> Desenvolvimento Web
-        </button>
+        <button class="btn category-btn me-2 active">All</button>
+        <button class="btn category-btn me-2">Data Base</button>
+        <button class="btn category-btn">Desenvolvimento Web</button>
       </div>
-      <!-- Sessão de quizzes populares -->
+
+      <!-- Quizzes Populares -->
       <h5 class="text-center">Mais populares</h5>
-      <div class="row">
-        <!-- Card de Quiz -->
-        <div class="col-lg-6 col-md-12 mb-3">
+      <div class="row g-3">
+        <div class="col-6">
           <div class="quiz-card bg-red">
             <h6>Data Base</h6>
             <p>Banco de Dados NoSQL</p>
             <button>Começar</button>
           </div>
         </div>
-        <div class="col-lg-6 col-md-12 mb-3">
+        <div class="col-6">
           <div class="quiz-card bg-green">
             <h6>Data Base</h6>
             <p>Banco de Dados SQL</p>
             <button>Começar</button>
           </div>
         </div>
-        <div class="col-lg-6 col-md-12 mb-3">
+        <div class="col-6">
           <div class="quiz-card bg-blue">
             <h6>Desenvolvimento Web</h6>
             <p>Introdução ao HTML</p>
             <button>Começar</button>
           </div>
         </div>
-        <div class="col-lg-6 col-md-12 mb-3">
+        <div class="col-6">
           <div class="quiz-card bg-yellow">
             <h6>Desenvolvimento Web</h6>
             <p>CSS Avançado</p>
@@ -93,38 +81,39 @@
       </div>
     </div>
 
-    <!-- Coluna da direita (Ranking Global e Meus Quizzes) -->
-    <div class="col-md-3 col-12 bg-light py-4">
-      <h5 class="text-center">Ranking global</h5>
+    <!-- Ranking Global e Meus Quizzes -->
+    <div class="col-lg-3 col-md-12 py-4">
+      <h5 class="text-center">Ranking Global</h5>
       <ul class="list-unstyled">
         <li class="ranking-item">
-          <img src="/images/person.jpg" alt="Foto de perfil" class="ranking-avatar me-2">
+          <img src="/images/person.jpg" alt="Foto de perfil" class="ranking-avatar">
           <span>Maria</span>
-          <span class="ms-auto">200 PX</span>
+          <span>200 PX</span>
         </li>
         <li class="ranking-item">
-          <img src="/images/person.jpg" alt="Foto de perfil" class="ranking-avatar me-2">
+          <img src="/images/person.jpg" alt="Foto de perfil" class="ranking-avatar">
           <span>João</span>
-          <span class="ms-auto">200 PX</span>
+          <span>200 PX</span>
         </li>
         <li class="ranking-item">
-          <img src="/images/person.jpg" alt="Foto de perfil" class="ranking-avatar me-2">
+          <img src="/images/person.jpg" alt="Foto de perfil" class="ranking-avatar">
           <span>Pedro</span>
-          <span class="ms-auto">200 PX</span>
+          <span>200 PX</span>
         </li>
-        <li class="text-center"><button class="btn btn-link">Ver mais</button></li>
       </ul>
-
-      <h5 class="text-center mt-4">Meus quizzes</h5>
-      <div class="quiz-card bg-light text-dark p-3 rounded text-center mb-3">
-        <h6>Desenvolvimento Web</h6>
-        <p>Desenvolvimento Seguro</p>
-        <button class="btn btn-outline-dark">Continuar</button>
-      </div>
+      <button class="btn btn-link d-block mx-auto">Ver mais</button>
     </div>
   </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.querySelectorAll('.category-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
 </body>
 </html>

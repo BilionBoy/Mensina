@@ -6,7 +6,7 @@ body {
 .sidebar {
   min-height: 100vh;
   padding: 2rem 1rem;
-  background-color: #161616 !important; /* Cor da sidebar ajustada */
+  background-color: #161616 !important; 
   color: white;
 }
 
@@ -77,7 +77,7 @@ body {
 }
 
 .quiz-card:hover {
-  background-color: #cccccc;
+  background-color: #333;
 }
 
 /* Avatar e Ranking */
@@ -217,4 +217,75 @@ h5 {
   background-color: #f0f0f0; /* Cor de fundo mais clara ao passar o mouse */
   border-radius: 8px;
   cursor: pointer;
+}
+
+body {
+  background-color: #f5f5f5;
+  font-family: 'Poppins', sans-serif;
+}
+
+.sidebar {
+  background-color: #161616;
+  color: white;
+  padding: 2rem 1rem;
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.progress-circle h2 {
+  font-size: 2rem;
+}
+
+.category-btn {
+  font-weight: bold;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.category-btn.active {
+  background-color: #161616;
+  color: white;
+}
+
+.quiz-card {
+  padding: 1.5rem;
+  border-radius: 10px;
+  color: #333;
+  height: 100%;
+}
+
+.bg-red { background-color: #F8C9C7; }
+.bg-green { background-color: #A8E1A2; }
+.bg-blue { background-color: #C8DFF9; }
+.bg-yellow { background-color: #FFF4C9; }
+
+.ranking-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    background-color: #161616;
+    color: white;
+    padding: 1rem;
+  }
 }
