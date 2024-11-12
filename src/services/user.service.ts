@@ -13,7 +13,12 @@ export class UserService {
       responseType: 'blob'
     })
   }
+
   uploadIcon(icon: FormData) {
     return this.http.post('http://localhost:5000/user/icon', icon, {observe: "response"})
+  }
+
+  getUserInfos(){
+    return this.http.get('http://localhost:5000/user/user_infos')
   }
 }

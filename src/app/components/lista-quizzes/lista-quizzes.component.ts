@@ -1,9 +1,11 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { QuizCardComponent } from '../../shared/quiz-card/quiz-card.component';
 import { IQuiz } from '../../../interfaces/IQuiz';
 import { QuizService } from '../../../services/quiz.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { UserService } from '../../../services/user.service';
+import { IUser } from '../../../interfaces/IUser';
 
 @Component({
   selector: 'app-lista-quizzes',
@@ -19,13 +21,15 @@ export class ListaQuizzesComponent implements OnInit {
   editarPerfil = false;
   userIconUrl: SafeUrl | null = null;
   selectedFile: File | null = null;
-  
+  usuario: IUser = {};
+
   constructor(
     private quizService: QuizService,
     private userService: UserService,
     private sanitizer: DomSanitizer,
+    private toastr: ToastrService,
   ){}
-  
+
   ativarEdicao(){
     this.editarPerfil = !this.editarPerfil
 
@@ -40,12 +44,22 @@ export class ListaQuizzesComponent implements OnInit {
       error: (res) => {
       }
     })
-    this.getIconByUserId(12)
+
+
+    this.userService.getUserInfos().subscribe({
+      next: (res: IUser) => {
+        this.usuario = res;
+        this.getIconByUserId(res.id!)
+      },
+      error: (err) => {
+        this.toastr.error('Não foi possível obter informação do usuário')
+      }
+    })
   }
 
   getIconByUserId(id: number) {
     this.userService.getIcon(id).subscribe({
-      next: (blob) => {        
+      next: (blob) => {
         const url = URL.createObjectURL(blob);
         this.userIconUrl = this.sanitizer.bypassSecurityTrustUrl(url);
       },
@@ -68,7 +82,8 @@ export class ListaQuizzesComponent implements OnInit {
 
       this.userService.uploadIcon(formData).subscribe({
         next: (response) => {
-          this.getIconByUserId(12)
+          if(!this.usuario.id) return
+          this.getIconByUserId(this.usuario.id)
         },
         error: (error) => console.error('Erro ao enviar o ícone', error)
       });
