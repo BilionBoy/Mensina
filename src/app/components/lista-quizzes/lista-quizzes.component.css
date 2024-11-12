@@ -208,6 +208,18 @@ input {
 form{
   display: flex;
   flex-direction: column;
-  margin: 0px 2em 0px 2em;
-  gap: 0.3em;
+  margin: 2.5px 3em 0px 2.5em;
+  gap: 0.8em;
+}
+
+.btn_update button{
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  font-family: 'Poppins-semiBold';
+}
+
+.btn_update {
+  display: flex;
+  align-content: left;
+  gap: 0.5em;
 }

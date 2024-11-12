@@ -1,47 +1,52 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
 <div class="container">
   @if(!editarPerfil){
-    <div class="lateral-esquerda">
-      <div class="topo-esquerda">
-        <span class="material-symbols-outlined settings" style="cursor: pointer; color: var(--white);" (click)="ativarEdicao()">edit</span>
-        <img src="/images/person.jpg" alt="foto user">
-        <h3 class="welcome-name">Olá, Maria</h3>
-        <p class="welcome-text">Seja bem vindo(a) a sua <br> plataforma de estudos</p>
-      </div>
-
-      <div class="meio-esquerda">
-        <div class="circle">
-          <div class="percentage">70%<br><span class="sub-porcentagem">de acertos</span></div>
-        </div>
-        <button class="score-button">Visualizar pontuação</button>
-      </div>
-      <div class="meio-final">
-        <h1>mensina</h1>
-      </div>
+  <div class="lateral-esquerda">
+    <div class="topo-esquerda">
+      <span class="material-symbols-outlined settings" style="cursor: pointer; color: var(--white);"
+        (click)="ativarEdicao()">edit</span>
+      <img src="/images/person.jpg" alt="foto user">
+      <h3 class="welcome-name">Olá, Maria</h3>
+      <p class="welcome-text">Seja bem vindo(a) a sua <br> plataforma de estudos</p>
     </div>
+
+    <div class="meio-esquerda">
+      <div class="circle">
+        <div class="percentage">70%<br><span class="sub-porcentagem">de acertos</span></div>
+      </div>
+      <button class="score-button">Visualizar pontuação</button>
+    </div>
+    <div class="meio-final">
+      <h1>mensina</h1>
+    </div>
+  </div>
   }
 
-    @if(editarPerfil){
-      <div class="lateral-esquerda">
+  @if(editarPerfil){
+  <div class="lateral-esquerda">
 
-        <div class="topo-esquerda">
-          <span class="material-symbols-outlined settings" style="cursor: pointer; color: var(--white);" (click)="ativarEdicao()">arrow_back</span>
-          <img src="/images/person.jpg" alt="foto user">
-          <form >
-            <input type="text" placeholder="Nome" formControlName="name">
-    <input type="text" placeholder="Username" formControlName="username">
-    <input type="text" placeholder="Senha" formControlName="password" type="password">
-          </form>
+    <div class="topo-esquerda">
+      <span class="material-symbols-outlined settings" style="cursor: pointer; color: var(--white);"
+        (click)="ativarEdicao()">arrow_back</span>
+      <img src="/images/person.jpg" alt="foto user">
+      <form>
+        <input type="text" placeholder="Nome" formControlName="name">
+        <input type="text" placeholder="Username" formControlName="username">
+        <input type="text" placeholder="Senha" formControlName="password" type="password">
+        <div class="btn_update">
+          <button style="background-color: #D7D3D3; color: #161616;">Salvar</button>
+          <button style="background-color: #333333; color: #D7D3D3;">Cancelar</button>
         </div>
-        <div class="meio-final">
-          <h1>mensina</h1>
-        </div>
-      </div>
+      </form>
+    </div>
+    <div class="meio-final">
+      <h1>mensina</h1>
+    </div>
+  </div>
 
-    }
+  }
 
 
   <main class="meio">
@@ -62,7 +67,7 @@
     <p class="popular">Mais populares</p>
     <div class="quizzes-cards">
       @for(quiz of quizzes; track quiz.id){
-        <app-quiz-card [tag]="quiz.tag.description" [title]="quiz.title"/>
+      <app-quiz-card [tag]="quiz.tag.description" [title]="quiz.title" />
       }
     </div>
   </main>
