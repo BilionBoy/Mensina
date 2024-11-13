@@ -1,0 +1,163 @@
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<header class="p-2 d-lg-none d-flex align-items-center justify-content-between" style="background-color: #161616;">
+  <button (click)="toggleNavbar()" class="bg-transparent" style="width: 50px;">
+    <span class="material-symbols-outlined text-white fs-2">menu</span>
+  </button>
+  <h1 class="text-white">mensina</h1>
+  @if(userIconUrl) {
+  <img class="icon-header" [src]="userIconUrl" alt="Ícone do Usuário">
+  }@else {
+  <img class="icon d-none d-lg-block" src="/svg/userIcon.svg" alt="Ícone do Usuário">
+  }
+</header>
+
+<div class="d-flex min-vh-100 mx-0 px-0" style="background-color: #efefef;">
+  @if(!editarPerfil){
+  <div class="lateral-esquerda h-100 position-fixed px-5 pt-5 d-lg-flex"
+    [ngClass]="{'show': navbarVisivel || telaGrande}" style="max-width: 346px;">
+    <button class="position-absolute bg-transparent d-lg-none" style="right: 20px; top: 20px;" (click)="toggleNavbar()">
+      <span class="material-symbols-outlined text-white">close</span>
+    </button>
+    <div class="d-flex flex-column align-items-center gap-2">
+      <span class="material-symbols-outlined settings" style="cursor: pointer; color: var(--white);"
+        (click)="ativarEdicao()">edit</span>
+      @if(userIconUrl) {
+      <img class="icon d-none d-lg-block" [src]="userIconUrl" alt="Ícone do Usuário">
+      } @else {
+      <img class="icon d-none d-lg-block" src="/svg/userIcon.svg" alt="Ícone do Usuário">
+      }
+      <h3 class="welcome-name">Olá, {{usuario.username}}</h3>
+      <p class="welcome-text">Seja bem vindo(a) a sua <br> plataforma de estudos</p>
+    </div>
+
+    <div class="meio-esquerda">
+      <div class="circle">
+        <div class="percentage">70%<br><span class="sub-porcentagem">de acertos</span></div>
+      </div>
+      <button class="score-button">Visualizar pontuação</button>
+    </div>
+    <div class="meio-final">
+      <h1 class="d-none d-lg-block">mensina</h1>
+    </div>
+  </div>
+  }@else{
+  <div class="lateral-esquerda h-100 position-fixed px-5 pt-5 d-lg-flex padding-bottom"
+    [ngClass]="{'show': navbarVisivel || telaGrande}" style="max-width: 346px;">
+    <button class="position-absolute bg-transparent d-lg-none" style="right: 20px; top: 20px;" (click)="toggleNavbar()">
+      <span class="material-symbols-outlined text-white">close</span>
+    </button>
+    <div class="d-flex flex-column align-items-center gap-3">
+      <span class="material-symbols-outlined settings" style="cursor: pointer; color: var(--white);"
+        (click)="ativarEdicao()">arrow_back</span>
+
+      <div class="position-relative">
+        <button (click)="fileInput.click()"
+          class="position-absolute rounded-circle d-flex justify-content-center align-items-center"
+          style="background-color: #16161681; width: 40px; height: 40px; top: 7px; right: -5px;">
+          <span class="material-symbols-outlined" style="cursor: pointer; color: var(--white);">edit</span>
+          <input type="file" accept="image/*" #fileInput (change)="onFileSelected($event)" style="display: none;" />
+        </button>
+        @if(userIconUrl) {
+        <img class="icon" [src]="userIconUrl" alt="Ícone do Usuário">
+        }@else {
+        <img class="icon d-none d-lg-block" src="/svg/userIcon.svg" alt="Ícone do Usuário">
+        }
+      </div>
+      <form class="d-flex flex-column gap-3">
+        <input type="text" placeholder="Nome" formControlName="name">
+        <input type="text" placeholder="Username" formControlName="username">
+        <input type="text" placeholder="Senha" formControlName="password" type="password">
+        <div class="btn_update">
+          <button style="background-color: #D7D3D3; color: #161616;">Salvar</button>
+          <button style="background-color: #333333; color: #D7D3D3;">Cancelar</button>
+        </div>
+      </form>
+    </div>
+    <div class="meio-final">
+      <h1 class="d-none d-lg-block">mensina</h1>
+    </div>
+  </div>
+
+  }
+
+  <div
+    class="px-5 pb-5 p-xl-0 d-flex w-100 min-vh-100 gap-5 gap-lg-2 gap-xxl-0 align-items-center align-items-xl-start flex-column flex-xl-row justify-content-between margin-left">
+    <main class="px-xl-2 px-xxl-5 pt-2 pb-5 py-md-5 w-100">
+      <div class="tags">
+        <div class="tag-card">
+          <span class="material-symbols-outlined icon-card">grid_view</span>
+          <p>All</p>
+        </div>
+        <div class="tag-card">
+          <span class="material-symbols-outlined icon-card">computer</span>
+          <p>Desenvolvimento Web</p>
+        </div>
+        <div class="tag-card">
+          <span class="material-symbols-outlined icon-card">database</span>
+          <p>Data Base</p>
+        </div>
+      </div>
+      <p class="popular">Mais populares</p>
+      <div class="row d-flex flex-fill">
+        @for(quiz of quizzes; track quiz.id){
+        <div class="col-12 col-sm-6 col-xxl-4 p-2">
+          <app-quiz-card [tag]="quiz.tag.description" [title]="quiz.title" [button]="'COMEÇAR'" />
+        </div>
+        }
+      </div>
+    </main>
+
+    <div class="lateral-direita mx-0 mt-xl-5 me-xl-3 me-xxl-5 max-h-75 width-responsive">
+      <div class="py-3 min-w">
+        <div class="px-2 px-md-5 px-xxl-5">
+          <p class="ranking-title">Ranking global</p>
+          <div class="ranking">
+            <div class="perfil-ranking">
+              <img src="/images/person.jpg" alt="foto user">
+              <p class="nome-user">Maria</p>
+            </div>
+            <p class="score">200 PX</p>
+          </div>
+          <div class="ranking">
+            <div class="perfil-ranking">
+              <img src="/images/person.jpg" alt="foto user">
+              <p class="nome-user">Maria</p>
+            </div>
+            <p class="score">200 PX</p>
+          </div>
+          <div class="ranking">
+            <div class="perfil-ranking">
+              <img src="/images/person.jpg" alt="foto user">
+              <p class="nome-user">Maria</p>
+            </div>
+            <p class="score">200 PX</p>
+          </div>
+        </div>
+        <div class="px-md-2">
+          <p class="meus-quizzes-title">Meus quizzes</p>
+  
+          <div class="d-flex flex-wrap flex-xl-nowrap flex-xl-column py-3 overflow-y-auto max-height">
+            <!-- d-flex flex-wrap justify-content-center flex-lg-nowrap flex-lg-column -->
+            <div class="p-2 col-12 col-sm-6 col-xl-12">
+              <app-quiz-card [tag]="'Desenvolvimento Web'" [title]="'Desenvolvimento seguro'" [button]="'CONTINUAR'" />
+            </div>
+            <div class="p-2 col-12 col-sm-6 col-xl-12">
+              <app-quiz-card [tag]="'Desenvolvimento Web'" [title]="'Desenvolvimento seguro'" [button]="'CONTINUAR'" />
+            </div>
+            <div class="p-2 col-12 col-sm-6 col-xl-12">
+              <app-quiz-card [tag]="'Desenvolvimento Web'" [title]="'Desenvolvimento seguro'" [button]="'CONTINUAR'" />
+            </div>
+            <div class="p-2 col-12 col-sm-6 col-xl-12">
+              <app-quiz-card [tag]="'Desenvolvimento Web'" [title]="'Desenvolvimento seguro'" [button]="'CONTINUAR'" />
+            </div>
+            <div class="p-2 col-12 col-sm-6 col-xl-12">
+              <app-quiz-card [tag]="'Desenvolvimento Web'" [title]="'Desenvolvimento seguro'" [button]="'CONTINUAR'" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

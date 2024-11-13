@@ -1,8 +1,3 @@
-.container {
-  height: 100vh;
-  background-color: var(--milk);
-}
-
 /* Estilos lateral esquerda  */
 
 .circle {
@@ -17,11 +12,6 @@
   font-size: 24px;
   position: relative;
   margin-bottom: 15px;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: 350px 3fr 1fr;
 }
 
 .meio-esquerda {
@@ -46,6 +36,8 @@
   text-align: center;
   justify-content: space-between;
   padding: 30px 0;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
 }
 
 
@@ -55,7 +47,7 @@
   font-size: 2em;
 }
 
-.topo-esquerda img{
+.icon{
   height: auto;
   border-radius: 50%;
   height: 80px;
@@ -64,9 +56,15 @@
   margin-top: 15px;
 }
 
-.topo-esquerda p {
-  font-family: 'Poppins-regular';
+.icon-header{
+  height: auto;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
 }
+
+
 
 .score-button {
   background-color: #ECE8E8;
@@ -102,11 +100,6 @@
 
 /* Estilo main  */
 
-main {
-  padding: 40px;
-  padding-top: 70px;
-}
-
 .popular {
   margin-bottom: 0.5em;
   margin-top: 1em;
@@ -114,19 +107,11 @@ main {
   margin-left: 5px;
 }
 
-.quizzes-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1em;
-}
-
 /* Estilo lateral direita  */
 
 .lateral-direita {
   background-color: var(--white);
-  margin: 2em;
   border-radius: 15px;
-  padding: 2em;
   display: flex;
   flex-direction: column;
 }
@@ -165,7 +150,9 @@ main {
 .meus-quizzes-title {
   margin-top: 3em;
   font-family: 'Poppins-Medium';
-  margin-bottom: 1em;
+  font-size: large;
+  font-weight: 500;
+  margin-left: 1em;
 }
 
 .meus-quizzes {
@@ -177,13 +164,6 @@ main {
 .nome-meusquizzes {
   display: flex;
   gap: 0.3em;
-}
-
-.meus-quizzes-card{
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-
 }
 
 .meus-quizzes-card button {
@@ -205,13 +185,6 @@ input {
   color: #F7F7F7;
 }
 
-form{
-  display: flex;
-  flex-direction: column;
-  margin: 2.5px 3em 0px 2.5em;
-  gap: 0.8em;
-}
-
 .btn_update button{
   padding: 0.5em 1em;
   border-radius: 5px;
@@ -222,4 +195,45 @@ form{
   display: flex;
   align-content: left;
   gap: 0.5em;
+}
+
+.lateral-esquerda.show {
+  transform: translateX(0);
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100%;
+}
+
+@media (min-width: 992px) {
+  .lateral-esquerda {
+    transform: translateX(0);
+  }
+}
+
+@media (min-width: 992px) {
+  .margin-left {
+    margin-left: 346px;
+  }
+  .min-w {
+    min-width: 350px;
+  }
+}
+
+@media (max-width: 992px) {
+  .padding-bottom {
+    padding-bottom: 100px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .max-height {
+    max-height: 500px;
+  }
+}
+@media (max-width: 1200px) {
+  .width-responsive {
+    width: 100%;
+  }
 }

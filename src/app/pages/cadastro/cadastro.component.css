@@ -91,25 +91,11 @@ main {
   color: var(--purple);
 }
 
-/* Estilos do Login  */
-
-.login-container {
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  padding: 60px 80px;
-  border-radius: 0px 15px 15px 0px;
-  justify-content: center;
-  gap: 1em;
-  width: 250px;
-}
-
 button {
   background-color: #333333;
   color: var(--white);
   font-weight: bold;
-  padding: 0.5em;
+  padding: 0.2em 0.5em;
   border-radius: 4px;
   font-size: 20px;
 }
@@ -122,12 +108,6 @@ button:hover {
   font-family: "Poppins-regular";
   font-size: 14px;
   text-align: center;
-}
-
-.titulo-login {
-  font-family: "Poppins-semiBold";
-  text-align: center;
-  font-size: 40px;
 }
 
 input {
@@ -144,16 +124,10 @@ a {
   font-weight: 700;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-
 /* Estilos Sign up  */
 
 .signup-container {
-  background-color: #ffffff;
+  background-color: var(--white);
   display: flex;
   flex-direction: column;
   align-content: center;

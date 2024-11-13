@@ -5,11 +5,16 @@ import { CadastroService } from '../../../services/cadastro.service';
 import { CommonModule } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { timeout } from 'rxjs';
+import { WelcomeComponent } from '../../shared/welcome/welcome.component';
 
 @Component({
   selector: 'app-cadastro',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [
+    ReactiveFormsModule, 
+    CommonModule,
+    WelcomeComponent
+  ],
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.css'
 })

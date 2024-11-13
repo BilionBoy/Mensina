@@ -4,12 +4,16 @@ import { CommonModule } from '@angular/common';
 import { LoginService } from '../../../services/login.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { WelcomeComponent } from '../../shared/welcome/welcome.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule,
-    CommonModule  ],
+  imports: [
+    ReactiveFormsModule,
+    CommonModule  ,
+    WelcomeComponent
+  ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -33,8 +37,6 @@ export class LoginComponent {
     this.loginService.login(this.loginForm.value)
     .subscribe({
       next: (res: any) => {
-        console.log(res);
-
         localStorage.setItem('token', res.token)
         this.router.navigate([''])
       },

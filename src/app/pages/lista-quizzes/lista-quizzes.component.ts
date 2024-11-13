@@ -1,21 +1,23 @@
 import { ToastrService } from 'ngx-toastr';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, Inject, OnInit, Renderer2 } from '@angular/core';
 import { QuizCardComponent } from '../../shared/quiz-card/quiz-card.component';
 import { IQuiz } from '../../../interfaces/IQuiz';
 import { QuizService } from '../../../services/quiz.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { UserService } from '../../../services/user.service';
 import { IUser } from '../../../interfaces/IUser';
+import { CommonModule, DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-lista-quizzes',
   standalone: true,
   imports: [
-    QuizCardComponent
+    QuizCardComponent,
+    CommonModule
   ],
   templateUrl: './lista-quizzes.component.html',
   styleUrl: './lista-quizzes.component.css'
-})
+}) 
 export class ListaQuizzesComponent implements OnInit {
   quizzes: IQuiz[] = []
   editarPerfil = false;
@@ -23,19 +25,44 @@ export class ListaQuizzesComponent implements OnInit {
   selectedFile: File | null = null;
   usuario: IUser = {};
 
+  public navbarVisivel: boolean = false;
+  public telaGrande: boolean = false;
+
+  
   constructor(
     private quizService: QuizService,
     private userService: UserService,
     private sanitizer: DomSanitizer,
     private toastr: ToastrService,
+    @Inject(DOCUMENT) private document: Document,
+    private renderer: Renderer2
   ){}
+  
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.telaGrande = window.innerWidth >= 992;
+    if (this.telaGrande) {
+      this.renderer.removeClass(this.document.body, 'no-scroll');
+    }
+  }
 
-  ativarEdicao(){
-    this.editarPerfil = !this.editarPerfil
+  toggleNavbar() {
+    if(this.navbarVisivel) {
+      this.renderer.removeClass(this.document.body, 'no-scroll');
+      this.editarPerfil = false
+    } else {
+      this.renderer.addClass(this.document.body, 'no-scroll');
+    }
+    this.navbarVisivel = !this.navbarVisivel;
 
   }
 
+  ativarEdicao(){
+    this.editarPerfil = !this.editarPerfil
+  }
+
   ngOnInit(): void {
+    this.telaGrande = window.innerWidth >= 992;
     this.quizService.getQuizzes()
     .subscribe({
       next: (res: IQuiz[]) => {
@@ -60,6 +87,9 @@ export class ListaQuizzesComponent implements OnInit {
   getIconByUserId(id: number) {
     this.userService.getIcon(id).subscribe({
       next: (blob) => {
+        console.log(blob);
+        if(!blob.size) return
+        
         const url = URL.createObjectURL(blob);
         this.userIconUrl = this.sanitizer.bypassSecurityTrustUrl(url);
       },
@@ -70,15 +100,8 @@ export class ListaQuizzesComponent implements OnInit {
   onFileSelected(event: any): void {
     const file = event.target.files[0];
     if (file) {
-      this.selectedFile = file;
-    }
-  }
-
-  onSubmitUserIcon(event: Event): void {
-    event.preventDefault();
-    if (this.selectedFile) {
       const formData = new FormData();
-      formData.append('file', this.selectedFile);
+      formData.append('file', file);
 
       this.userService.uploadIcon(formData).subscribe({
         next: (response) => {
@@ -87,8 +110,6 @@ export class ListaQuizzesComponent implements OnInit {
         },
         error: (error) => console.error('Erro ao enviar o ícone', error)
       });
-    } else {
-      console.error('Nenhum arquivo selecionado');
     }
   }
 }

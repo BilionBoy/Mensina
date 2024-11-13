@@ -1,0 +1,17 @@
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+<div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center" style="background-color: #efefef;">
+
+  <main class="d-lg-flex">
+    <app-welcome />
+    <form class="p-5 bg-white d-flex flex-column justify-content-center rounded-lg-start-0 rounded-start-4 rounded-end-4 gap-2" [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+      <h1 class="titulo-login">Log in</h1>
+      <input type="text" placeholder="Username" formControlName="username">
+      <input type="text" placeholder="Senha" formControlName="password" type="password">
+      <button style="cursor: pointer;" [disabled]="!this.loginForm.valid">Log in</button>
+      <p class="link">Ainda não tem uma conta? <a style="cursor: pointer;" (click)="navigate()">Sign up</a>
+      </p>
+    </form>
+  </main>
+
+</div>

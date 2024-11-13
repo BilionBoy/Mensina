@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { ListaQuizzesComponent } from './components/lista-quizzes/lista-quizzes.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ListaQuizzesComponent } from './pages/lista-quizzes/lista-quizzes.component';
 import { authGuard } from './auth/auth.guard';
-import { CadastroComponent } from './components/cadastro/cadastro.component';
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
 
 export const routes: Routes = [
   {path: '', component: ListaQuizzesComponent, canActivate: [authGuard],},

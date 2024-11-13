@@ -44,6 +44,7 @@
   margin: 0;
   vertical-align: baseline;
   list-style: none;
+  box-sizing: border-box;
   border: 0;
 }
 
@@ -55,7 +56,8 @@
 
 .tags {
   display: flex;
-  gap: 1em;
+  gap: 5px;
+  flex-wrap: wrap;
 }
 
 .tag-card {
@@ -69,11 +71,11 @@
 
 .tag-card p {
   margin-right: 15px;
+  margin-bottom: 0;
   font-family: 'Poppins-Medium';
 }
 
 .quiz{
-  background-color: #FCD5D6;
   border-radius: 15px;
   padding: 1em;
   display: flex;
@@ -122,4 +124,9 @@
   background-color: rgb(162, 208, 240);
   box-shadow: none!important;
   font-family: "Poppins-regular";
+}
+
+body.no-scroll {
+  overflow: hidden;
+  height: 100%;
 }

@@ -2,17 +2,9 @@
 
 .container {
   background-color: var(--milk);
-  height: 100vh;
   align-content: center;
 }
 
-/* Flex  */
-
-main {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-}
 
 /* Estilos do welcome-container*/
 
@@ -82,13 +74,22 @@ main {
 
 .subtitulo {
   font-family: "Roboto-Regular";
-  color: #ffffffd7;
   margin-bottom: 3em;
   font-size: 20px;
 }
 
-.enfeite {
-  color: var(--purple);
+/* Estilos do Login  */
+
+.login-container {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding: 60px 80px;
+  border-radius: 0px 15px 15px 0px;
+  justify-content: center;
+  gap: 1em;
+  width: 250px;
 }
 
 button {
@@ -133,7 +134,7 @@ a {
 /* Estilos Sign up  */
 
 .signup-container {
-  background-color: var(--white);
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   align-content: center;
