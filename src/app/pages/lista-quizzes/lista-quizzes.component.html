@@ -103,7 +103,7 @@
       <div class="row d-flex flex-fill">
         @for(quiz of quizzes; track quiz.id){
         <div class="col-12 col-sm-6 col-xxl-4 p-2">
-          <app-quiz-card [tag]="quiz.tag.description" [title]="quiz.title" [button]="'COMEÇAR'" />
+          <app-quiz-card [quiz]="quiz" [button]="'COMEÇAR'" />
         </div>
         }
       </div>
@@ -137,10 +137,10 @@
         </div>
         <div class="px-md-2">
           <p class="meus-quizzes-title">Meus quizzes</p>
-  
+
           <div class="d-flex flex-wrap flex-xl-nowrap flex-xl-column py-3 overflow-y-auto max-height">
             <!-- d-flex flex-wrap justify-content-center flex-lg-nowrap flex-lg-column -->
-            <div class="p-2 col-12 col-sm-6 col-xl-12">
+            <!-- <div class="p-2 col-12 col-sm-6 col-xl-12">
               <app-quiz-card [tag]="'Desenvolvimento Web'" [title]="'Desenvolvimento seguro'" [button]="'CONTINUAR'" />
             </div>
             <div class="p-2 col-12 col-sm-6 col-xl-12">
@@ -154,7 +154,7 @@
             </div>
             <div class="p-2 col-12 col-sm-6 col-xl-12">
               <app-quiz-card [tag]="'Desenvolvimento Web'" [title]="'Desenvolvimento seguro'" [button]="'CONTINUAR'" />
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

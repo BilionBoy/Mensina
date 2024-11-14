@@ -1,8 +1,9 @@
-<div class="quiz" [ngStyle]="{'background-color': bgColor}">
+<div class="quiz" [ngStyle]="{'background-color': data.color}">
   <div class="quizz-name">
-    <span class="material-symbols-outlined icon-card">database</span>
-    <span class="quiz-title">{{tag}}</span>
+    <span class="material-symbols-outlined icon-card">{{data.icon}}</span>
+    <span class="quiz-title">{{quiz.tag.description}}</span>
   </div>
-  <p>{{title}}</p>
+  <p>{{quiz.title}}</p>
   <button>{{button}}</button>
 </div>
+
