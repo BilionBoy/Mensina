@@ -12,4 +12,7 @@ export class LoginService {
     return this.http.post('http://localhost:5000/login', obj)
   }
 
+  get() {
+    return this.http.get('http://localhost:5000/user/user_infos')
+  }
 }

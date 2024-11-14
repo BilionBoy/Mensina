@@ -8,7 +8,14 @@
       <h1 class="titulo-login">Log in</h1>
       <input type="text" placeholder="Username" formControlName="username">
       <input type="text" placeholder="Senha" formControlName="password" type="password">
-      <button style="cursor: pointer;" [disabled]="!this.loginForm.valid">Log in</button>
+      <button style="cursor: pointer; display: flex; justify-content: center; align-items: center; height: 2em;" [disabled]="!this.loginForm.valid">
+        @if(loading){
+          <div class="spinner"></div>
+        }
+        @else {
+          Log in
+        }
+      </button>
       <p class="link">Ainda não tem uma conta? <a style="cursor: pointer;" (click)="navigate()">Sign up</a>
       </p>
     </form>

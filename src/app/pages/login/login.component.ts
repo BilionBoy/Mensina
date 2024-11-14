@@ -20,6 +20,7 @@ import { WelcomeComponent } from '../../shared/welcome/welcome.component';
 export class LoginComponent {
 
   loginForm: FormGroup
+  loading = false
 
   constructor(
     private formBuilder: FormBuilder,
@@ -34,15 +35,18 @@ export class LoginComponent {
   }
 
   submitLogin(){
+    this.loading = true
     this.loginService.login(this.loginForm.value)
     .subscribe({
       next: (res: any) => {
         localStorage.setItem('token', res.token)
         this.router.navigate([''])
+        this.loading = false
       },
       error: (res) => {
+        this.loading = false
         console.log(res);
-        this.toastr.error("Senha ou username incorreto")
+        this.toastr.error("Nome de usuario ou senha incorreto")
       }
     })
   }
@@ -50,5 +54,4 @@ export class LoginComponent {
   navigate(){
     this.router.navigate(['/cadastro'])
   }
-
 }
