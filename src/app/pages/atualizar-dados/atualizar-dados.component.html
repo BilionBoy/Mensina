@@ -1,56 +1,58 @@
-<form [formGroup]="atualizarDadosForm" (ngSubmit)="onSubmit()" class="form-container d-flex flex-column gap-3">
-    <!-- Campo Nome -->
-    <div class="form-group">
-      <input
-        type="text"
-        class="form-control custom-input"
-        placeholder="Nome"
-        formControlName="name">
-      <small *ngIf="atualizarDadosForm.get('name')?.touched && atualizarDadosForm.get('name')?.errors?.['required']" class="text-danger">
-        Nome é obrigatório.
-      </small>
-    </div>
+<form [formGroup]="atualizarDadosForm" (ngSubmit)="onSubmit()" class="form-container d-flex flex-column gap-4 p-4 rounded shadow-lg ">
   
-    <!-- Campo Username -->
-    <div class="form-group">
-      <input
-        type="text"
-        class="form-control custom-input"
-        placeholder="Username"
-        formControlName="username">
-      <small *ngIf="atualizarDadosForm.get('username')?.touched && atualizarDadosForm.get('username')?.errors?.['required']" class="text-danger">
-        Username é obrigatório.
-      </small>
-      <small *ngIf="atualizarDadosForm.get('username')?.errors?.['minlength']" class="text-danger">
-        Username deve ter pelo menos 3 caracteres.
-      </small>
-    </div>
-  
-    <!-- Campo Senha -->
-    <div class="form-group">
-      <input
-        type="password"
-        class="form-control custom-input"
-        placeholder="Senha"
-        formControlName="password">
-      <small *ngIf="atualizarDadosForm.get('password')?.touched && atualizarDadosForm.get('password')?.errors?.['required']" class="text-danger">
-        Senha é obrigatória.
-      </small>
-      <small *ngIf="atualizarDadosForm.get('password')?.errors?.['minlength']" class="text-danger">
-        Senha deve ter pelo menos 6 caracteres.
-      </small>
-    </div>
-  
-    <!-- Botões -->
-      <div class="btn-update d-flex gap-2">
-      <button type="submit" [disabled]="atualizarDadosForm.invalid" class="btn">
-        Salvar
-      </button>
-      <div class="btn-cancelar">
-      <button type="button" class="btn btn-dark" (click)="atualizarDadosForm.reset()">
-        Cancelar
-      </button>
-     </div>
-    </div>
-  </form>
-  
+  <!-- Título -->
+  <h2 class="text-center mb-4">Atualizar Dados</h2>
+
+  <!-- Campo Nome -->
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control custom-input"
+      placeholder="Nome"
+      formControlName="name">
+    <small *ngIf="atualizarDadosForm.get('name')?.touched && atualizarDadosForm.get('name')?.errors?.['required']" class="text-danger">
+      Nome é obrigatório.
+    </small>
+  </div>
+
+  <!-- Campo Username -->
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control custom-input"
+      placeholder="Username"
+      formControlName="username">
+    <small *ngIf="atualizarDadosForm.get('username')?.touched && atualizarDadosForm.get('username')?.errors?.['required']" class="text-danger">
+      Username é obrigatório.
+    </small>
+    <small *ngIf="atualizarDadosForm.get('username')?.errors?.['minlength']" class="text-danger">
+      Username deve ter pelo menos 3 caracteres.
+    </small>
+  </div>
+
+  <!-- Campo Senha -->
+  <div class="form-group">
+    <input
+      type="password"
+      class="form-control custom-input"
+      placeholder="Senha"
+      formControlName="password">
+    <small *ngIf="atualizarDadosForm.get('password')?.touched && atualizarDadosForm.get('password')?.errors?.['required']" class="text-danger">
+      Senha é obrigatória.
+    </small>
+    <small *ngIf="atualizarDadosForm.get('password')?.errors?.['minlength']" class="text-danger">
+      Senha deve ter pelo menos 6 caracteres.
+    </small>
+  </div>
+
+  <!-- Botões -->
+  <div class="d-flex gap-3 justify-content-between mt-4">
+    <button type="submit" [disabled]="atualizarDadosForm.invalid" class="btn btn-primary w-50">
+      Salvar
+    </button>
+    <button type="button" class="btn btn-secondary w-50" (click)="atualizarDadosForm.reset()">
+      Cancelar
+    </button>
+  </div>
+
+</form>
