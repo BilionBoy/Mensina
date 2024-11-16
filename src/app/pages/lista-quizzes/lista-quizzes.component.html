@@ -65,15 +65,7 @@
         <img class="icon d-none d-lg-block" src="/svg/userIcon.svg" alt="Ícone do Usuário">
         }
       </div>
-      <form class="d-flex flex-column gap-3">
-        <input type="text" placeholder="Nome" formControlName="name">
-        <input type="text" placeholder="Username" formControlName="username">
-        <input type="text" placeholder="Senha" formControlName="password" type="password">
-        <div class="btn_update">
-          <button style="background-color: #D7D3D3; color: #161616;">Salvar</button>
-          <button style="background-color: #333333; color: #D7D3D3;">Cancelar</button>
-        </div>
-      </form>
+     <app-atualizar-dados *ngIf="editarPerfil"></app-atualizar-dados>
     </div>
     <div class="meio-final">
       <h1 class="d-none d-lg-block">mensina</h1>

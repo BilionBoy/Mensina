@@ -1,1 +1,58 @@
-<p>atualizar-dados works!</p>
+atualizardados.html
+
+<form [formGroup]="atualizarDadosForm" (ngSubmit)="onSubmit()" class="d-flex flex-column gap-3">
+    <!-- Campo Nome -->
+    <div>
+      <input 
+        type="text" 
+        placeholder="Nome" 
+        formControlName="name">
+      <div *ngIf="atualizarDadosForm.get('name')?.touched && atualizarDadosForm.get('name')?.invalid">
+        <small *ngIf="atualizarDadosForm.get('name')?.errors?.['required']" style="color: red;">
+          Nome é obrigatório.
+        </small>
+      </div>
+    </div>
+  
+    <!-- Campo Username -->
+    <div>
+      <input 
+        type="text" 
+        placeholder="Username" 
+        formControlName="username">
+      <div *ngIf="atualizarDadosForm.get('username')?.touched && atualizarDadosForm.get('username')?.invalid">
+        <small *ngIf="atualizarDadosForm.get('username')?.errors?.['required']" style="color: red;">
+          Username é obrigatório.
+        </small>
+        <small *ngIf="atualizarDadosForm.get('username')?.errors?.['minlength']" style="color: red;">
+          Username deve ter pelo menos 3 caracteres.
+        </small>
+      </div>
+    </div>
+  
+    <!-- Campo Senha -->
+    <div>
+      <input 
+        type="password" 
+        placeholder="Senha" 
+        formControlName="password">
+      <div *ngIf="atualizarDadosForm.get('password')?.touched && atualizarDadosForm.get('password')?.invalid">
+        <small *ngIf="atualizarDadosForm.get('password')?.errors?.['required']" style="color: red;">
+          Senha é obrigatória.
+        </small>
+        <small *ngIf="atualizarDadosForm.get('password')?.errors?.['minlength']" style="color: red;">
+          Senha deve ter pelo menos 6 caracteres.
+        </small>
+      </div>
+    </div>
+  
+    <!-- Botões -->
+    <div class="btn_update">
+      <button type="submit" [disabled]="atualizarDadosForm.invalid" style="background-color: #D7D3D3; color: #161616;">
+        Salvar
+      </button>
+      <button type="button" style="background-color: #333333; color: #D7D3D3;" (click)="atualizarDadosForm.reset()">
+        Cancelar
+      </button>
+    </div>
+  </form>
