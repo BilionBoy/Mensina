@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrService, ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common'; 
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-atualizar-dados',
@@ -17,6 +18,7 @@ import { CommonModule } from '@angular/common';
 })
 export class AtualizarDadosComponent implements OnInit {
   atualizarDadosForm: FormGroup;
+  userService: any;
 
   constructor(private fb: FormBuilder, private toastr: ToastrService) { 
     // Inicializa o FormGroup com os validadores
@@ -31,11 +33,26 @@ export class AtualizarDadosComponent implements OnInit {
 
   onSubmit() {
     if (this.atualizarDadosForm.valid) {
-      this.toastr.success('Dados atualizados com sucesso!', 'Sucesso');
-      console.log('Dados atualizados:', this.atualizarDadosForm.value);
+      // Supondo que você obtenha o token de algum lugar (ex: localStorage ou um serviço de autenticação)
+      const token = localStorage.getItem('authToken');
+
+      if (!token) {
+        this.toastr.error('Usuário não autenticado.', 'Erro');
+        return;
+      }
+
+      this.userService.atualizarDadosUsuario(this.atualizarDadosForm.value, token)
+        .subscribe({
+          next: () => {
+            this.toastr.success('Dados atualizados com sucesso!', 'Sucesso');
+          },
+          error: (err: any) => {
+            this.toastr.error('Erro ao atualizar os dados. Por favor, tente novamente.', 'Erro');
+            console.error('Erro ao atualizar:', err);
+          }
+        });
     } else {
       this.toastr.error('O formulário contém erros. Por favor, corrija-os.', 'Erro');
-      console.log('O formulário é inválido.');
     }
   }
 }

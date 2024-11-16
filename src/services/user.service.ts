@@ -1,24 +1,35 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  private apiUrl = 'http://localhost:5000/user/';
 
   constructor(private http: HttpClient) { }
 
-  getIcon(userId: number) {
-    return this.http.get(`http://localhost:5000/user/icon/${userId}`, {
+  // Atualiza os dados do usuário com autenticação via Bearer Token
+  atualizarDadosUsuario(dados: any, token: string): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.put(`${this.apiUrl}`, dados, { headers });
+  }
+
+  // Obtém o ícone do usuário
+  getIcon(userId: number): Observable<Blob> {
+    return this.http.get(`${this.apiUrl}icon/${userId}`, {
       responseType: 'blob'
-    })
+    });
   }
 
-  uploadIcon(icon: FormData) {
-    return this.http.post('http://localhost:5000/user/icon', icon, {observe: "response"})
+  // Faz o upload de um ícone de usuário
+  uploadIcon(icon: FormData): Observable<any> {
+    return this.http.post(`${this.apiUrl}icon`, icon, { observe: "response" });
   }
 
-  getUserInfos(){
-    return this.http.get('http://localhost:5000/user/user_infos')
+  // Obtém informações do usuário
+  getUserInfos(): Observable<any> {
+    return this.http.get(`${this.apiUrl}user_infos`);
   }
 }
