@@ -42,13 +42,15 @@
     </div>
   
     <!-- Botões -->
-    <div class="btn_update d-flex gap-2">
-      <button type="submit" [disabled]="atualizarDadosForm.invalid" class="btn btn-light custom-save-button">
+      <div class="btn-update d-flex gap-2">
+      <button type="submit" [disabled]="atualizarDadosForm.invalid" class="btn">
         Salvar
       </button>
-      <button type="button" class="btn btn-dark custom-cancel-button" (click)="atualizarDadosForm.reset()">
+      <div class="btn-cancelar">
+      <button type="button" class="btn btn-dark" (click)="atualizarDadosForm.reset()">
         Cancelar
       </button>
+     </div>
     </div>
   </form>
   
