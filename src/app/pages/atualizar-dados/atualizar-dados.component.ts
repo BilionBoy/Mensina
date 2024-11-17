@@ -4,36 +4,62 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrService, ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common'; 
 import { UserService } from '../../../services/user.service';
+import { IUser } from '../../../interfaces/IUser';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-atualizar-dados',
   standalone: true,
   imports: [
-    ReactiveFormsModule, // Formulários reativos
-    ToastrModule, // Módulo para Toastr
-    CommonModule // Importando CommonModule para usar *ngIf e outras diretivas
+    ReactiveFormsModule, 
+    ToastrModule, 
+    CommonModule 
   ],
   templateUrl: './atualizar-dados.component.html',
   styleUrls: ['./atualizar-dados.component.css']
 })
 export class AtualizarDadosComponent implements OnInit {
   atualizarDadosForm: FormGroup;
-  userService: any;
 
-  constructor(private fb: FormBuilder, private toastr: ToastrService) { 
+  constructor(private fb: FormBuilder, private toastr: ToastrService, private userService: UserService) { 
     // Inicializa o FormGroup com os validadores
     this.atualizarDadosForm = this.fb.group({
-      name: ['', [Validators.required]], // Nome obrigatório
-      username: ['', [Validators.required, Validators.minLength(3)]], // Username com mínimo de 3 caracteres
-      password: ['', [Validators.required, Validators.minLength(6)]] // Senha com mínimo de 6 caracteres
+      name: ['', [Validators.required]], 
+      username: ['', [Validators.required, Validators.minLength(3)]], 
+      password: ['', [Validators.minLength(6)]] // Removeu o 'Validators.required'
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.userService.getUserInfos().subscribe({
+      next: (res: IUser) => {
+        this.atualizarDadosForm.patchValue({
+          name: res.name,
+          username: res.username
+        });
+        // Não há necessidade de redefinir os validadores aqui
+      },
+      error: (err: HttpErrorResponse) => {
+        this.toastr.error('Não foi possível carregar os dados do usuário', 'Erro');
+        console.error('Detalhes do erro:', err);
+      }
+    });
+  }
+
+  get name() {
+    return this.atualizarDadosForm.get('name');
+  }
+
+  get username() {
+    return this.atualizarDadosForm.get('username');
+  }
+
+  get password() {
+    return this.atualizarDadosForm.get('password');
+  }
 
   onSubmit() {
     if (this.atualizarDadosForm.valid) {
-      // Supondo que você obtenha o token de algum lugar (ex: localStorage ou um serviço de autenticação)
       const token = localStorage.getItem('authToken');
 
       if (!token) {

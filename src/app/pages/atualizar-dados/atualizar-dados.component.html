@@ -1,58 +1,57 @@
-<form [formGroup]="atualizarDadosForm" (ngSubmit)="onSubmit()" class="form-container d-flex flex-column gap-4 p-4 rounded  ">
-  
-  <!-- Título -->
-  <h2 class="text-center mb-4">Atualizar Dados</h2>
-
+<form [formGroup]="atualizarDadosForm" (ngSubmit)="onSubmit()" class="form-container d-flex flex-column gap-4 p-4 rounded">
   <!-- Campo Nome -->
   <div class="form-group">
+    <label for="name" class="form-label d-flex">Nome</label>
     <input
+      id="name"
       type="text"
       class="form-control custom-input"
-      placeholder="Nome"
-      formControlName="name">
-    <small *ngIf="atualizarDadosForm.get('name')?.touched && atualizarDadosForm.get('name')?.errors?.['required']" class="text-danger">
+      formControlName="name"
+      style="background-color: #161616; color: #D7D3D3;">
+    <small *ngIf="name?.touched && name?.errors?.['required']" class="text-danger">
       Nome é obrigatório.
     </small>
   </div>
 
   <!-- Campo Username -->
   <div class="form-group">
+    <label for="username" class="form-label d-flex">Username</label>
     <input
+      id="username"
       type="text"
       class="form-control custom-input"
-      placeholder="Username"
-      formControlName="username">
-    <small *ngIf="atualizarDadosForm.get('username')?.touched && atualizarDadosForm.get('username')?.errors?.['required']" class="text-danger">
+      formControlName="username"
+      style="background-color: #161616; color: #D7D3D3;">
+    <small *ngIf="username?.touched && username?.errors?.['required']" class="text-danger">
       Username é obrigatório.
     </small>
-    <small *ngIf="atualizarDadosForm.get('username')?.errors?.['minlength']" class="text-danger">
+    <small *ngIf="username?.errors?.['minlength']" class="text-danger">
       Username deve ter pelo menos 3 caracteres.
     </small>
   </div>
 
   <!-- Campo Senha -->
   <div class="form-group">
+    <label for="password" class="form-label d-flex">Senha</label>
     <input
+      id="password"
       type="password"
       class="form-control custom-input"
       placeholder="Senha"
-      formControlName="password">
-    <small *ngIf="atualizarDadosForm.get('password')?.touched && atualizarDadosForm.get('password')?.errors?.['required']" class="text-danger">
-      Senha é obrigatória.
-    </small>
-    <small *ngIf="atualizarDadosForm.get('password')?.errors?.['minlength']" class="text-danger">
+      formControlName="password"
+      style="background-color: #161616; color: #D7D3D3;">
+    <small *ngIf="password?.touched && password?.errors?.['minlength']" class="text-danger">
       Senha deve ter pelo menos 6 caracteres.
     </small>
   </div>
 
   <!-- Botões -->
   <div class="d-flex gap-3 justify-content-between mt-4">
-    <button type="submit" [disabled]="atualizarDadosForm.invalid" class="btn btn-primary w-50">
+    <button type="submit" [disabled]="atualizarDadosForm.invalid" class="btn btn-light custom-save-button salvar-button">
       Salvar
     </button>
-    <button type="button" class="btn btn-secondary w-50" (click)="atualizarDadosForm.reset()">
+    <button type="button" class="btn btn-dark custom-cancel-button cancelar-button" (click)="atualizarDadosForm.reset()">
       Cancelar
     </button>
   </div>
-
 </form>

@@ -1,0 +1,30 @@
+.custom-input::placeholder {
+    color: #beb9b9; 
+  }
+  .nome-input, .username-input, .password-input {
+    background-color: #161616;
+    color: #D7D3D3;
+  }
+  
+  .salvar-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #A9A9A9;
+    color: #161616;
+    height: 25px;
+    width: 80px;
+    border-radius: 3px;
+  }
+  
+  .cancelar-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333333;
+    color: #D7D3D3;
+    height: 25px;
+    width: 80px;
+    border-radius: 3px;
+  }
+  
