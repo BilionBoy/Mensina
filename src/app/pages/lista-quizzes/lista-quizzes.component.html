@@ -66,15 +66,7 @@
         <img class="icon d-none d-lg-block" src="/svg/userIcon.svg" alt="Ícone do Usuário">
         }
       </div>
-      <form class="d-flex flex-column gap-3">
-        <input type="text" placeholder="Nome" formControlName="name">
-        <input type="text" placeholder="Username" formControlName="username">
-        <input type="text" placeholder="Senha" formControlName="password" type="password">
-        <div class="btn_update">
-          <button style="background-color: #D7D3D3; color: #161616;">Salvar</button>
-          <button style="background-color: #333333; color: #D7D3D3;">Cancelar</button>
-        </div>
-      </form>
+     <app-atualizar-dados *ngIf="editarPerfil"></app-atualizar-dados>
     </div>
     <div class="meio-final">
       <h1 class="d-none d-lg-block">mensina</h1>
@@ -87,18 +79,7 @@
     class="px-5 pb-5 p-xl-0 d-flex w-100 min-vh-100 gap-5 gap-lg-2 gap-xxl-0 align-items-center align-items-xl-start flex-column flex-xl-row justify-content-between margin-left">
     <main class="px-xl-2 px-xxl-5 pt-2 pb-5 py-md-5 w-100">
       <div class="tags">
-        <div class="tag-card">
-          <span class="material-symbols-outlined icon-card">grid_view</span>
-          <p>All</p>
-        </div>
-        <div class="tag-card">
-          <span class="material-symbols-outlined icon-card">computer</span>
-          <p>Desenvolvimento Web</p>
-        </div>
-        <div class="tag-card">
-          <span class="material-symbols-outlined icon-card">database</span>
-          <p>Data Base</p>
-        </div>
+        <app-tag-list></app-tag-list>
       </div>
       <p class="popular">Mais populares</p>
 
