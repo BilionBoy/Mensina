@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Component, HostListener, Inject, OnInit, Renderer2 } from '@angular/core';
 import { QuizCardComponent } from '../../shared/quiz-card/quiz-card.component';
@@ -7,6 +8,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { UserService } from '../../../services/user.service';
 import { IUser } from '../../../interfaces/IUser';
 import { CommonModule, DOCUMENT } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-quizzes',
@@ -36,8 +38,9 @@ export class ListaQuizzesComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private toastr: ToastrService,
     @Inject(DOCUMENT) private document: Document,
-    private renderer: Renderer2
-  ){}
+    private renderer: Renderer2,
+    private route: Router
+  ) { }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
@@ -48,7 +51,7 @@ export class ListaQuizzesComponent implements OnInit {
   }
 
   toggleNavbar() {
-    if(this.navbarVisivel) {
+    if (this.navbarVisivel) {
       this.renderer.removeClass(this.document.body, 'no-scroll');
       this.editarPerfil = false
     } else {
@@ -58,22 +61,22 @@ export class ListaQuizzesComponent implements OnInit {
 
   }
 
-  ativarEdicao(){
+  ativarEdicao() {
     this.editarPerfil = !this.editarPerfil
   }
 
   ngOnInit(): void {
     this.telaGrande = window.innerWidth >= 992;
     this.quizService.getQuizzes()
-    .subscribe({
-      next: (res: IQuiz[]) => {
-        this.loading = false
-        this.quizzes = res
-      },
-      error: (res) => {
-        this.loading = false
-      }
-    })
+      .subscribe({
+        next: (res: IQuiz[]) => {
+          this.loading = false
+          this.quizzes = res
+        },
+        error: (res) => {
+          this.loading = false
+        }
+      })
 
 
     this.userService.getUserInfos().subscribe({
@@ -91,7 +94,7 @@ export class ListaQuizzesComponent implements OnInit {
     this.userService.getIcon(id).subscribe({
       next: (blob) => {
         console.log(blob);
-        if(!blob.size) return
+        if (!blob.size) return
 
         const url = URL.createObjectURL(blob);
         this.userIconUrl = this.sanitizer.bypassSecurityTrustUrl(url);
@@ -108,12 +111,30 @@ export class ListaQuizzesComponent implements OnInit {
 
       this.userService.uploadIcon(formData).subscribe({
         next: (response) => {
-          if(!this.usuario.id) return
+          if (!this.usuario.id) return
           this.getIconByUserId(this.usuario.id)
         },
         error: (error) => console.error('Erro ao enviar o ícone', error)
       });
     }
+  }
+
+  logout() {
+    Swal.fire({
+      title: 'Você deseja realizar o Logout?',
+      text: 'Ao sair, será necessário fazer login novamente.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, sair',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem('token')
+        this.route.navigate(['/login'])
+      }
+    })
   }
 
 }
