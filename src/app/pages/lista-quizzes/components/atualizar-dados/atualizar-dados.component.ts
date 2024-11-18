@@ -41,22 +41,27 @@ export class AtualizarDadosComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.atualizarDadosForm.valid) {
-      // Supondo que você obtenha o token de algum lugar (ex: localStorage ou um serviço de autenticação)
-
-      this.userService.atualizarDadosUsuario(this.atualizarDadosForm.value)
-        .subscribe({
-          next: () => {
-            this.toastr.success('Dados atualizados com sucesso!', 'Sucesso');
-            this.onSubmitEvent.emit(true)
-          },
-          error: (err: any) => {
-            this.toastr.error('Erro ao atualizar os dados. Por favor, tente novamente.', 'Erro');
-            console.error('Erro ao atualizar:', err);
-          }
-        });
-    } else {
+    if (this.atualizarDadosForm.invalid) {
       this.toastr.error('O formulário contém erros. Por favor, corrija-os.', 'Erro');
+      return
     }
+    // Supondo que você obtenha o token de algum lugar (ex: localStorage ou um serviço de autenticação)
+    if (this.atualizarDadosForm.get('password')?.value && this.atualizarDadosForm.get('password')?.value.length < 6) {
+      this.toastr.error('A senha deve conter no mínimo 6 caracteres.', 'Erro');
+      return
+    }
+
+    this.userService.atualizarDadosUsuario(this.atualizarDadosForm.value)
+      .subscribe({
+        next: () => {
+          this.toastr.success('Dados atualizados com sucesso!', 'Sucesso');
+          this.onSubmitEvent.emit(true)
+        },
+        error: (err: any) => {
+          this.toastr.error('Erro ao atualizar os dados. Por favor, tente novamente.', 'Erro');
+          console.error('Erro ao atualizar:', err);
+        }
+      });
   }
+
 }

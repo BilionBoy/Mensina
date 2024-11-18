@@ -1,0 +1,48 @@
+.tags-container {
+  width: 100%;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  overflow: hidden;
+  max-height: 60px; /* Altura de uma linha de tags */
+  transition: max-height 0.3s ease-in-out;
+}
+
+.tags.expanded {
+  max-height: 500px; /* Altura suficiente para exibir todas as tags */
+}
+
+.tag-card {
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.toggle-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  left: calc(50% - 12px);
+  transform: translateX(-50%);
+  transition: transform 0.2s ease;
+}
+
+.toggle-button:hover {
+  transform: translateX(-50%) scale(1.1);
+}
+
+@media (min-width: 768px) {
+  .tags {
+    max-height: none; /* Mostrar todas as tags em telas maiores */
+  }
+
+  .toggle-button {
+    display: none; /* Esconder botão em telas grandes */
+  }
+}

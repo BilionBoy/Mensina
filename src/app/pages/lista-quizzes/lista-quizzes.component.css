@@ -210,9 +210,6 @@ input {
   .lateral-esquerda {
     transform: translateX(0);
   }
-}
-
-@media (min-width: 992px) {
   .margin-left {
     margin-left: 346px;
   }
@@ -224,6 +221,11 @@ input {
 @media (max-width: 992px) {
   .padding-bottom {
     padding-bottom: 100px;
+  }
+  .logout {
+    position: absolute; 
+    bottom: 90px;
+    left: 25px;
   }
 }
 

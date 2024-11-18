@@ -1,4 +1,5 @@
 export interface ITag {
   id: number,
-  description: string
+  description: string,
+  isSelected?: boolean
 }

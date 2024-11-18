@@ -28,11 +28,13 @@ import { AtualizarDadosComponent } from './components/atualizar-dados/atualizar-
 })
 export class ListaQuizzesComponent implements OnInit {
   quizzes: IQuiz[] = [];
+  myQuizzes: IQuiz[] = [];
   editarPerfil = false;
   userIconUrl: SafeUrl | null = null;
   selectedFile: File | null = null;
   userInfo: IUser = {};
-  loading = true
+  loadingQuizzes = false
+  loadingMyQuizzes = false
 
   public navbarVisivel: boolean = false;
   public telaGrande: boolean = false;
@@ -62,6 +64,11 @@ export class ListaQuizzesComponent implements OnInit {
     this.ativarEdicao()
   }
 
+  onChangeTag(tagId: number) {
+    this.getQuizzes(tagId)
+    this.getMyQuizzes(tagId)
+  }
+
   toggleNavbar() {
     if (this.navbarVisivel) {
       this.renderer.removeClass(this.document.body, 'no-scroll');
@@ -72,25 +79,42 @@ export class ListaQuizzesComponent implements OnInit {
     this.navbarVisivel = !this.navbarVisivel;
   }
 
-  ativarEdicao() {
-    this.editarPerfil = !this.editarPerfil
-  }
-
+  
   ngOnInit(): void {
     this.telaGrande = window.innerWidth >= 992;
     this.getUserInfo()
-    this.quizService.getQuizzes()
+    this.getQuizzes()
+    this.getMyQuizzes()
+  }
+  
+  getQuizzes(tagId?: number) {
+    this.loadingQuizzes = true
+    this.quizService.getQuizzes({tagId})
       .subscribe({
         next: (res: IQuiz[]) => {
-          this.loading = false
+          this.loadingQuizzes = false
           this.quizzes = res
         },
         error: (res) => {
-          this.loading = false
+          this.loadingQuizzes = false
+        }
+      })
+    }
+    
+    getMyQuizzes(tagId?: number) {
+    this.loadingMyQuizzes = true
+    this.quizService.getQuizzes({tagId, inProgres: 'inProgres'})
+      .subscribe({
+        next: (res: IQuiz[]) => {
+          this.loadingMyQuizzes = false
+          this.myQuizzes = res
+        },
+        error: (res) => {
+          this.loadingMyQuizzes = false
         }
       })
   }
-
+  
   getUserInfo() {
     this.userService.getUserInfos().subscribe({
       next: (res: IUser) => {
@@ -102,7 +126,11 @@ export class ListaQuizzesComponent implements OnInit {
       }
     });
   }
-
+  
+  ativarEdicao() {
+    this.editarPerfil = !this.editarPerfil
+  }
+  
   getIconByUserId(id: number) {
     this.userService.getIcon(id).subscribe({
       next: (blob) => {

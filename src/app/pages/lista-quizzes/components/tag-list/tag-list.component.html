@@ -1,9 +1,19 @@
-<div class="tags">
-  @for(tag of tags; track tag.id){
-    <div class="tag-card" (click)="onTagClick(tag.id)">
-      <span class="material-symbols-outlined icon-card">{{ _tagsIcons[tag.id] ? _tagsIcons[tag.id].icon : _tagsIcons[1].icon }}</span>
+<div class="tags-container">
+  <div class="tags " [class.expanded]="isExpanded">
+    @for(tag of tags; track tag.id){
+    <div class="tag-card cursor-pointer" style="cursor: pointer;" (click)="onTagClick(tag.id)" [ngStyle]="{
+      'background-color': tag.isSelected ? '#161616' : '#ECE8E8',
+      'color': tag.isSelected ? '#ECE8E8' : '#000000',
+      }">
+      <span class="material-symbols-outlined icon-card" style="color: #000000;">{{ _tagsIcons[tag.id] ?
+        _tagsIcons[tag.id].icon : _tagsIcons[1].icon }}</span>
       <p>{{ tag.description }}</p>
     </div>
-  }
+    }
   </div>
-  
+  <button class="toggle-button" (click)="toggleExpand()">
+    <span class="material-symbols-outlined">
+      {{ isExpanded ? 'expand_less' : 'expand_more' }}
+    </span>
+  </button>
+</div>
