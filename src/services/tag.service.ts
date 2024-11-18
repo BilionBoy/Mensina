@@ -8,7 +8,7 @@ import { ITag } from '../interfaces/ITag'; // Corrigir o caminho
 })
 export class TagService {
 
-  private apiUrl = 'http://localhost:5000/tag';
+  private apiUrl = 'http://localhost:5000/tag/';
 
   constructor(private http: HttpClient) { }
 

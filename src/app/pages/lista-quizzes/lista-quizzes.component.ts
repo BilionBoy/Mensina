@@ -8,6 +8,7 @@ import { UserService } from '../../../services/user.service';
 import { IUser } from '../../../interfaces/IUser';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { AtualizarDadosComponent } from '../atualizar-dados/atualizar-dados.component'; // Corrigido para o caminho correto
+import { TagListComponent } from './components/tag-list/tag-list.component';
 
 @Component({
   selector: 'app-lista-quizzes',
@@ -15,7 +16,8 @@ import { AtualizarDadosComponent } from '../atualizar-dados/atualizar-dados.comp
   imports: [
     QuizCardComponent,
     CommonModule,
-    AtualizarDadosComponent // Adicionado na lista de imports
+    AtualizarDadosComponent, // Adicionado na lista de imports
+    TagListComponent
   ],
   templateUrl: './lista-quizzes.component.html',
   styleUrls: ['./lista-quizzes.component.css']
