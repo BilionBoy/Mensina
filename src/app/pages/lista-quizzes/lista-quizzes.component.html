@@ -28,7 +28,7 @@
       } @else {
       <img class="icon d-none d-lg-block" src="/svg/userIcon.svg" alt="Ícone do Usuário">
       }
-      <h3 class="welcome-name">Olá, {{usuario.username}}</h3>
+      <h3 class="welcome-name">Olá, {{userInfo.username}}</h3>
       <p class="welcome-text">Seja bem vindo(a) a sua <br> plataforma de estudos</p>
     </div>
 
@@ -66,7 +66,7 @@
         <img class="icon d-none d-lg-block" src="/svg/userIcon.svg" alt="Ícone do Usuário">
         }
       </div>
-     <app-atualizar-dados *ngIf="editarPerfil"></app-atualizar-dados>
+     <app-atualizar-dados [userInfo]="userInfo" (onSubmitEvent)="onSubmitEvent($event)"></app-atualizar-dados>
     </div>
     <div class="meio-final">
       <h1 class="d-none d-lg-block">mensina</h1>

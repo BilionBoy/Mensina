@@ -109,18 +109,21 @@
 
 /* Toastr  */
 .toast-success {
-  background-color: rgba(177, 205, 177, 0.748);
+  border-radius: 80px;
+  background-color: rgb(177, 205, 177);
   font-family: "Poppins-regular";
   box-shadow: none!important;
 }
 
 .toast-error {
+  border-radius: 80px;
   background-color: rgb(255, 174, 187);
   font-family: "Poppins-regular";
   box-shadow: none!important;
 }
 
 .toast-info {
+  border-radius: 80px;
   background-color: rgb(162, 208, 240);
   box-shadow: none!important;
   font-family: "Poppins-regular";

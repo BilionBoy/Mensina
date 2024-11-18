@@ -11,9 +11,8 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   // Atualiza os dados do usuário com autenticação via Bearer Token
-  atualizarDadosUsuario(dados: any, token: string): Observable<any> {
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.put(`${this.apiUrl}`, dados, { headers });
+  atualizarDadosUsuario(dados: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}`, dados);
   }
 
   // Obtém o ícone do usuário

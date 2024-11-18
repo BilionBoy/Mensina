@@ -1,0 +1,57 @@
+<form [formGroup]="atualizarDadosForm" (ngSubmit)="onSubmit()"
+  class="form-container d-flex flex-column gap-2 px-4 pb-4 rounded  ">
+
+  <!-- Campo Nome -->
+  <div class="form-group d-flex flex-column align-items-start">
+    <label for="name">Nome</label>
+    <input type="text" class="form-control custom-input" placeholder="Nome" formControlName="name"
+      style="background-color: #161616; color:  #FFFFFF;">
+    <small *ngIf="atualizarDadosForm.get('name')?.touched && atualizarDadosForm.get('name')?.errors?.['required']"
+      class="text-danger">
+      Nome é obrigatório.
+    </small>
+  </div>
+
+  <!-- Campo Username -->
+  <div class="form-group d-flex flex-column align-items-start">
+    <label for="username">Username</label>
+    <input type="text" class="form-control custom-input" placeholder="Username" formControlName="username"
+      style="background-color: #161616; color:  #FFFFFF;">
+    <small
+      *ngIf="atualizarDadosForm.get('username')?.touched && atualizarDadosForm.get('username')?.errors?.['required']"
+      class="text-danger">
+      Username é obrigatório.
+    </small>
+    <small *ngIf="atualizarDadosForm.get('username')?.errors?.['minlength']" class="text-danger">
+      Username deve ter pelo menos 3 caracteres.
+    </small>
+  </div>
+
+  <!-- Campo Senha -->
+  <div class="form-group d-flex flex-column align-items-start">
+    <label for="password">Senha</label>
+    <input type="password" class="form-control" placeholder="Senha" formControlName="password"
+      style="background-color: #161616; color:  #FFFFFF;">
+    <small
+      *ngIf="atualizarDadosForm.get('password')?.touched && atualizarDadosForm.get('password')?.errors?.['required']"
+      class="text-danger">
+      Senha é obrigatória.
+    </small>
+    <small *ngIf="atualizarDadosForm.get('password')?.errors?.['minlength']" class="text-danger">
+      Senha deve ter pelo menos 6 caracteres.
+    </small>
+  </div>
+
+  <!-- Botões -->
+  <div class="d-flex gap-3 justify-content-between mt-2">
+    <button type="submit" [disabled]="atualizarDadosForm.invalid" class="btn w-50"
+      style="background-color: #D7D3D3; color: #161616;">
+      Salvar
+    </button>
+    <button type="button" class="btn w-50" (click)="onSubmitEvent.emit()"
+      style="background-color: #333333; color: #D7D3D3;">
+      Cancelar
+    </button>
+  </div>
+
+</form>

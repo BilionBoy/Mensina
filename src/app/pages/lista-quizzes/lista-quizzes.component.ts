@@ -9,8 +9,8 @@ import { UserService } from '../../../services/user.service';
 import { IUser } from '../../../interfaces/IUser';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import Swal from 'sweetalert2';
-import { AtualizarDadosComponent } from '../atualizar-dados/atualizar-dados.component'; // Corrigido para o caminho correto
 import { TagListComponent } from './components/tag-list/tag-list.component';
+import { AtualizarDadosComponent } from './components/atualizar-dados/atualizar-dados.component';
 
 
 @Component({
@@ -31,12 +31,12 @@ export class ListaQuizzesComponent implements OnInit {
   editarPerfil = false;
   userIconUrl: SafeUrl | null = null;
   selectedFile: File | null = null;
-  usuario: IUser = {};
+  userInfo: IUser = {};
   loading = true
 
   public navbarVisivel: boolean = false;
   public telaGrande: boolean = false;
-  
+
   constructor(
     private quizService: QuizService,
     private userService: UserService,
@@ -55,6 +55,13 @@ export class ListaQuizzesComponent implements OnInit {
     }
   }
 
+  onSubmitEvent(event: any) {
+    if (event) {
+      this.getUserInfo()
+    }
+    this.ativarEdicao()
+  }
+
   toggleNavbar() {
     if (this.navbarVisivel) {
       this.renderer.removeClass(this.document.body, 'no-scroll');
@@ -71,6 +78,7 @@ export class ListaQuizzesComponent implements OnInit {
 
   ngOnInit(): void {
     this.telaGrande = window.innerWidth >= 992;
+    this.getUserInfo()
     this.quizService.getQuizzes()
       .subscribe({
         next: (res: IQuiz[]) => {
@@ -81,10 +89,12 @@ export class ListaQuizzesComponent implements OnInit {
           this.loading = false
         }
       })
+  }
 
+  getUserInfo() {
     this.userService.getUserInfos().subscribe({
       next: (res: IUser) => {
-        this.usuario = res;
+        this.userInfo = res;
         this.getIconByUserId(res.id!);
       },
       error: (err) => {
@@ -96,7 +106,6 @@ export class ListaQuizzesComponent implements OnInit {
   getIconByUserId(id: number) {
     this.userService.getIcon(id).subscribe({
       next: (blob) => {
-        console.log(blob);
         if (!blob.size) return
         const url = URL.createObjectURL(blob);
         this.userIconUrl = this.sanitizer.bypassSecurityTrustUrl(url);
@@ -113,8 +122,8 @@ export class ListaQuizzesComponent implements OnInit {
 
       this.userService.uploadIcon(formData).subscribe({
         next: (response) => {
-          if (!this.usuario.id) return;
-          this.getIconByUserId(this.usuario.id);
+          if (!this.userInfo.id) return;
+          this.getIconByUserId(this.userInfo.id);
         },
         error: (error) => console.error('Erro ao enviar o ícone', error)
       });
@@ -131,7 +140,7 @@ export class ListaQuizzesComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sim, sair',
       cancelButtonText: 'Cancelar',
-    }).then((result) => {
+    }).then((result: any) => {
       if (result.isConfirmed) {
         localStorage.removeItem('token')
         this.route.navigate(['/login'])
