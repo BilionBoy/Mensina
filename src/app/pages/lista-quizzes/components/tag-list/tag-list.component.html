@@ -1,1 +1,7 @@
-<p>tag-list works!</p>
+<div class="tags">
+    <div *ngFor="let tag of tags" class="tag-card" (click)="onTagClick(tag.id)">
+      <span class="material-symbols-outlined icon-card">{{ tag.icon }}</span>
+      <p>{{ tag.name }}</p>
+    </div>
+  </div>
+  
