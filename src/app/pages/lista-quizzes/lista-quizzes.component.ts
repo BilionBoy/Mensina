@@ -17,18 +17,19 @@ import { CommonModule, DOCUMENT } from '@angular/common';
   ],
   templateUrl: './lista-quizzes.component.html',
   styleUrl: './lista-quizzes.component.css'
-}) 
+})
 export class ListaQuizzesComponent implements OnInit {
   quizzes: IQuiz[] = []
   editarPerfil = false;
   userIconUrl: SafeUrl | null = null;
   selectedFile: File | null = null;
   usuario: IUser = {};
+  loading = true
 
   public navbarVisivel: boolean = false;
   public telaGrande: boolean = false;
 
-  
+
   constructor(
     private quizService: QuizService,
     private userService: UserService,
@@ -37,7 +38,7 @@ export class ListaQuizzesComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2
   ){}
-  
+
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.telaGrande = window.innerWidth >= 992;
@@ -66,9 +67,11 @@ export class ListaQuizzesComponent implements OnInit {
     this.quizService.getQuizzes()
     .subscribe({
       next: (res: IQuiz[]) => {
+        this.loading = false
         this.quizzes = res
       },
       error: (res) => {
+        this.loading = false
       }
     })
 
@@ -89,7 +92,7 @@ export class ListaQuizzesComponent implements OnInit {
       next: (blob) => {
         console.log(blob);
         if(!blob.size) return
-        
+
         const url = URL.createObjectURL(blob);
         this.userIconUrl = this.sanitizer.bypassSecurityTrustUrl(url);
       },
@@ -112,4 +115,5 @@ export class ListaQuizzesComponent implements OnInit {
       });
     }
   }
+
 }
