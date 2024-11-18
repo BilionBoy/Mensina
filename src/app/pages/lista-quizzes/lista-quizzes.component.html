@@ -40,6 +40,7 @@
     </div>
     <div class="meio-final">
       <h1 class="d-none d-lg-block">mensina</h1>
+      <span class="material-symbols-outlined" (click)="logout()">logout</span>
     </div>
   </div>
   }@else{
@@ -81,6 +82,14 @@
         <app-tag-list></app-tag-list>
       </div>
       <p class="popular">Mais populares</p>
+
+      @if (loading!) {
+      <div style="height: 20vh;
+          align-content: center; justify-items: center;">
+        <div class="spinner-card justify-content-center"></div>
+      </div>
+      }
+      @else {
       <div class="row d-flex flex-fill">
         @for(quiz of quizzes; track quiz.id){
         <div class="col-12 col-sm-6 col-xxl-4 p-2">
@@ -88,6 +97,7 @@
         </div>
         }
       </div>
+      }
     </main>
 
     <div class="lateral-direita mx-0 mt-xl-5 me-xl-3 me-xxl-5 max-h-75 width-responsive">
