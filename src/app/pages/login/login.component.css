@@ -9,15 +9,6 @@
   background-color: #efefef;
 }
 
-.formulario {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1.25rem;
-}
-
 .cards {
   display: flex;
   gap: 20px;
@@ -53,8 +44,38 @@ input {
   font-family: "Poppins-Regular";
 }
 
+form {
+  padding: 48px;
+  gap: 10px;
+  background-color: #ffffff;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 20px 20px 0;
+}
+
 a {
   text-decoration: none;
   color: var(--black);
   font-weight: 700;
+}
+
+main {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+@media (max-width: 992px) {
+  form {
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 20px;
+    width: 350px;
+    gap: 20px;
+  }
+  .titulo-login {
+    text-align: start;
+    font-size: 25px;
+  }
 }

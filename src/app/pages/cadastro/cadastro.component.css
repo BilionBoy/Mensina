@@ -23,6 +23,12 @@ main {
   letter-spacing: 8;
 }
 
+.titulo-cadastro {
+  font-family: "Poppins-semiBold";
+  text-align: center;
+  font-size: 40px;
+}
+
 .aprenda {
   display: flex;
   height: 85px;
@@ -98,6 +104,10 @@ button {
   padding: 0.2em 0.5em;
   border-radius: 4px;
   font-size: 20px;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 2em;
 }
 
 button:hover {
@@ -136,4 +146,28 @@ a {
   justify-content: center;
   gap: 1em;
   width: 250px;
+}
+
+form {
+  padding: 48px;
+  gap: 10px;
+  background-color: #ffffff;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 20px 20px 0;
+}
+
+@media (max-width: 992px) {
+  form {
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 20px;
+    width: 350px;
+    gap: 20px;
+  }
+  .titulo-cadastro {
+    text-align: start;
+    font-size: 25px;
+  }
 }

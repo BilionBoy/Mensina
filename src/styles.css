@@ -149,6 +149,21 @@ body.no-scroll {
   animation: spinner-b87k6z 1s infinite linear;
 }
 
+.password {
+  position: relative;
+}
+
+.password>input {
+  width: 100%;
+}
+
+.visibility {
+  position: absolute;
+  top: 7px;
+  right: 5px;
+  cursor: pointer;
+}
+
 @keyframes spinner-b87k6z {
   to {
      transform: rotate(360deg);

@@ -22,7 +22,6 @@
 }
 
 .enfeite {
-  padding: 50px;
   color: var(--purple);
 }
 
@@ -61,4 +60,36 @@
   font-family: "Roboto-regular";
   text-align: end;
   margin-bottom: 0;
+}
+
+.titulo-sm {
+  display: none;
+}
+
+.cards-sm {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .cards-sm {
+    display: block;
+    position: absolute;
+    bottom: 50px;
+    left: calc(50% - 170px);
+    display: flex;
+    gap: 20px;
+    line-height: 1.1;
+    letter-spacing: 8;
+  }
+
+  .titulo-sm {
+    display: block;
+    position: absolute;
+    top: 75px;
+    left: calc(50% - 119px);
+  }
+
+  .titulo {
+    font-size: 50px;
+  }
 }

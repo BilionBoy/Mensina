@@ -1,15 +1,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
-<div class="menu ">
-  <main class="d-lg-flex col-lg-6 col-md-6">
+<div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center" style="background-color: #efefef;">
+  <main>
     <app-welcome />
 
-    <form class=" formulario" [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+    <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
       <h1 class="titulo-login">Log in</h1>
       <input type="text" placeholder="Username" formControlName="username">
-      <input type="text" placeholder="Senha" formControlName="password" type="password">
+      <div class="password">
+        <input placeholder="Senha" formControlName="password" type="{{showPassword ? 'text' :'password'}}">
+        <span class="material-symbols-outlined visibility" (click)="showPassword=!showPassword">{{!showPassword ? 'visibility' : 'visibility_off'}}</span>
+      </div>
       <button style="cursor: pointer; display: flex; justify-content: center; align-items: center; height: 2em;"
-        [disabled]="!this.loginForm.valid">
+        [disabled]="!this.loginForm.valid || loading">
         @if(loading){
         <div class="spinner"></div>
         }
