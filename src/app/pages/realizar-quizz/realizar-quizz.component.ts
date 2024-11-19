@@ -23,11 +23,30 @@ export class RealizarQuizzComponent {
       icon: 'success',
       width: 600,
       padding: "3em",
-      color: "#716add",
+      color: "#000",
       background: "#fff",
+      confirmButtonText:'Próximo',
       backdrop: `
-          rgba(0,0,123,0.4)
+          rgba(0,123,0,0.2)
           url(/gifs/nyan-cat-poptart-cat.gif)
+          left top
+          no-repeat
+        `
+    });
+  }
+
+  isIncorrect(){
+    Swal.fire({
+      title: "Resposta incorreta!",
+      icon: 'error',
+      width: 600,
+      padding: "3em",
+      color: "#000",
+      background: "#fff",
+      confirmButtonText:'Próximo',
+      backdrop: `
+          rgba(0,0,123,0.3)
+          url(/gifs/stitch-sad-sad-stitch-unscreen.gif)
           left top
           no-repeat
         `

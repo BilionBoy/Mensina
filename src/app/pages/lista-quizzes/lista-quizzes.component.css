@@ -217,13 +217,17 @@ input {
     min-width: 350px;
   }
 }
+.logout {
+  position: relative;
+  left: -30px;
+}
 
 @media (max-width: 992px) {
   .padding-bottom {
     padding-bottom: 100px;
   }
   .logout {
-    position: absolute; 
+    position: absolute;
     bottom: 90px;
     left: 25px;
   }

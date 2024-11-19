@@ -38,9 +38,10 @@
       </div>
       <button class="score-button">Visualizar pontuação</button>
     </div>
-    <div class="meio-final">
-      <h1 class="d-none d-lg-block">mensina</h1>
-      <span class="material-symbols-outlined logout" (click)="logout()">logout</span>
+    <div class="meio-final d-flex justify-content-between align-items-center">
+      <span class="material-symbols-outlined logout d-flex" style="align-items: start; cursor: pointer;" (click)="logout()">logout</span>
+      <h1 class="d-none d-lg-block m-0">mensina</h1>
+      <div style="width: 24px;"></div>
     </div>
   </div>
   }@else{
@@ -90,7 +91,7 @@
       </div>
       }
       @else {
-      <div class="row d-flex flex-fill">
+      <div class="row d-flex flex-fill align-items-stretch">
         @for(quiz of quizzes; track quiz.id){
         <div class="col-12 col-sm-6 col-xxl-4 p-2">
           <app-quiz-card [quiz]="quiz" [button]="'COMEÇAR'" />
