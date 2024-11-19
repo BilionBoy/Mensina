@@ -3,9 +3,11 @@ import { LoginComponent } from './pages/login/login.component';
 import { ListaQuizzesComponent } from './pages/lista-quizzes/lista-quizzes.component';
 import { authGuard } from './auth/auth.guard';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
+import { RealizarQuizzComponent } from './pages/realizar-quizz/realizar-quizz.component';
 
 export const routes: Routes = [
   {path: '', component: ListaQuizzesComponent, canActivate: [authGuard],},
   {path: 'cadastro', component: CadastroComponent, canActivate: [authGuard],},
   {path: 'login', component: LoginComponent, canActivate: [authGuard],},
+  {path: 'quiz', component: RealizarQuizzComponent, canActivate: [authGuard]}
 ];

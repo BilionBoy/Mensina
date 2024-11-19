@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { IQuiz } from '../../../interfaces/IQuiz';
-import { Data } from '@angular/router';
 import { ITagIcon, tagsIcons } from '../../../constants/tagsIcon';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-quiz-card',
@@ -18,7 +18,9 @@ export class QuizCardComponent implements OnInit {
   @Input() button: string = ''
 
 
-  constructor() {
+  constructor(
+    private router: Router,
+  ) {
 
   }
 
@@ -28,4 +30,8 @@ export class QuizCardComponent implements OnInit {
     this.tagIcon = tagsIcons[this.quiz.tagId] || tagsIcons[1]
   }
 
+
+  navigate( ){
+    this.router.navigate(['/quiz'])
+  }
 }
