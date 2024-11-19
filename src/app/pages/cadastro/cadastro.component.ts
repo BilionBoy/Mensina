@@ -58,8 +58,6 @@ export class CadastroComponent implements OnInit {
     this.cadastroService.signup(this.signupForm.value)
     .subscribe({
       next: (res: any) => {
-        console.log(res);
-
         this.toast.success("Conta criada com sucesso!")
         this.router.navigate(['/login'])
       },

@@ -1,34 +1,51 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close" />
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close" />
 
 <div style="background-color: #F7F7F7; padding: 1em;">
-  <span (click)="close()" class="material-symbols-outlined d-flex" style="justify-self: flex-start; background-color: #F7F7F7;">
-  close
-    </span>
+  <span (click)="close()" class="material-symbols-outlined d-flex"
+    style="justify-self: flex-start; background-color: #F7F7F7; cursor: pointer;">
+    close
+  </span>
 </div>
 
-<div class="content" style="background-color: #F7F7F7; height: 100vh; padding: 2em; display: flex; flex-direction: column; justify-content: start;">
+<div class="content"
+  style="background-color: #F7F7F7; min-height: 100vh; padding: 2em; display: flex; flex-direction: column; justify-content: start;">
 
 
-  <h1 style="font-family: 'Poppins-Bold'; text-align: center;">Banco de dados Relacional</h1>
-  <div class="quiz-info d-flex" style="justify-content: space-between; font-family: Poppins-Bold; width: 70vw; margin: 0 auto;">
-    <p style=" font-size: 1.5em;">3 de 10</p>
-    <p class="points" style="background-color: #ECE8E8; padding: 0.1em 0.7em; border-radius: 15px; font-size: 1.3em; text-align: center;">120 PX</p>
+  <h1 style="font-family: 'Poppins-Bold'; text-align: center;">{{quizState.quizTitle}}</h1>
+  <div class="quiz-info d-flex"
+    style="justify-content: space-between; font-family: Poppins-Bold; width: 70vw; margin: 0 auto;">
+    <p style=" font-size: 1.5em;">{{ answeredQuestionsId.length+1 }} de 5</p>
+    <p class="points"
+      style="background-color: #ECE8E8; padding: 0.1em 0.7em; border-radius: 15px; font-size: 1.3em; text-align: center;">
+      {{quizState.score || "0"}} PX</p>
   </div>
+  @if (notAnsweredQuestions.length) {
+
   <main style="justify-items: center; width: 70vw; margin: 0 auto;">
-    <p style=" width: 70vw; background-color: #161616; color: #FFFFFF; padding: 1em 1em; font-family: 'Poppins-semiBold';  margin-bottom: 0px; font-size: 25px; border-radius: 10px 10px 0px 0px; text-align: center;" > O que é uma Chave Primária em um banco de dados relacional?</p>
-    <div style="background-color: #FFFFFF; width: 70vw; padding: 3em 2em; font-family: 'Poppins-Medium'; border-radius: 0px 0px 10px 10px;" class="row">
-      <div class="col-lg-6 my-2" (click)="isCorrect()" style="cursor: pointer;">
-        <p style="background-color: #FCD5D6; margin: 0px; padding: 1em; border-radius: 10px;">Identifica unicamente uma linha.</p>
-      </div>
-      <div class="col-lg-6 my-2" (click)="isIncorrect()" >
-        <p style="background-color: #E1ECE4; margin: 0px; padding: 1em; border-radius: 10px;">Identifica unicamente uma linha.</p>
-      </div>
+    <p
+      style=" width: 70vw; background-color: #161616; color: #FFFFFF; padding: 1em 1em; font-family: 'Poppins-semiBold';  margin-bottom: 0px; font-size: 25px; border-radius: 10px 10px 0px 0px; text-align: center;">
+      {{notAnsweredQuestions[0].title}} <br> {{notAnsweredQuestions[0].description}}</p>
+    <div
+      style="background-color: #FFFFFF; width: 70vw; padding: 3em 2em; font-family: 'Poppins-Medium'; border-radius: 0px 0px 10px 10px;"
+      class="row">
+      @for(answer of notAnsweredQuestions[0].answers; track answer.id) {
       <div class="col-lg-6 my-2">
-        <p style="background-color: #D3D4FE; margin: 0px; padding: 1em; border-radius: 10px;">Identifica unicamente uma linha.</p>
+        <p (click)="checkAnswer(answer.id)" [ngStyle]="{'background-color': colors[$index+1]}"
+          style="cursor: pointer; background-color: #FCD5D6; margin: 0px; padding: 1em; border-radius: 10px;">
+          {{answer.description}}</p>
       </div>
-      <div class="col-lg-6 my-2">
-        <p style="background-color: #FAEFB6; margin: 0px; padding: 1em; border-radius: 10px;">Identifica unicamente uma linha.</p>
-      </div>
+      }
+      <!-- <div class="col-lg-6 my-2" >
+          <p (click)="isIncorrect()" style="cursor: pointer; background-color: #E1ECE4; margin: 0px; padding: 1em; border-radius: 10px;">Identifica unicamente uma linha.</p>
+        </div>
+        <div class="col-lg-6 my-2">
+          <p (click)="isIncorrect()" style="cursor: pointer; background-color: #D3D4FE; margin: 0px; padding: 1em; border-radius: 10px;">Identifica unicamente uma linha.</p>
+        </div>
+        <div class="col-lg-6 my-2">
+          <p (click)="isIncorrect()" style="cursor: pointer; background-color: #FAEFB6; margin: 0px; padding: 1em; border-radius: 10px;">Identifica unicamente uma linha.</p>
+        </div> -->
     </div>
   </main>
+  }
 </div>

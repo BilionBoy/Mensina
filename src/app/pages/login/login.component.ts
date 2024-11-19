@@ -45,7 +45,6 @@ export class LoginComponent {
       },
       error: (res) => {
         this.loading = false
-        console.log(res);
         this.toastr.error("Nome de usuario ou senha incorreto")
       }
     })

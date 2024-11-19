@@ -9,5 +9,5 @@ export const routes: Routes = [
   {path: '', component: ListaQuizzesComponent, canActivate: [authGuard],},
   {path: 'cadastro', component: CadastroComponent, canActivate: [authGuard],},
   {path: 'login', component: LoginComponent, canActivate: [authGuard],},
-  {path: 'quiz', component: RealizarQuizzComponent, canActivate: [authGuard]}
+  {path: 'quiz/:id', component: RealizarQuizzComponent, canActivate: [authGuard]}
 ];
