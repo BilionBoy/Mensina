@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IRank } from 'src/interfaces/IRank';
+import { IRank } from '../../../../../interfaces/IRank';
 
 @Injectable({
   providedIn: 'root'
