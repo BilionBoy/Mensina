@@ -1,0 +1,11 @@
+<div class="rank-item">
+    <div class="user-info">
+      <img [src]="rankItem.user.iconPath" alt="User Icon" class="user-icon" />
+      <span class="user-name">{{ rankItem.user.name }}</span>
+    </div>
+    <div class="score-info">
+      <span class="total-score">Score: {{ rankItem.totalScore }}</span>
+      <span class="best-quiz">Best Quiz: {{ rankItem.bestScoreQuiz.title }}</span>
+    </div>
+  </div>
+  
