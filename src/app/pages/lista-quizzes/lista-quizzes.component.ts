@@ -1,6 +1,12 @@
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Component, HostListener, Inject, OnInit, Renderer2 } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  Inject,
+  OnInit,
+  Renderer2,
+} from '@angular/core';
 import { QuizCardComponent } from '../../shared/quiz-card/quiz-card.component';
 import { IQuiz } from '../../../interfaces/IQuiz';
 import { QuizService } from '../../../services/quiz.service';
@@ -12,7 +18,6 @@ import Swal from 'sweetalert2';
 import { TagListComponent } from './components/tag-list/tag-list.component';
 import { AtualizarDadosComponent } from './components/atualizar-dados/atualizar-dados.component';
 
-
 @Component({
   selector: 'app-lista-quizzes',
   standalone: true,
@@ -20,11 +25,10 @@ import { AtualizarDadosComponent } from './components/atualizar-dados/atualizar-
     QuizCardComponent,
     CommonModule,
     AtualizarDadosComponent, // Adicionado na lista de imports
-    TagListComponent
+    TagListComponent,
   ],
   templateUrl: './lista-quizzes.component.html',
-  styleUrls: ['./lista-quizzes.component.css']
-
+  styleUrls: ['./lista-quizzes.component.css'],
 })
 export class ListaQuizzesComponent implements OnInit {
   quizzes: IQuiz[] = [];
@@ -33,8 +37,9 @@ export class ListaQuizzesComponent implements OnInit {
   userIconUrl: SafeUrl | null = null;
   selectedFile: File | null = null;
   userInfo: IUser = {};
-  loadingQuizzes = false
-  loadingMyQuizzes = false
+  loadingIcon = false;
+  loadingQuizzes = false;
+  loadingMyQuizzes = false;
 
   public navbarVisivel: boolean = false;
   public telaGrande: boolean = false;
@@ -47,7 +52,7 @@ export class ListaQuizzesComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
     private route: Router
-  ) { }
+  ) {}
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
@@ -59,14 +64,14 @@ export class ListaQuizzesComponent implements OnInit {
 
   onSubmitEvent(event: any) {
     if (event) {
-      this.getUserInfo()
+      this.getUserInfo();
     }
-    this.ativarEdicao()
+    this.ativarEdicao();
   }
 
   onChangeTag(tagId: number) {
-    this.getQuizzes(tagId)
-    this.getMyQuizzes(tagId)
+    this.getQuizzes(tagId);
+    this.getMyQuizzes(tagId);
   }
 
   toggleNavbar() {
@@ -79,42 +84,39 @@ export class ListaQuizzesComponent implements OnInit {
     this.navbarVisivel = !this.navbarVisivel;
   }
 
-  
   ngOnInit(): void {
     this.telaGrande = window.innerWidth >= 992;
-    this.getUserInfo()
-    this.getQuizzes()
-    this.getMyQuizzes()
+    this.getUserInfo();
+    this.getQuizzes();
+    this.getMyQuizzes();
   }
-  
+
   getQuizzes(tagId?: number) {
-    this.loadingQuizzes = true
-    this.quizService.getQuizzes({tagId})
-      .subscribe({
-        next: (res: IQuiz[]) => {
-          this.loadingQuizzes = false
-          this.quizzes = res
-        },
-        error: (res) => {
-          this.loadingQuizzes = false
-        }
-      })
-    }
-    
-    getMyQuizzes(tagId?: number) {
-    this.loadingMyQuizzes = true
-    this.quizService.getQuizzes({tagId, inProgres: 'inProgres'})
-      .subscribe({
-        next: (res: IQuiz[]) => {
-          this.loadingMyQuizzes = false
-          this.myQuizzes = res
-        },
-        error: (res) => {
-          this.loadingMyQuizzes = false
-        }
-      })
+    this.loadingQuizzes = true;
+    this.quizService.getQuizzes({ tagId }).subscribe({
+      next: (res: IQuiz[]) => {
+        this.loadingQuizzes = false;
+        this.quizzes = res;
+      },
+      error: (res) => {
+        this.loadingQuizzes = false;
+      },
+    });
   }
-  
+
+  getMyQuizzes(tagId?: number) {
+    this.loadingMyQuizzes = true;
+    this.quizService.getQuizzes({ tagId, inProgres: 'inProgres' }).subscribe({
+      next: (res: IQuiz[]) => {
+        this.loadingMyQuizzes = false;
+        this.myQuizzes = res;
+      },
+      error: (res) => {
+        this.loadingMyQuizzes = false;
+      },
+    });
+  }
+
   getUserInfo() {
     this.userService.getUserInfos().subscribe({
       next: (res: IUser) => {
@@ -123,37 +125,47 @@ export class ListaQuizzesComponent implements OnInit {
       },
       error: (err) => {
         this.toastr.error('Não foi possível obter informações do usuário');
-      }
+      },
     });
   }
-  
+
   ativarEdicao() {
-    this.editarPerfil = !this.editarPerfil
+    this.editarPerfil = !this.editarPerfil;
   }
-  
+
   getIconByUserId(id: number) {
+    this.loadingIcon = true;
     this.userService.getIcon(id).subscribe({
       next: (blob) => {
-        if (!blob.size) return
+        this.loadingIcon = false;
+        this.loadingIcon = false;
+        if (!blob.size) return;
         const url = URL.createObjectURL(blob);
         this.userIconUrl = this.sanitizer.bypassSecurityTrustUrl(url);
       },
-      error: (err) => console.error('Erro ao carregar a imagem', err)
+      error: (err) => {
+        this.loadingIcon = false;
+        console.error('Erro ao carregar a imagem', err);
+      },
     });
   }
 
   onFileSelected(event: any): void {
     const file = event.target.files[0];
     if (file) {
+      this.loadingIcon = true;
       const formData = new FormData();
       formData.append('file', file);
-
       this.userService.uploadIcon(formData).subscribe({
         next: (response) => {
+          this.loadingIcon = false;
           if (!this.userInfo.id) return;
           this.getIconByUserId(this.userInfo.id);
         },
-        error: (error) => console.error('Erro ao enviar o ícone', error)
+        error: (error) => {
+          this.loadingIcon = false;
+          console.error('Erro ao enviar o ícone', error);
+        },
       });
     }
   }
@@ -170,9 +182,9 @@ export class ListaQuizzesComponent implements OnInit {
       cancelButtonText: 'Cancelar',
     }).then((result: any) => {
       if (result.isConfirmed) {
-        localStorage.removeItem('token')
-        this.route.navigate(['/login'])
+        localStorage.removeItem('token');
+        this.route.navigate(['/login']);
       }
-    })
+    });
   }
 }

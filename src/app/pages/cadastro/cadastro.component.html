@@ -1,27 +1,39 @@
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+  rel="stylesheet"
+/>
 
-<div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center" style="background-color: #efefef;">
-
+<div
+  class="container-fluid min-vh-100 d-flex justify-content-center align-items-center"
+  style="background-color: #efefef"
+>
   <main>
     <app-welcome />
     <form [formGroup]="signupForm" (ngSubmit)="submitSignup()">
       <h1 class="titulo-cadastro">Sign up</h1>
-      <input type="text" placeholder="Nome" formControlName="name">
-      <input type="text" placeholder="Username" formControlName="username">
+      <input type="text" placeholder="Nome" formControlName="name" />
+      <input type="text" placeholder="Username" formControlName="username" />
       <div class="password">
-        <input placeholder="Senha" formControlName="password" type="{{showPassword ? 'text' :'password'}}">
-        <span class="material-symbols-outlined visibility" (click)="showPassword=!showPassword">{{!showPassword ? 'visibility' : 'visibility_off'}}</span>
+        <input
+          placeholder="Senha"
+          formControlName="password"
+          type="{{ showPassword ? 'text' : 'password' }}"
+        />
+        <span
+          class="material-symbols-outlined visibility"
+          (click)="showPassword = !showPassword"
+          >{{ !showPassword ? "visibility" : "visibility_off" }}</span
+        >
       </div>
       <button>
         @if(loading){
-          <div class="spinner"></div>
-          }
-          @else {
-          Cadastrar
-          }
+        <div class="spinner"></div>
+        } @else { Cadastrar }
       </button>
-      <p class="link">Já possui uma conta? <a style="cursor: pointer;" (click)="navigate()">Log in</a></p>
+      <p class="link">
+        Já possui uma conta?
+        <a style="cursor: pointer" (click)="navigate()">Entrar</a>
+      </p>
     </form>
   </main>
-
 </div>
