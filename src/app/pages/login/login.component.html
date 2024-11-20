@@ -1,28 +1,48 @@
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+  rel="stylesheet"
+/>
 
-<div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center" style="background-color: #efefef;">
+<div
+  class="container-fluid min-vh-100 d-flex justify-content-center align-items-center"
+  style="background-color: #efefef"
+>
   <main>
     <app-welcome />
 
     <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
       <h1 class="titulo-login">Log in</h1>
-      <input type="text" placeholder="Username" formControlName="username">
+      <input type="text" placeholder="Username" formControlName="username" />
       <div class="password">
-        <input placeholder="Senha" formControlName="password" type="{{showPassword ? 'text' :'password'}}">
-        <span class="material-symbols-outlined visibility" (click)="showPassword=!showPassword">{{!showPassword ? 'visibility' : 'visibility_off'}}</span>
+        <input
+          placeholder="Senha"
+          formControlName="password"
+          type="{{ showPassword ? 'text' : 'password' }}"
+        />
+        <span
+          class="material-symbols-outlined visibility"
+          (click)="showPassword = !showPassword"
+          >{{ !showPassword ? "visibility" : "visibility_off" }}</span
+        >
       </div>
-      <button style="cursor: pointer; display: flex; justify-content: center; align-items: center; height: 2em;"
-        [disabled]="!this.loginForm.valid || loading">
+      <button
+        style="
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 2em;
+        "
+        [disabled]="!this.loginForm.valid || loading"
+      >
         @if(loading){
         <div class="spinner"></div>
-        }
-        @else {
-        Log in
-        }
+        } @else { Entrar }
       </button>
-      <p class="link text-center">Ainda não tem uma conta? <a style="cursor: pointer;" (click)="navigate()">Sign up</a>
+      <p class="link text-center">
+        Ainda não tem uma conta?
+        <a style="cursor: pointer" (click)="navigate()">Cadastre-se</a>
       </p>
     </form>
   </main>
-
 </div>

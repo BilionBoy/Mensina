@@ -40,14 +40,13 @@
   transform: translateX(-100%);
 }
 
-
 .lateral-esquerda h1 {
   margin-top: 0.9em;
-  font-family: 'Poppins-semiBold';
+  font-family: "Poppins-semiBold";
   font-size: 2em;
 }
 
-.icon{
+.icon {
   height: auto;
   border-radius: 50%;
   height: 80px;
@@ -56,7 +55,7 @@
   margin-top: 15px;
 }
 
-.icon-header{
+.icon-header {
   height: auto;
   border-radius: 50%;
   height: 50px;
@@ -64,35 +63,33 @@
   object-fit: cover;
 }
 
-
-
 .score-button {
-  background-color: #ECE8E8;
-  padding: 5px 10px ;
+  background-color: #ece8e8;
+  padding: 5px 10px;
   border-radius: 15px;
-  font-family: 'Roboto-regular';
+  font-family: "Roboto-regular";
 }
 
-.percentage{
-  font-family: 'Poppins-semiBold';
+.percentage {
+  font-family: "Poppins-semiBold";
   font-size: 60px;
   line-height: 0.4;
 }
 
 .sub-porcentagem {
-  font-family: 'Poppins-regular';
+  font-family: "Poppins-regular";
   font-size: 20px;
   font-weight: 100;
 }
 
 .welcome-name {
-  font-family: 'Poppins-Light';
+  font-family: "Poppins-Light";
   font-size: 1.5em;
   font-weight: 400;
 }
 
 .welcome-text {
-  font-family: 'Poppins-Light';
+  font-family: "Poppins-Light";
   line-height: 1em;
   font-size: 13px;
   color: #ffffffc6;
@@ -103,7 +100,7 @@
 .popular {
   margin-bottom: 0.5em;
   margin-top: 1em;
-  font-family: 'Poppins-Medium';
+  font-family: "Poppins-Medium";
   margin-left: 5px;
 }
 
@@ -114,10 +111,12 @@
   border-radius: 15px;
   display: flex;
   flex-direction: column;
+  position: fixed;
+  right: 10px;
 }
 
 .ranking-title {
-  font-family: 'Poppins-bold';
+  font-family: "Poppins-bold";
   font-size: large;
   text-align: center;
   margin-bottom: 1em;
@@ -128,7 +127,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: 'Poppins-Bold';
+  font-family: "Poppins-Bold";
 }
 
 .ranking img {
@@ -144,19 +143,20 @@
 .perfil-ranking {
   display: flex;
   align-items: center;
-  font-family: 'Poppins-regular';
+  font-family: "Poppins-regular";
 }
 
 .meus-quizzes-title {
   margin-top: 3em;
-  font-family: 'Poppins-Medium';
+  font-family: "Poppins-Medium";
   font-size: large;
   font-weight: 500;
   margin-left: 1em;
+  margin-bottom: 4px;
 }
 
 .meus-quizzes {
-  background-color: #D3D4FE;
+  background-color: #d3d4fe;
   padding: 1em;
   border-radius: 15px;
 }
@@ -168,27 +168,26 @@
 
 .meus-quizzes-card button {
   padding: 0.3em 2em;
-  font-family: 'Poppins-Medium';
+  font-family: "Poppins-Medium";
   border-radius: 15px;
   background-color: #ffffffd4;
   align-self: end;
 }
 
-
 input {
-  border: solid #F7F7F7 1px;
+  border: solid #f7f7f7 1px;
   padding: 0.2em 0.4em;
   border-radius: 5px;
   font-size: 19px;
   font-family: "Poppins-Regular";
   background-color: #161616;
-  color: #F7F7F7;
+  color: #f7f7f7;
 }
 
-.btn_update button{
+.btn_update button {
   padding: 0.5em 1em;
   border-radius: 5px;
-  font-family: 'Poppins-semiBold';
+  font-family: "Poppins-semiBold";
 }
 
 .btn_update {
@@ -206,12 +205,16 @@ input {
   height: 100%;
 }
 
+.margin-right {
+  margin-right: 380px;
+}
+
 @media (min-width: 992px) {
   .lateral-esquerda {
     transform: translateX(0);
   }
   .margin-left {
-    margin-left: 346px;
+    margin-left: 350px;
   }
   .min-w {
     min-width: 350px;
@@ -235,11 +238,19 @@ input {
 
 @media (min-width: 1200px) {
   .max-height {
-    max-height: 500px;
+    max-height: 40vh;
   }
 }
 @media (max-width: 1200px) {
   .width-responsive {
     width: 100%;
+  }
+
+  .lateral-direita {
+    position: static;
+  }
+
+  .margin-right {
+    margin-right: 0px;
   }
 }
