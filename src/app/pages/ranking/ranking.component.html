@@ -1,1 +1,8 @@
-<p>ranking works!</p>
+<div *ngIf="rankList.length > 0" class="ranking-list">
+  <app-rank-item *ngFor="let item of rankList" [rankItem]="item"></app-rank-item>
+</div>
+
+<!-- Caso não haja dados, exibe uma mensagem -->
+<div *ngIf="rankList.length === 0" class="no-rank-message">
+  <p>Não há dados disponíveis no ranking.</p>
+</div>
