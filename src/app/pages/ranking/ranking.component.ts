@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RankService } from 'src/app/services/rank.service';
-import { IRank } from 'src/interfaces/IRank';
+import { RankService } from '../../../../..//services/rank.service';
+import { IRank } from '../../../../..//interfaces/IRank';
 
 @Component({
   selector: 'app-ranking',
