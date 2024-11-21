@@ -8,5 +8,6 @@ import { IRank } from '../../../interfaces/IRank';
   styleUrls: ['./rank-item.component.css']
 })
 export class RankItemComponent {
+  @Input() position: number = 0
   @Input() rankItem!: IRank; // Recebe os dados do item do rank como entrada
 }

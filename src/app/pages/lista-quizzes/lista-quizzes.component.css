@@ -161,6 +161,21 @@
   border-radius: 15px;
 }
 
+.link {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: #161616;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .nome-meusquizzes {
   display: flex;
   gap: 0.3em;

@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import {
   Component,
@@ -18,6 +18,9 @@ import Swal from 'sweetalert2';
 import { TagListComponent } from './components/tag-list/tag-list.component';
 import { AtualizarDadosComponent } from './components/atualizar-dados/atualizar-dados.component';
 import { RankingComponent } from '../ranking/ranking.component';
+import { RankService } from '../../../services/rank.service';
+import { IRank } from '../../../interfaces/IRank';
+import { RankItemComponent } from '../../shared/rank-item/rank-item.component';
 
 
 @Component({
@@ -28,8 +31,8 @@ import { RankingComponent } from '../ranking/ranking.component';
     CommonModule,
     AtualizarDadosComponent, // Adicionado na lista de imports
     TagListComponent,
-    RankingComponent, // Adicionado o RankingComponent
-
+    RankItemComponent,
+    RouterModule
   ],
   templateUrl: './lista-quizzes.component.html',
   styleUrls: ['./lista-quizzes.component.css'],
@@ -37,6 +40,7 @@ import { RankingComponent } from '../ranking/ranking.component';
 export class ListaQuizzesComponent implements OnInit {
   quizzes: IQuiz[] = [];
   myQuizzes: IQuiz[] = [];
+  rankList: IRank[] = [];
   editarPerfil = false;
   userIconUrl: SafeUrl | null = null;
   selectedFile: File | null = null;
@@ -55,8 +59,17 @@ export class ListaQuizzesComponent implements OnInit {
     private toastr: ToastrService,
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
-    private route: Router
+    private route: Router,
+    private rankService: RankService
   ) {}
+
+  ngOnInit(): void {
+    this.telaGrande = window.innerWidth >= 992;
+    this.getUserInfo();
+    this.getQuizzes();
+    this.getMyQuizzes();
+    this.fetchRankData()
+  }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
@@ -86,13 +99,6 @@ export class ListaQuizzesComponent implements OnInit {
       this.renderer.addClass(this.document.body, 'no-scroll');
     }
     this.navbarVisivel = !this.navbarVisivel;
-  }
-
-  ngOnInit(): void {
-    this.telaGrande = window.innerWidth >= 992;
-    this.getUserInfo();
-    this.getQuizzes();
-    this.getMyQuizzes();
   }
 
   getQuizzes(tagId?: number) {
@@ -172,6 +178,17 @@ export class ListaQuizzesComponent implements OnInit {
         },
       });
     }
+  }
+
+  fetchRankData(): void {
+    this.rankService.getRank({perPage:5}).subscribe({
+      next: (data) => {
+        this.rankList = data;
+      },
+      error: (error) => {
+        console.error('Erro ao buscar o ranking:', error);
+      }
+    });
   }
 
   logout() {

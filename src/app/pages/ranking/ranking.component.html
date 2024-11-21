@@ -1,6 +1,6 @@
 <div class="ranking-list">
   @for(item of rankList; track item.id){
-    <app-rank-item [rankItem]="item"></app-rank-item>
+    <app-rank-item [position]="$index+1" [rankItem]="item"></app-rank-item>
   }
 </div>
 
