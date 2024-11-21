@@ -1,11 +1,12 @@
-<div class="ranking-list">
-  @for(item of rankList; track item.id){
-    <app-rank-item [position]="$index+1" [rankItem]="item"></app-rank-item>
-  }
-</div>
+<app-side-bar [screen]="'rank'"/>
 
-<div class="no-rank-message">
-  @if(rankList.length === 0){
-    <p>Não há dados disponíveis no ranking.</p>
-  }
-</div>
+<main class="margin-left">
+  <div class="ranking-list">
+    @if(rankList.length === 0){
+      <p>Não há dados disponíveis no ranking.</p>
+    }
+    @for(item of rankList; track item.id){
+      <app-rank-item [position]="$index+1" [rankItem]="item"></app-rank-item>
+    }
+  </div>
+</main>

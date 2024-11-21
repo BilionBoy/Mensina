@@ -99,6 +99,7 @@
   margin-left: 5px;
 }
 
+
 .quiz button {
   padding: 0.3em 2em;
   font-family: 'Poppins-Medium';
@@ -165,8 +166,14 @@ body.no-scroll {
   cursor: pointer;
 }
 
+@media (min-width: 992px) {
+  .margin-left {
+    margin-left: 350px;
+  }
+}
+
 @keyframes spinner-b87k6z {
   to {
-     transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }

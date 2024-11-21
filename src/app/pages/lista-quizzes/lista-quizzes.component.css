@@ -1,100 +1,3 @@
-/* Estilos lateral esquerda  */
-
-.circle {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  border: 1.5px solid var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
-  font-size: 24px;
-  position: relative;
-  margin-bottom: 15px;
-}
-
-.meio-esquerda {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.settings {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-}
-
-.lateral-esquerda {
-  position: relative;
-  background-color: #161616;
-  color: var(--white);
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  text-align: center;
-  justify-content: space-between;
-  padding: 30px 0;
-  transition: transform 0.3s ease-in-out;
-  transform: translateX(-100%);
-}
-
-.lateral-esquerda h1 {
-  margin-top: 0.9em;
-  font-family: "Poppins-semiBold";
-  font-size: 2em;
-}
-
-.icon {
-  height: auto;
-  border-radius: 50%;
-  height: 80px;
-  width: 80px;
-  object-fit: cover;
-  margin-top: 15px;
-}
-
-.icon-header {
-  height: auto;
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  object-fit: cover;
-}
-
-.score-button {
-  background-color: #ece8e8;
-  padding: 5px 10px;
-  border-radius: 15px;
-  font-family: "Roboto-regular";
-}
-
-.percentage {
-  font-family: "Poppins-semiBold";
-  font-size: 60px;
-  line-height: 0.4;
-}
-
-.sub-porcentagem {
-  font-family: "Poppins-regular";
-  font-size: 20px;
-  font-weight: 100;
-}
-
-.welcome-name {
-  font-family: "Poppins-Light";
-  font-size: 1.5em;
-  font-weight: 400;
-}
-
-.welcome-text {
-  font-family: "Poppins-Light";
-  line-height: 1em;
-  font-size: 13px;
-  color: #ffffffc6;
-}
-
 /* Estilo main  */
 
 .popular {
@@ -211,10 +114,6 @@ input {
   gap: 0.5em;
 }
 
-.lateral-esquerda.show {
-  transform: translateX(0);
-}
-
 .no-scroll {
   overflow: hidden;
   height: 100%;
@@ -225,9 +124,6 @@ input {
 }
 
 @media (min-width: 992px) {
-  .lateral-esquerda {
-    transform: translateX(0);
-  }
   .margin-left {
     margin-left: 350px;
   }
