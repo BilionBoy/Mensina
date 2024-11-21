@@ -17,6 +17,8 @@ import { CommonModule, DOCUMENT } from '@angular/common';
 import Swal from 'sweetalert2';
 import { TagListComponent } from './components/tag-list/tag-list.component';
 import { AtualizarDadosComponent } from './components/atualizar-dados/atualizar-dados.component';
+import { RankingComponent } from '../ranking/ranking.component';
+
 
 @Component({
   selector: 'app-lista-quizzes',
@@ -26,6 +28,8 @@ import { AtualizarDadosComponent } from './components/atualizar-dados/atualizar-
     CommonModule,
     AtualizarDadosComponent, // Adicionado na lista de imports
     TagListComponent,
+    RankingComponent, // Adicionado o RankingComponent
+
   ],
   templateUrl: './lista-quizzes.component.html',
   styleUrls: ['./lista-quizzes.component.css'],
