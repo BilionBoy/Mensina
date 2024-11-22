@@ -1,0 +1,24 @@
+.container-fluid {
+    padding: 0;
+  }
+  
+  .ranking-list {
+    min-height: 400px;
+  }
+  
+  .app-side-bar {
+    height: 100%;
+    min-height: 100vh; 
+  }
+  
+  .personal-ranking {
+    max-width: 350px;
+    margin: auto;
+  }
+  
+  @media (max-width: 992px) {
+    .ranking-list {
+      margin-bottom: 20px;
+    }
+  }
+  

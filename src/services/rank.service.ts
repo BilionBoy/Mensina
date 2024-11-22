@@ -1,20 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { IRank } from 'src/interfaces/IRank';
+import { IRank } from '../interfaces/IRank';
+
+interface IParams {
+  update_rank?: boolean
+  page?: number
+  perPage?: number
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class RankService {
 
-  private baseUrl = `${environment.apiUrl}/rank`;
+  private baseUrl = `http://localhost:5000/rank/`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  getRank(updateRank: boolean = false): Observable<IRank[]> {
-    const params = { update_rank: updateRank.toString() };
+  getRank(_params?: IParams): Observable<IRank[]> {
+    const params: any = {}
+    if(_params?.page) params.page = String(_params?.page)
+    if(_params?.perPage) params.perPage = String(_params?.perPage)
+    if(_params?.update_rank) params.page = String(_params?.update_rank)
     return this.http.get<IRank[]>(this.baseUrl, { params });
   }
 }

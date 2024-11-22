@@ -1,11 +1,15 @@
-<div class="ranking-list">
-  @for(item of rankList; track item.id){
-    <app-rank-item [rankItem]="item"></app-rank-item>
-  }
-</div>
+<app-side-bar [screen]="'rank'"></app-side-bar>
 
-<div class="no-rank-message">
-  @if(rankList.length === 0){
-    <p>Não há dados disponíveis no ranking.</p>
-  }
-</div>
+<main class="margin-left container-fluid">
+  <div class="row">
+    <!-- Navbar (já estabelecida como 3 colunas em md) -->
+  
+    <div class=" col-md-9 p-4">
+      <app-rank-global></app-rank-global>
+    </div>
+
+    <div class=" col-md-3 p-4">
+      <app-rank-pessoal></app-rank-pessoal>
+    </div>
+  </div>
+</main>

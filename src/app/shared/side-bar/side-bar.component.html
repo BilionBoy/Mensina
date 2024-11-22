@@ -1,0 +1,97 @@
+
+<header class="p-2 d-lg-none d-flex align-items-center justify-content-between" style="background-color: #161616">
+  <button (click)="toggleNavbar()" class="bg-transparent" style="width: 50px">
+    <span class="material-symbols-outlined text-white fs-2">menu</span>
+  </button>
+  <h1 class="text-white">mensina</h1>
+  <div class="position-relative">
+    @if(userIconUrl) {
+    <img class="icon-header" [src]="userIconUrl" alt="Ícone do Usuário" />
+    }@else {
+    <img class="icon-header" src="/svg/userIcon.svg" alt="Ícone do Usuário" />
+    } @if(loadingIcon) {
+    <div class="spinner position-absolute" style="right: 25px; bottom: 25px"></div>
+    }
+  </div>
+</header>
+
+@if(!editarPerfil){
+  <div class="lateral-esquerda h-100 position-fixed px-5 pt-5 d-lg-flex"
+    [ngClass]="{ show: navbarVisivel || telaGrande }" style="max-width: 346px">
+    <button class="position-absolute bg-transparent d-lg-none" style="right: 20px; top: 20px" (click)="toggleNavbar()">
+      <span class="material-symbols-outlined text-white">close</span>
+    </button>
+    <div class="d-flex flex-column align-items-center gap-2">
+      <span class="material-symbols-outlined settings" style="cursor: pointer; color: var(--white)"
+        (click)="this.editarPerfil = !this.editarPerfil;">edit</span>
+      <div class="position-relative">
+        @if(userIconUrl) {
+        <img class="icon d-none d-lg-block" [src]="userIconUrl" alt="Ícone do Usuário" />
+        } @else {
+        <img class="icon d-none d-lg-block" src="/svg/userIcon.svg" alt="Ícone do Usuário" />
+        } @if(loadingIcon) {
+        <div class="spinner position-absolute" style="right: 40px; bottom: 40px"></div>
+        }
+      </div>
+      <h3 class="welcome-name">Olá, {{ userInfo.username }}</h3>
+      <p class="welcome-text">
+        Seja bem vindo(a) a sua <br />
+        plataforma de estudos
+      </p>
+    </div>
+
+    <div class="meio-esquerda">
+      <div class="circle">
+        <div class="percentage">
+          70%<br /><span class="sub-porcentagem">de acertos</span>
+        </div>
+      </div>
+      <a [routerLink]="screen === 'lista-quizzes' ? 'rank' : '/'" class="score-button">{{screen === 'lista-quizzes' ? 'Visualizar pontuação' : 'Voltar para home'}}</a>
+    </div>
+    <div class="meio-final d-flex justify-content-between align-items-center">
+      <span class="material-symbols-outlined logout d-flex" style="align-items: start; cursor: pointer"
+        (click)="logout()">logout</span>
+      <h1 class="d-none d-lg-block m-0">mensina</h1>
+      <div style="width: 24px"></div>
+    </div>
+  </div>
+  }@else{
+  <div class="lateral-esquerda h-100 position-fixed px-5 pt-5 d-lg-flex padding-bottom"
+    [ngClass]="{ show: navbarVisivel || telaGrande }" style="max-width: 346px">
+    <button class="position-absolute bg-transparent d-lg-none" style="right: 20px; top: 20px" (click)="toggleNavbar()">
+      <span class="material-symbols-outlined text-white">close</span>
+    </button>
+    <div class="d-flex flex-column align-items-center gap-3">
+      <span class="material-symbols-outlined settings" style="cursor: pointer; color: var(--white)"
+        (click)="this.editarPerfil = !this.editarPerfil;">arrow_back</span>
+
+      <div class="position-relative">
+        <button (click)="fileInput.click()"
+          class="position-absolute z-3 rounded-circle d-flex justify-content-center align-items-center" style="
+            background-color: #16161681;
+            width: 40px;
+            height: 40px;
+            top: 7px;
+            right: -5px;
+          ">
+          <span class="material-symbols-outlined" style="cursor: pointer; color: var(--white)">edit</span>
+          <input type="file" accept="image/*" #fileInput (change)="onFileSelected($event)" style="display: none" />
+        </button>
+        <div class="position-relative">
+          @if(userIconUrl) {
+          <img class="icon" [src]="userIconUrl" alt="Ícone do Usuário" />
+          }@else {
+          <img class="icon d-none d-lg-block" src="/svg/userIcon.svg" alt="Ícone do Usuário" />
+          }@if(loadingIcon) {
+          <div class="spinner position-absolute" style="right: 40px; bottom: 40px"></div>
+          }
+        </div>
+      </div>
+      <app-atualizar-dados [userInfo]="userInfo" (onSubmitEvent)="onSubmitEvent($event)"></app-atualizar-dados>
+    </div>
+    <div class="meio-final">
+      <h1 class="d-none d-lg-block">mensina</h1>
+    </div>
+  </div>
+
+  }
