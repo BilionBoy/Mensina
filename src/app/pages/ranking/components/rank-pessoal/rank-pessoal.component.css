@@ -1,7 +1,4 @@
-body {
-  background-color: #F7F7F7;
-  font-family: "Poppins", sans-serif;
-}
+
 
 .lateral-direita {
   max-width: 300px;
@@ -16,15 +13,15 @@ body {
 }
 
 .ranking-title {
-  font-weight: bold;
+  font-family: "Poppins-Bold";
   font-size: 1.3rem;
   text-align: center;
   margin-bottom: 2rem;
 }
 
 .block-container {
-  border-radius: 1.25rem;
-  padding: 1rem;
+  border-radius: 1rem;
+  padding: 0.975rem;
   margin-bottom: 1rem;
 }
 
@@ -42,23 +39,29 @@ body {
 }
 .quizzes-section {
   background-color: #E6E5FF;
-  border-radius: 1.25rem;
+  border-radius: 1rem;
   padding: 1.5rem;
 }
 .categories-section {
   background-color: #FFF7CD;
-  border-radius: 1.25rem;
+  border-radius: 1rem;
   padding: 1.5rem;
 }
 
 .icon {
-  font-size: 1.7rem;
+  font-size: 1.9rem;
 }
 
 .block-container h4 {
-  font-weight: bold;
+  font-family: "Poppins-semiBold";
   margin: 0;
   font-size: 1rem;
+}
+.section-title {
+  font-family: "Poppins-semiBold";
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .block-container p {
@@ -68,26 +71,17 @@ body {
   font-size: 0.800rem;
 }
 
-.section-title {
-  font-weight: bold;
-  text-align: center;
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-}
 
 .list-group-item {
   background-color: transparent;
   border: none;
   padding: 0.5rem 0;
-  font-family: "Poppins", sans-serif;
   display: flex;
   justify-content: space-between;
-  font-size: 1rem;
+  font-size: 0.900rem;
   color: #333;
+  font-family: "Poppins-Medium", sans-serif;
+  font-weight: 600;
 }
 
-.text-span {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  color: #333;
-}
+
