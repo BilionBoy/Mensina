@@ -8,6 +8,7 @@ import { UserService } from '../../../services/user.service';
 import Swal from 'sweetalert2';
 import { Router, RouterModule } from '@angular/router';
 import { AtualizarDadosComponent } from '../../pages/lista-quizzes/components/atualizar-dados/atualizar-dados.component';
+import { IKpi } from '../../../interfaces/IKpi';
 
 @Component({
   selector: 'app-side-bar',
@@ -22,6 +23,7 @@ import { AtualizarDadosComponent } from '../../pages/lista-quizzes/components/at
 })
 export class SideBarComponent implements OnInit {
   @Input() screen: 'lista-quizzes' | 'rank' = 'lista-quizzes'
+  kpi: IKpi = {} as IKpi
 
   editarPerfil?: boolean = false
   userIconUrl: SafeUrl | null = null;
@@ -43,6 +45,16 @@ export class SideBarComponent implements OnInit {
 
   ngOnInit() {
     this.getUserInfo();
+    this.getKpi()
+  }
+
+  getKpi() {
+    this.userService.getKpi()
+    .subscribe({
+      next: res => {
+        this.kpi = res
+      }
+    })
   }
 
   onSubmitEvent(event: any) {

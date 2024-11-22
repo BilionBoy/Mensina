@@ -43,7 +43,9 @@
     <div class="meio-esquerda">
       <div class="circle">
         <div class="percentage">
-          70%<br /><span class="sub-porcentagem">de acertos</span>
+          {{((kpi.correctAnswersAvarage || 0)*100).toFixed(0) }}%
+          <br />
+          <span class="sub-porcentagem">de acertos</span>
         </div>
       </div>
       <a [routerLink]="screen === 'lista-quizzes' ? 'rank' : '/'" class="score-button">{{screen === 'lista-quizzes' ? 'Visualizar pontuação' : 'Voltar para home'}}</a>

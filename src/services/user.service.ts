@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { IKpi } from '../interfaces/IKpi';
+import { IUser } from '../interfaces/IUser';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +30,11 @@ export class UserService {
   }
 
   // Obtém informações do usuário
-  getUserInfos(): Observable<any> {
+  getUserInfos(): Observable<IUser> {
     return this.http.get(`${this.apiUrl}user_infos`);
+  }
+
+  getKpi(): Observable<IKpi> {
+    return this.http.get<IKpi>(`${this.apiUrl}kpi`);
   }
 }
