@@ -1,5 +1,5 @@
 
-<header class="p-2 d-lg-none d-flex align-items-center justify-content-between" style="background-color: #161616">
+<header class=" p-2 d-lg-none d-flex align-items-center justify-content-between" style="background-color: #161616">
   <button (click)="toggleNavbar()" class="bg-transparent" style="width: 50px">
     <span class="material-symbols-outlined text-white fs-2">menu</span>
   </button>
@@ -81,7 +81,7 @@
           @if(userIconUrl) {
           <img class="icon" [src]="userIconUrl" alt="Ícone do Usuário" />
           }@else {
-          <img class="icon d-none d-lg-block" src="/svg/userIcon.svg" alt="Ícone do Usuário" />
+          <img class="icon" src="/svg/userIcon.svg" alt="Ícone do Usuário" />
           }@if(loadingIcon) {
           <div class="spinner position-absolute" style="right: 40px; bottom: 40px"></div>
           }
