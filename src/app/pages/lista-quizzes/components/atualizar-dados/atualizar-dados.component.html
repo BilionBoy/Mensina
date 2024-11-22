@@ -1,11 +1,11 @@
 <form [formGroup]="atualizarDadosForm" (ngSubmit)="onSubmit()"
-  class="form-container d-flex flex-column gap-2 px-4 pb-4 rounded  ">
+  class="form-container d-flex flex-column gap-2  pb-4 rounded  ">
 
   <!-- Campo Nome -->
-  <div class="form-group d-flex flex-column align-items-start">
-    <label for="name">Nome</label>
-    <input type="text" class="form-control custom-input" placeholder="Nome" formControlName="name"
-      style="background-color: #161616; color:  #FFFFFF;">
+  <div class="form-group d-flex flex-column align-items-start" style="font-family: 'Poppins-Regular' ;">
+    <label for="name">Nome:</label>
+    <input type="text" class="form-control custom-input" placeholder="Digite o nome" formControlName="name"
+      style="background-color: #161616; color:  #FFFFFF; ">
     <small *ngIf="atualizarDadosForm.get('name')?.touched && atualizarDadosForm.get('name')?.errors?.['required']"
       class="text-danger">
       Nome é obrigatório.
@@ -13,10 +13,10 @@
   </div>
 
   <!-- Campo Username -->
-  <div class="form-group d-flex flex-column align-items-start">
-    <label for="username">Username</label>
-    <input type="text" class="form-control custom-input" placeholder="Username" formControlName="username"
-      style="background-color: #161616; color:  #FFFFFF;">
+  <div class="form-group d-flex flex-column align-items-start" style="font-family: 'Poppins-Regular';">
+    <label for="username">Username:</label>
+    <input type="text" class="form-control custom-input" placeholder="Digite o username" formControlName="username"
+      style="background-color: #161616; color:  #FFFFFF; font-family: 'Poppins-Regular';">
     <small
       *ngIf="atualizarDadosForm.get('username')?.touched && atualizarDadosForm.get('username')?.errors?.['required']"
       class="text-danger">
@@ -28,9 +28,9 @@
   </div>
 
   <!-- Campo Senha -->
-  <div class="form-group d-flex flex-column align-items-start">
-    <label for="password">Senha</label>
-    <input type="password" class="form-control" placeholder="Senha" formControlName="password"
+  <div class="form-group d-flex flex-column align-items-start" style="font-family: 'Poppins-Regular';">
+    <label for="password">Senha:</label>
+    <input type="password" class="form-control" placeholder="Digite a senha" formControlName="password"
       style="background-color: #161616; color:  #FFFFFF;">
     <small
       *ngIf="atualizarDadosForm.get('password')?.touched && atualizarDadosForm.get('password')?.errors?.['required']"
@@ -43,7 +43,7 @@
   </div>
 
   <!-- Botões -->
-  <div class="d-flex gap-3 justify-content-between mt-2">
+  <div class="d-flex gap-3 justify-content-between mt-2" style="font-family: 'Poppins-semiBold';">
     <button type="submit" [disabled]="atualizarDadosForm.invalid" class="btn w-50"
       style="background-color: #D7D3D3; color: #161616;">
       Salvar
