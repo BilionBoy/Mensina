@@ -9,7 +9,7 @@
   background-color: #FFFFFF;
   border-radius: 20px;
   padding: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 .ranking-title {
@@ -30,7 +30,9 @@
   display: flex;
   align-items: center;
   gap: 10px;
+
 }
+
 .position-container {
   background-color: #E7F3EC;
   display: flex;
@@ -58,7 +60,7 @@
   font-size: 1rem;
 }
 .section-title {
-  font-family: "Poppins-semiBold";
+  font-family: "Poppins-Bold";
   text-align: center;
   font-size: 1.2rem;
   margin-bottom: 1rem;
@@ -68,7 +70,7 @@
   margin: 0;
   color: #6c757d;
   font-family: "Poppins-Medium";
-  font-size: 0.800rem;
+  font-size: 0.830rem;
 }
 
 
