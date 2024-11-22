@@ -1,42 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'ngx-toastr/toastr';
+@import "ngx-toastr/toastr";
 
 @font-face {
-  font-family: 'Poppins-bold';
+  font-family: "Poppins-bold";
   src: url(app/assets/fonts/Poppins-Bold.ttf);
 }
 
 @font-face {
-  font-family: 'Roboto-regular';
+  font-family: "Roboto-regular";
   src: url(app/assets/fonts/Roboto-Regular.ttf);
 }
 
 @font-face {
-  font-family: 'Poppins-regular';
+  font-family: "Poppins-regular";
   src: url(app/assets/fonts/Poppins-Regular.ttf);
 }
 
 @font-face {
-  font-family: 'Poppins-semiBold';
+  font-family: "Poppins-semiBold";
   src: url(app/assets/fonts/Poppins-SemiBold.ttf);
 }
 
 @font-face {
-  font-family: 'Poppins-Light';
+  font-family: "Poppins-Light";
   src: url(app/assets/fonts/Poppins-Light.ttf);
 }
 
 @font-face {
-  font-family: 'Poppins-Medium';
+  font-family: "Poppins-Medium";
   src: url(app/assets/fonts/Poppins-Medium.ttf);
 }
 :root {
   --black: #161616;
-  --milk: #F7F7F7;
-  --white: #FFFFFF;
-  --purple: #D3D4FE;
-  --green: #E1ECE4;
-  --yellow: #FAEFB6;
+  --milk: #f7f7f7;
+  --white: #ffffff;
+  --purple: #d3d4fe;
+  --green: #e1ece4;
+  --yellow: #faefb6;
 }
 
 * {
@@ -71,10 +71,10 @@
 .tag-card p {
   margin-right: 15px;
   margin-bottom: 0;
-  font-family: 'Poppins-Medium';
+  font-family: "Poppins-Medium";
 }
 
-.quiz{
+.quiz {
   border-radius: 15px;
   padding: 1em;
   display: flex;
@@ -89,18 +89,18 @@
 
 .quiz-title {
   align-self: center;
-  font-family: 'Poppins-Medium';
+  font-family: "Poppins-Medium";
   color: #161616e4;
 }
 
 .quiz p {
-  font-family: 'Poppins-Medium';
+  font-family: "Poppins-Medium";
   margin-left: 5px;
 }
 
 .quiz button {
   padding: 0.3em 2em;
-  font-family: 'Poppins-Medium';
+  font-family: "Poppins-Medium";
   border-radius: 15px;
   background-color: #ffffffd4;
   align-self: end;
@@ -111,20 +111,20 @@
   border-radius: 80px;
   background-color: rgb(177, 205, 177);
   font-family: "Poppins-regular";
-  box-shadow: none!important;
+  box-shadow: none !important;
 }
 
 .toast-error {
   border-radius: 80px;
   background-color: rgb(255, 174, 187);
   font-family: "Poppins-regular";
-  box-shadow: none!important;
+  box-shadow: none !important;
 }
 
 .toast-info {
   border-radius: 80px;
   background-color: rgb(162, 208, 240);
-  box-shadow: none!important;
+  box-shadow: none !important;
   font-family: "Poppins-regular";
 }
 
@@ -137,7 +137,11 @@ body.no-scroll {
   width: 4.8px;
   height: 4.8px;
   border-radius: 4.8px;
-  box-shadow: 12px 0px 0 0 rgba(255,255,255,0.2), 9.7px 7.1px 0 0 rgba(255,255,255,0.4), 3.7199999999999998px 11.4px 0 0 rgba(255,255,255,0.6), -3.7199999999999998px 11.4px 0 0 rgba(255,255,255,0.8), -9.7px 7.1px 0 0 #ffffff;
+  box-shadow: 12px 0px 0 0 rgba(255, 255, 255, 0.2),
+    9.7px 7.1px 0 0 rgba(255, 255, 255, 0.4),
+    3.7199999999999998px 11.4px 0 0 rgba(255, 255, 255, 0.6),
+    -3.7199999999999998px 11.4px 0 0 rgba(255, 255, 255, 0.8),
+    -9.7px 7.1px 0 0 #ffffff;
   animation: spinner-b87k6z 1s infinite linear;
 }
 
@@ -145,7 +149,10 @@ body.no-scroll {
   width: 11.2px;
   height: 11.2px;
   border-radius: 11.2px;
-  box-shadow: 28px 0px 0 0 rgba(22,22,22,0.2), 22.7px 16.5px 0 0 rgba(22,22,22,0.4), 8.68px 26.6px 0 0 rgba(22,22,22,0.6), -8.68px 26.6px 0 0 rgba(22,22,22,0.8), -22.7px 16.5px 0 0 #161616;
+  box-shadow: 28px 0px 0 0 rgba(22, 22, 22, 0.2),
+    22.7px 16.5px 0 0 rgba(22, 22, 22, 0.4),
+    8.68px 26.6px 0 0 rgba(22, 22, 22, 0.6),
+    -8.68px 26.6px 0 0 rgba(22, 22, 22, 0.8), -22.7px 16.5px 0 0 #161616;
   animation: spinner-b87k6z 1s infinite linear;
 }
 
@@ -153,7 +160,7 @@ body.no-scroll {
   position: relative;
 }
 
-.password>input {
+.password > input {
   width: 100%;
 }
 
@@ -166,6 +173,45 @@ body.no-scroll {
 
 @keyframes spinner-b87k6z {
   to {
-     transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .quiz-des {
+    font-size: 20px!important;
+  }
+  .quiz-title {
+    font-size: 24px!important;
+    margin-top: 0px;
+  }
+  .content-quiz {
+    margin: 0px;
+    padding: 0px!important;
+  }
+  .close
+  {
+    padding: 0px!important;
+    padding-top: 1em!important;
+    padding-left: 1em!important;
+  }
+  .quiz-des{
+    width: 90vw!important;
+    border-radius: 15px!important;
+    margin-bottom: 1em!important;
+  }
+  .answers {
+    background-color: #f7f7f7!important;
+    width: 90vw!important;
+    padding: 0px!important;
+    margin: 0px!important;
+  }
+  .answer-card {
+    padding: 0px!important;
+  }
+  .quiz-info {
+    font-size: 15px!important;
+    width: 90vw!important;
+    margin-top: 2em!important;
   }
 }
