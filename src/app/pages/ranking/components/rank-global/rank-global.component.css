@@ -1,27 +1,56 @@
-body {
-  background-color: #8f6262;
-  font-family: "Poppins", sans-serif;
+.ranking-global-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-left: 40rem;
+  min-height: 80vh;
 }
-.container-fluid {
-    padding: 0;
-  }
 
-  .ranking-list {
-    min-height: 400px;
-  }
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333333;
+  text-align: center;
+}
 
-  .app-side-bar {
-    height: 100%;
-    min-height: 100vh;
-  }
+.ranking-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-  .personal-ranking {
-    max-width: 350px;
-    margin: auto;
-  }
+.ranking-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
 
-  @media (max-width: 992px) {
-    .ranking-list {
-      margin-bottom: 20px;
-    }
-  }
+.ranking-item:last-child {
+  border-bottom: none;
+}
+
+.ranking-position {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #555555;
+}
+
+.ranking-name {
+  flex: 1;
+  text-align: left;
+  margin-left: 10px;
+  font-size: 1rem;
+  color: #333333;
+}
+
+.ranking-xp {
+  font-size: 1rem;
+  color: #888888;
+}
