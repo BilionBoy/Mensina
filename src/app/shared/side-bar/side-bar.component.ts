@@ -8,22 +8,20 @@ import { UserService } from '../../../services/user.service';
 import Swal from 'sweetalert2';
 import { Router, RouterModule } from '@angular/router';
 import { AtualizarDadosComponent } from '../../pages/lista-quizzes/components/atualizar-dados/atualizar-dados.component';
+import { IKpi } from '../../../interfaces/IKpi';
 
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.css'],
   standalone: true,
-  imports:[
-    CommonModule,
-    AtualizarDadosComponent,
-    RouterModule
-  ]
+  imports: [CommonModule, AtualizarDadosComponent, RouterModule],
 })
 export class SideBarComponent implements OnInit {
-  @Input() screen: 'lista-quizzes' | 'rank' = 'lista-quizzes'
+  @Input() screen: 'lista-quizzes' | 'rank' = 'lista-quizzes';
+  kpi: IKpi = {} as IKpi;
 
-  editarPerfil?: boolean = false
+  editarPerfil?: boolean = false;
   userIconUrl: SafeUrl | null = null;
   selectedFile: File | null = null;
   userInfo: IUser = {};
@@ -31,25 +29,33 @@ export class SideBarComponent implements OnInit {
   public navbarVisivel: boolean = false;
   public telaGrande: boolean = false;
 
-
   constructor(
     private userService: UserService,
     private sanitizer: DomSanitizer,
     private toastr: ToastrService,
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
-    private route: Router,
-  ) { }
+    private route: Router
+  ) {}
 
   ngOnInit() {
     this.getUserInfo();
+    this.getKpi();
+  }
+
+  getKpi() {
+    this.userService.getKpi().subscribe({
+      next: (res) => {
+        this.kpi = res;
+      },
+    });
   }
 
   onSubmitEvent(event: any) {
     if (event) {
       this.getUserInfo();
     }
-    this.editarPerfil = !this.editarPerfil
+    this.editarPerfil = !this.editarPerfil;
   }
 
   toggleNavbar() {
