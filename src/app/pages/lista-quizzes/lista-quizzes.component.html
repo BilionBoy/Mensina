@@ -2,7 +2,8 @@
 
 <div class="d-flex min-vh-100 mx-0 px-0" style="background-color: #efefef">
   <div
-    class="px-3 pb-5 p-xl-0 d-flex w-100 min-vh-100 gap-5 gap-lg-2 gap-xxl-0 align-items-center align-items-xl-start flex-column flex-xl-row justify-content-between margin-right margin-left">
+    class="px-3 pb-5 p-xl-0 d-flex w-100 min-vh-100 gap-5 gap-lg-2 gap-xxl-0 align-items-center align-items-xl-start flex-column flex-xl-row justify-content-between margin-right margin-left"
+  >
     <main class="px-xl-2 px-xxl-5 pt-2 pb-5 py-md-3 w-100">
       <div class="tags">
         <app-tag-list (tagSelected)="onChangeTag($event)"></app-tag-list>
@@ -24,25 +25,33 @@
       }
     </main>
 
-    <div class="lateral-direita mx-0 mt-xl-5 me-xl-3 me-xxl-5 max-h-75 width-responsive">
-      <div class="py-3 min-w">
+    <div
+      class="lateral-direita mx-0 mt-xl-5 me-xl-3 me-xxl-5 max-h-75 width-responsive"
+    >
+      <div class="py-3 min-w rank">
         <div class="px-3 px-md-5 px-xxl-4">
           <p class="ranking-title">Ranking global</p>
           @for(item of rankList; track item.id){
-            <app-rank-item [position]="$index+1" [rankItem]="item"></app-rank-item>
+          <app-rank-item
+            [position]="$index + 1"
+            [rankItem]="item"
+          ></app-rank-item>
           }
           <div class="link">
             <a [routerLink]="['/rank']">Ver mais</a>
           </div>
         </div>
 
-
         <div class="px-md-2">
           <p class="meus-quizzes-title">Quizzes em andamento</p>
 
-          <div class="d-flex flex-wrap flex-xl-nowrap flex-xl-column overflow-y-auto max-height">
+          <div
+            class="d-flex flex-wrap flex-xl-nowrap flex-xl-column overflow-y-auto max-height"
+          >
             @if (loadingMyQuizzes!) {
-            <div style="height: 20vh; align-content: center; justify-items: center">
+            <div
+              style="height: 20vh; align-content: center; justify-items: center"
+            >
               <div class="spinner-card justify-content-center"></div>
             </div>
             } @else { @for(quiz of myQuizzes; track quiz.id){

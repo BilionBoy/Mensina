@@ -151,6 +151,9 @@ input {
   .max-height {
     max-height: 40vh;
   }
+  .rank {
+    max-width: 350px;
+  }
 }
 @media (max-width: 1200px) {
   .width-responsive {

@@ -27,6 +27,9 @@ p {
 
 .user-name {
   flex: 3;
+  white-space: nowrap; /* Impede que o texto quebre para uma nova linha */
+  overflow: hidden; /* Oculta o texto que ultrapassa os limites */
+  text-overflow: ellipsis;
   width: auto;
   text-align: start;
   font-weight: 500;
