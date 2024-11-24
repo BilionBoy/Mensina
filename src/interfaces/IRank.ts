@@ -1,10 +1,11 @@
-import { IQuiz } from "./IQuiz";
-import { IUser } from "./IUser";
+import { IQuiz } from './IQuiz';
+import { IUser } from './IUser';
 
 export interface IRank {
-    id: number;
-    totalScore: number;
-    user: IUser;
-    bestScoreQuiz: IQuiz;
-  }
-  
+  id: number;
+  totalScore: number;
+  userId: number;
+  user: IUser;
+  bestScoreQuizId: number;
+  bestScoreQuiz: IQuiz;
+}

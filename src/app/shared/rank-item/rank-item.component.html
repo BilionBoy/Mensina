@@ -1,6 +1,10 @@
 <div class="ranking-item">
-  <p class="position">{{position}} º</p>
-  <!-- <img [src]="rankItem.user.iconPath" alt="Foto do usuário" /> -->
+  <p class="position">{{ position }} º</p>
+  @if(userIcon) {
+  <img class="user-icon" [src]="userIcon" alt="Ícone do Usuário" />
+  }@else {
+  <img class="user-icon" src="/svg/userIconDark.svg" alt="Ícone do Usuário" />
+  }
   <p class="user-name">{{ rankItem.user.name }}</p>
   <p class="score">{{ rankItem.totalScore }} XP</p>
 </div>

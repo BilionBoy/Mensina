@@ -15,7 +15,8 @@ import { RankService } from '../../../services/rank.service';
 import { IRank } from '../../../interfaces/IRank';
 import { RankItemComponent } from '../../shared/rank-item/rank-item.component';
 import { SideBarComponent } from '../../shared/side-bar/side-bar.component';
-
+import { IconService } from '../../../services/icon.service';
+import { SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-lista-quizzes',
@@ -26,7 +27,7 @@ import { SideBarComponent } from '../../shared/side-bar/side-bar.component';
     SideBarComponent, // Adicionado na lista de imports
     TagListComponent,
     RankItemComponent,
-    RouterModule
+    RouterModule,
   ],
   templateUrl: './lista-quizzes.component.html',
   styleUrls: ['./lista-quizzes.component.css'],
@@ -35,8 +36,9 @@ export class ListaQuizzesComponent implements OnInit {
   quizzes: IQuiz[] = [];
   myQuizzes: IQuiz[] = [];
   rankList: IRank[] = [];
+  userIcons: Record<number, SafeUrl> = {};
   editarPerfil = false;
-  
+
   loadingQuizzes = false;
   loadingMyQuizzes = false;
 
@@ -47,14 +49,15 @@ export class ListaQuizzesComponent implements OnInit {
     private quizService: QuizService,
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
-    private rankService: RankService
+    private rankService: RankService,
+    private iconService: IconService
   ) {}
 
   ngOnInit(): void {
     this.telaGrande = window.innerWidth >= 992;
     this.getQuizzes();
     this.getMyQuizzes();
-    this.fetchRankData()
+    this.fetchRankData();
   }
 
   @HostListener('window:resize', ['$event'])
@@ -65,14 +68,10 @@ export class ListaQuizzesComponent implements OnInit {
     }
   }
 
-  
-
   onChangeTag(tagId: number) {
     this.getQuizzes(tagId);
     this.getMyQuizzes(tagId);
   }
-
-  
 
   getQuizzes(tagId?: number) {
     this.loadingQuizzes = true;
@@ -100,24 +99,19 @@ export class ListaQuizzesComponent implements OnInit {
     });
   }
 
-  
-
   ativarEdicao() {
     this.editarPerfil = !this.editarPerfil;
   }
 
-  
-
   fetchRankData(): void {
-    this.rankService.getRank({perPage:5}).subscribe({
-      next: (data) => {
+    this.rankService.getRank({ perPage: 5 }).subscribe({
+      next: async (data) => {
         this.rankList = data;
+        this.iconService.getIconsList(data, this.userIcons);
       },
       error: (error) => {
         console.error('Erro ao buscar o ranking:', error);
-      }
+      },
     });
   }
-
-  
 }
