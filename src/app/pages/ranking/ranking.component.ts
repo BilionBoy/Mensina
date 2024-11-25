@@ -5,6 +5,9 @@ import { RankItemComponent } from '../../shared/rank-item/rank-item.component';
 import { SideBarComponent } from '../../shared/side-bar/side-bar.component';
 import { RankPessoalComponent } from "./components/rank-pessoal/rank-pessoal.component";
 import { RankGlobalComponent } from "./components/rank-global/rank-global.component";
+import { ToastrService } from 'ngx-toastr';
+import { UserService } from '../../../services/user.service';
+import { IKpi } from '../../../interfaces/IKpi';
 
 @Component({
   selector: 'app-ranking',
@@ -19,22 +22,49 @@ import { RankGlobalComponent } from "./components/rank-global/rank-global.compon
   standalone: true,
 })
 export class RankingComponent implements OnInit {
-  rankList: IRank[] = [];
+  rank: IRank[] = []
+  kpi: IKpi = {} as IKpi
+  rankLoading: boolean = false
+  kpiLoading: boolean = false
 
-  constructor(private rankService: RankService) { }
+  constructor(
+    private rankService: RankService,
+    private userService: UserService,
+    private toastr: ToastrService,
+  ) {}
 
   ngOnInit(): void {
-    this.fetchRankData();
+    this.getRank()
+    this.getKpi()
   }
 
-  fetchRankData(): void {
-    this.rankService.getRank().subscribe({
-      next: (data) => {
-        this.rankList = data;
+  getRank() {
+    this.rankLoading = true
+    this.rankService.getRank()
+    .subscribe({
+      next: res => {
+        this.rank = res
+        this.rankLoading = false
       },
-      error: (error) => {
-        console.error('Erro ao buscar o ranking:', error);
+      error: err => {
+        this.rankLoading = false
+        this.toastr.error("Erro ao carregar ranking global")
       }
-    });
+    })
+  }
+
+  getKpi() {
+    this.kpiLoading = true
+    this.userService.getKpi()
+    .subscribe({
+      next: res => {
+        this.kpi = res
+        this.kpiLoading = false
+      },
+      error: err => {
+        this.toastr.error("Erro ao carregar ranking pessoal")
+        this.kpiLoading = false
+      }
+    })
   }
 }

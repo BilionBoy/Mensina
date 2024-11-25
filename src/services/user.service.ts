@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IKpi } from '../interfaces/IKpi';
+import { IUser } from '../interfaces/IUser';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   private apiUrl = 'http://localhost:5000/user/';
+
+  userInfo?: IUser
 
   constructor(private http: HttpClient) {}
 
@@ -21,9 +24,30 @@ export class UserService {
     return this.http.post(`${this.apiUrl}icon`, icon, { observe: 'response' });
   }
 
-  // Obtém informações do usuário
-  getUserInfos(): Observable<any> {
-    return this.http.get(`${this.apiUrl}user_infos`);
+  private _getUserInfos() {
+    return new Promise<void>((resolve, rej) => {
+      this.http.get<IUser>(`${this.apiUrl}user_infos`)
+      .subscribe({
+        next: res => {
+          this.userInfo = res
+          resolve()
+        },
+        error: err => {
+          rej()
+        }
+      })
+    })
+  }
+
+  async getUserInfos(reload?: boolean): Promise<IUser> {
+    if(this.userInfo && !reload) {
+      console.log('ja tem', this.userInfo);
+      
+      return this.userInfo
+    }
+    await this._getUserInfos()
+
+    return this.userInfo!
   }
 
   getKpi(): Observable<IKpi> {

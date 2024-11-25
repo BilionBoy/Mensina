@@ -32,7 +32,7 @@
 }
 :root {
   --black: #161616;
-  --milk: #f7f7f7;
+  --milk: #efefef;
   --white: #ffffff;
   --purple: #d3d4fe;
   --green: #e1ece4;
@@ -201,7 +201,7 @@ body.no-scroll {
     margin-bottom: 1em !important;
   }
   .answers {
-    background-color: #f7f7f7 !important;
+    background-color: #efefef !important;
     width: 90vw !important;
     padding: 0px !important;
     margin: 0px !important;

@@ -93,13 +93,13 @@ a {
 }
 
 input {
-  border: solid #f7f7f7 1px;
+  border: solid #efefef 1px;
   padding: 0.2em 0.4em;
   border-radius: 5px;
   font-size: 19px;
   font-family: "Poppins-Regular";
   background-color: #161616;
-  color: #f7f7f7;
+  color: #efefef;
 }
 
 .btn_update button {

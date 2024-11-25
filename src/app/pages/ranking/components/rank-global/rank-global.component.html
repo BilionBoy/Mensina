@@ -1,33 +1,17 @@
-<div class="main-content mt-5">
+<div class="mt-5">
     <div class="ranking-global-container">
       <h2 class="ranking-title">Ranking Global</h2>
-      <ul class="ranking-list">
-        <li class="ranking-item">
-          <span class="ranking-position">1º</span>
-          <span class="ranking-name">Carlos</span>
-          <span class="ranking-xp">2000 XP</span>
-        </li>
-        <li class="ranking-item">
-          <span class="ranking-position">2º</span>
-          <span class="ranking-name">Ana</span>
-          <span class="ranking-xp">20 XP</span>
-        </li>
-        <li class="ranking-item">
-          <span class="ranking-position">3º</span>
-          <span class="ranking-name">João</span>
-          <span class="ranking-xp">20 XP</span>
-        </li>
-        <li class="ranking-item">
-          <span class="ranking-position">4º</span>
-          <span class="ranking-name">Eduardo</span>
-          <span class="ranking-xp">20 XP</span>
-        </li>
-        <li class="ranking-item">
-          <span class="ranking-position">5º</span>
-          <span class="ranking-name">Larissa</span>
-          <span class="ranking-xp">20 XP</span>
-        </li>
-      </ul>
+      @if(loading) {
+        <div class="spinner-card" style="margin: 80px auto;"></div>
+      }@else {
+        <ul class="ranking-list">
+          @for(rankItem of rank; track rankItem.id){
+            <li class="ranking-item">
+              <app-rank-item [rankItem]="rankItem" [position]="$index+1"/>
+            </li>
+          }
+        </ul>
+      }
     </div>
   </div>
   

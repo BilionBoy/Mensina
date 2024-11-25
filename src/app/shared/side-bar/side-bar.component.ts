@@ -52,7 +52,7 @@ export class SideBarComponent implements OnInit {
 
   onSubmitEvent(event: any) {
     if (event) {
-      this.getUserInfo();
+      this.getUserInfo(true);
     }
     this.editarPerfil = !this.editarPerfil;
   }
@@ -85,15 +85,8 @@ export class SideBarComponent implements OnInit {
     });
   }
 
-  getUserInfo() {
-    this.userService.getUserInfos().subscribe({
-      next: (res: IUser) => {
-        this.userInfo = res;
-      },
-      error: (err) => {
-        this.toastr.error('Não foi possível obter informações do usuário');
-      },
-    });
+  async getUserInfo(reload?: boolean) {
+    this.userInfo = await this.userService.getUserInfos(reload)
   }
 
   onFileSelected(event: any): void {
