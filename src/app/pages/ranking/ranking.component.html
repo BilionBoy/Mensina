@@ -1,13 +1,13 @@
 <app-side-bar [screen]="'rank'"></app-side-bar>
 <div class="d-flex min-vh-100 mx-0 px-0" style="background-color: #efefef">
   <main class="margin-left">
-    <div class="d-flex">
+    <div class="d-flex" style="justify-content: space-between; padding: 2em; gap: 1em;">
       <!-- Navbar (já estabelecida como 3 colunas em md) -->
-      <div class="col-12 col-xl-9">
+      <div class="d-flex" >
         <app-rank-global [rank]="rank" [loading]="rankLoading"></app-rank-global>
       </div>
 
-      <div class="col-12 col-xl-3 d-flex" style="padding: 0px; justify-content: end; padding-right: 1em; padding-top: 2em;;">
+      <div class="d-flex" style="padding-top: 3em; margin: 0px;">
         <app-rank-pessoal [kpi]="kpi" [rank]="rank" [loading]="kpiLoading"></app-rank-pessoal>
       </div>
     </div>

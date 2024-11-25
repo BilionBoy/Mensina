@@ -8,3 +8,10 @@
 main {
   flex: 1;
 }
+
+@media(max-width: 720px){
+  app-rank-global{
+    display: flex;
+    flex-direction: column;
+  }
+}
