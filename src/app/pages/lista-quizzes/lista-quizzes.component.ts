@@ -15,7 +15,6 @@ import { RankService } from '../../../services/rank.service';
 import { IRank } from '../../../interfaces/IRank';
 import { RankItemComponent } from '../../shared/rank-item/rank-item.component';
 import { SideBarComponent } from '../../shared/side-bar/side-bar.component';
-import { IconService } from '../../../services/icon.service';
 import { SafeUrl } from '@angular/platform-browser';
 
 @Component({
@@ -50,7 +49,6 @@ export class ListaQuizzesComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
     private rankService: RankService,
-    private iconService: IconService
   ) {}
 
   ngOnInit(): void {
@@ -107,7 +105,6 @@ export class ListaQuizzesComponent implements OnInit {
     this.rankService.getRank({ perPage: 5 }).subscribe({
       next: async (data) => {
         this.rankList = data;
-        this.iconService.getIconsList(data, this.userIcons);
       },
       error: (error) => {
         console.error('Erro ao buscar o ranking:', error);

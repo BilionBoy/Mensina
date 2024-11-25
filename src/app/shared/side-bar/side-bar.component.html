@@ -7,8 +7,8 @@
   </button>
   <h1 class="text-white">mensina</h1>
   <div class="position-relative">
-    @if(userIconUrl) {
-    <img class="icon-header" [src]="userIconUrl" alt="Ícone do Usuário" />
+    @if(userInfo.safeUrlIcon) {
+    <img class="icon-header" [src]="userInfo.safeUrlIcon" alt="Ícone do Usuário" />
     }@else {
     <img class="icon-header" src="/svg/userIcon.svg" alt="Ícone do Usuário" />
     } @if(loadingIcon) {
@@ -41,10 +41,10 @@
       >edit</span
     >
     <div class="position-relative">
-      @if(userIconUrl) {
+      @if(userInfo.safeUrlIcon) {
       <img
         class="icon d-none d-lg-block"
-        [src]="userIconUrl"
+        [src]="userInfo.safeUrlIcon"
         alt="Ícone do Usuário"
       />
       } @else {
@@ -141,8 +141,8 @@
         />
       </button>
       <div class="position-relative">
-        @if(userIconUrl) {
-        <img class="icon" [src]="userIconUrl" alt="Ícone do Usuário" />
+        @if(userInfo.safeUrlIcon) {
+        <img class="icon" [src]="userInfo.safeUrlIcon" alt="Ícone do Usuário" />
         }@else {
         <img class="icon" src="/svg/userIcon.svg" alt="Ícone do Usuário" />
         }@if(loadingIcon) {

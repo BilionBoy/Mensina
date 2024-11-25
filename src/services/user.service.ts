@@ -16,13 +16,6 @@ export class UserService {
     return this.http.put(`${this.apiUrl}`, dados);
   }
 
-  // Obtém o ícone do usuário
-  getIcon(userId: number): Observable<Blob> {
-    return this.http.get(`${this.apiUrl}icon/${userId}`, {
-      responseType: 'blob',
-    });
-  }
-
   // Faz o upload de um ícone de usuário
   uploadIcon(icon: FormData): Observable<any> {
     return this.http.post(`${this.apiUrl}icon`, icon, { observe: 'response' });

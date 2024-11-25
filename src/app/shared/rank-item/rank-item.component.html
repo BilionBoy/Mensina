@@ -1,7 +1,7 @@
 <div class="ranking-item">
   <p class="position">{{ position }} º</p>
-  @if(userIcon) {
-  <img class="user-icon" [src]="userIcon" alt="Ícone do Usuário" />
+  @if(rankItem.user.safeUrlIcon) {
+  <img class="user-icon" [src]="rankItem.user.safeUrlIcon" alt="Ícone do Usuário" />
   }@else {
   <img class="user-icon" src="/svg/userIconDark.svg" alt="Ícone do Usuário" />
   }

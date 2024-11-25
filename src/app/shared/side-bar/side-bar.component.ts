@@ -22,7 +22,6 @@ export class SideBarComponent implements OnInit {
   kpi: IKpi = {} as IKpi;
 
   editarPerfil?: boolean = false;
-  userIconUrl: SafeUrl | null = null;
   selectedFile: File | null = null;
   userInfo: IUser = {};
   loadingIcon = false;
@@ -90,27 +89,9 @@ export class SideBarComponent implements OnInit {
     this.userService.getUserInfos().subscribe({
       next: (res: IUser) => {
         this.userInfo = res;
-        this.getIconByUserId(res.id!);
       },
       error: (err) => {
         this.toastr.error('Não foi possível obter informações do usuário');
-      },
-    });
-  }
-
-  getIconByUserId(id: number) {
-    this.loadingIcon = true;
-    this.userService.getIcon(id).subscribe({
-      next: (blob) => {
-        this.loadingIcon = false;
-        this.loadingIcon = false;
-        if (!blob.size) return;
-        const url = URL.createObjectURL(blob);
-        this.userIconUrl = this.sanitizer.bypassSecurityTrustUrl(url);
-      },
-      error: (err) => {
-        this.loadingIcon = false;
-        console.error('Erro ao carregar a imagem', err);
       },
     });
   }
@@ -124,8 +105,7 @@ export class SideBarComponent implements OnInit {
       this.userService.uploadIcon(formData).subscribe({
         next: (response) => {
           this.loadingIcon = false;
-          if (!this.userInfo.id) return;
-          this.getIconByUserId(this.userInfo.id);
+          this.getUserInfo()
         },
         error: (error) => {
           this.loadingIcon = false;
