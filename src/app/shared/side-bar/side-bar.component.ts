@@ -98,7 +98,7 @@ export class SideBarComponent implements OnInit {
       this.userService.uploadIcon(formData).subscribe({
         next: (response) => {
           this.loadingIcon = false;
-          this.getUserInfo()
+          this.getUserInfo(true)
         },
         error: (error) => {
           this.loadingIcon = false;
