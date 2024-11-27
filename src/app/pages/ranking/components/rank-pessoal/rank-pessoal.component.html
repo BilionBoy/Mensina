@@ -1,30 +1,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 <div class="lateral-direita mx-0 mt-xl-2 me-xl-2 me-xxl-5 width-responsive">
   <div class="card-container">
-    <p class="ranking-title">Ranking Pessoal</p>
-
-    <div class="block-container xp-container">
-      <span class="icon material-symbols-outlined">
-        bolt
-      </span>
-      <div>
-        <h4 style="font-family: 'Poppins-Bold';">{{kpi.totaScore}}</h4>
-        <p>Total de XP</p>
-      </div>
-    </div>
-
-    <div class="block-container position-container">
-      <span class="icon material-symbols-outlined">
-        workspace_premium
-      </span>
-      @if(position) {
+    <p class="ranking-title" style="color: #161616;">Ranking Pessoal</p>
+    <div class="comeco-ranking">
+      <div class="block-container xp-container">
+        <span class="icon material-symbols-outlined">
+          bolt
+        </span>
         <div>
-          <h4 style="font-family: 'Poppins-Bold';">{{position}}</h4>
-          <p>Sua posição</p>
+          <h4 style="font-family: 'Poppins-Bold';">{{kpi.totaScore}}</h4>
+          <p>Total de XP</p>
         </div>
-      }@else {
-        <p style="font-family: 'Poppins-Bold';">Sem classificação</p>
-      }
+      </div>
+
+      <div class="block-container position-container">
+        <span class="icon material-symbols-outlined">
+          workspace_premium
+        </span>
+        @if(position) {
+          <div>
+            <h4 style="font-family: 'Poppins-Bold';">{{position}}</h4>
+            <p>Sua posição</p>
+          </div>
+        }@else {
+          <p style="font-family: 'Poppins-Bold';">Sem classificação</p>
+        }
+      </div>
     </div>
 
     <div class="block-container quizzes-section">

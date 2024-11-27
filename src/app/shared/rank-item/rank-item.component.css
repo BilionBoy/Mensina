@@ -6,7 +6,7 @@ p {
 
 .ranking-item {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   border-radius: 5px;
   margin: 5px 0;

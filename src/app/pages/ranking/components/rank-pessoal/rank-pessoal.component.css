@@ -87,4 +87,24 @@
   font-weight: 600;
 }
 
+@media (max-width: 700px) {
+  .card-container {
+    width: 95vw;
+    margin: 1em;
 
+  }
+  .comeco-ranking {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    gap: 1em;
+  }
+  .position-container, .xp-container {
+    width: 100vw;
+  }
+}
+@media(max-width: 500px){
+  .card-container{
+    width: 92vw;
+  }
+}

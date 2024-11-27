@@ -8,6 +8,7 @@ import { RankGlobalComponent } from "./components/rank-global/rank-global.compon
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../../../services/user.service';
 import { IKpi } from '../../../interfaces/IKpi';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ranking',
@@ -31,6 +32,7 @@ export class RankingComponent implements OnInit {
     private rankService: RankService,
     private userService: UserService,
     private toastr: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -66,5 +68,9 @@ export class RankingComponent implements OnInit {
         this.kpiLoading = false
       }
     })
+  }
+
+  nav(){
+    this.router.navigate(['/login'])
   }
 }

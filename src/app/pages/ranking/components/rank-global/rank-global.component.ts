@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RankService } from '../../../../../services/rank.service';
 import { IRank } from '../../../../../interfaces/IRank';
-import { ToastrService } from 'ngx-toastr';
 import { RankItemComponent } from '../../../../shared/rank-item/rank-item.component';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-rank-global',
@@ -16,4 +16,10 @@ import { RankItemComponent } from '../../../../shared/rank-item/rank-item.compon
 export class RankGlobalComponent {
   @Input() rank: IRank[] = []
   @Input() loading: boolean = false
+
+  constructor(private router: Router){}
+
+  nav(){
+    this.router.navigate(['/login'])
+  }
 }
