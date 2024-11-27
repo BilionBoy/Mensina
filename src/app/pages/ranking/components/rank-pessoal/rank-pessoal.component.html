@@ -17,18 +17,22 @@
       <span class="icon material-symbols-outlined">
         workspace_premium
       </span>
-      <div>
-        <h4 style="font-family: 'Poppins-Bold';">{{position}}</h4>
-        <p>Sua posição</p>
-      </div>
+      @if(position) {
+        <div>
+          <h4 style="font-family: 'Poppins-Bold';">{{position}}</h4>
+          <p>Sua posição</p>
+        </div>
+      }@else {
+        <p style="font-family: 'Poppins-Bold';">Sem classificação</p>
+      }
     </div>
 
     <div class="block-container quizzes-section">
       <h5 class="section-title">Quizzes</h5>
       <ul class="list-group">
-        @if(kpi && kpi.quizzesRank) {
-        @if(!kpi.quizzesRank.length) {
-        <p>Realize quizzes para visualizar seu rank</p>
+        @if(kpi) {
+        @if(!kpi.quizzesRank || !kpi.quizzesRank.length) {
+        <p>Realize quizzes para visualizar seu rank de quizzes</p>
         }@else {
         @for(quiz of kpi.quizzesRank; track quiz.quizId) {
         <li class="list-group-item"><span>{{quiz.quizTitle}}</span> <strong>{{quiz.score}}</strong></li>
@@ -41,9 +45,9 @@
     <div class="block-container categories-section">
       <h5 class="section-title">Categorias</h5>
       <ul class="list-group">
-        @if(kpi && kpi.tagsRank) {
-        @if(!kpi.tagsRank.length) {
-        <p>Realize quizzes para visualizar seu rank</p>
+        @if(kpi) {
+        @if(!kpi.tagsRank || !kpi.tagsRank.length) {
+        <p>Realize quizzes para visualizar seu rank de categorias</p>
         }@else {
         @for(quiz of kpi.tagsRank; track quiz.tagId) {
         <li class="list-group-item"><span>{{quiz.tagDescription}}</span> <strong>{{quiz.totalscore}}</strong></li>

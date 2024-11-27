@@ -33,8 +33,8 @@ export class CadastroComponent implements OnInit {
   ) {
 
     this.signupForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      username: ['', [Validators.required, Validators.minLength(6)]],
+      name: ['', [Validators.required, Validators.minLength(2)]],
+      username: ['', [Validators.required, Validators.minLength(3)]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     })
   }
@@ -45,13 +45,13 @@ export class CadastroComponent implements OnInit {
     if (this.signupForm.invalid) {
       let error = ""
       if (this.signupForm.get('password')?.errors) {
-        error += "Senha "
+        error += "Senha deve conter pelo menos 6 caracteres "
       }
       if (this.signupForm.get('username')?.errors) {
-        error += "Username "
+        error += "Username deve conter pelo menos 3 caracteres"
       }
       if (this.signupForm.get('name')?.errors) {
-        error += "Nome"
+        error += "Nome deve conter pelo menos 2 caracteres"
       }
       this.toast.info(error, "Campos invalidos: ")
 

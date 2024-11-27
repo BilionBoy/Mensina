@@ -40,9 +40,7 @@ export class UserService {
   }
 
   async getUserInfos(reload?: boolean): Promise<IUser> {
-    if(this.userInfo && !reload) {
-      console.log('ja tem', this.userInfo);
-      
+    if(this.userInfo && !reload) {      
       return this.userInfo
     }
     await this._getUserInfos()

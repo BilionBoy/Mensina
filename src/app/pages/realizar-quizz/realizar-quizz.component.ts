@@ -146,12 +146,11 @@ export class RealizarQuizzComponent implements OnInit {
     const questionId = this.notAnsweredQuestions[0].id;
     this.quizService.checkAnswer(questionId, answerId).subscribe({
       next: async (res) => {
+        if (this.notAnsweredQuestions.length <= 1) {
+          this.quizIsFinished = true;
+          this.quizState = await this.finishQuiz();
+        }
         if (res.is_correct) {
-          if (this.notAnsweredQuestions.length <= 1) {
-            this.quizIsFinished = true;
-            this.quizState = await this.finishQuiz();
-            console.log('quiz finalizado: ', this.quizState);
-          }
           Swal.fire(this.getAlertOptions('success')).then(() =>
             this.alertCallback()
           );

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { UserService } from '../../../../../services/user.service';
 import { IKpi } from '../../../../../interfaces/IKpi';
 import { ToastrService } from 'ngx-toastr';
@@ -12,7 +12,7 @@ import { IUser } from '../../../../../interfaces/IUser';
   templateUrl: './rank-pessoal.component.html',
   styleUrl: './rank-pessoal.component.css',
 })
-export class RankPessoalComponent implements OnInit {
+export class RankPessoalComponent implements OnChanges {
   @Input() rank?: IRank[]
 
   @Input() kpi: IKpi = {} as IKpi
@@ -24,15 +24,12 @@ export class RankPessoalComponent implements OnInit {
     private userService: UserService
   ) {}
 
-  ngOnInit() {    
+  ngOnChanges() {    
     this.getRankPosition()
   }
 
   async getRankPosition() {
-    const userInfo = await this.userService.getUserInfos()
-    console.log(userInfo);
-    console.log(this.rank);
-    
+    const userInfo = await this.userService.getUserInfos()    
     this.rank?.map((r, index )=> {      
       if(r.userId === userInfo.id) {        
         this.position = index+1

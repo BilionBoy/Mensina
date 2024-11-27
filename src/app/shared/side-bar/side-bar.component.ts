@@ -79,6 +79,7 @@ export class SideBarComponent implements OnInit {
       cancelButtonText: 'Cancelar',
     }).then((result: any) => {
       if (result.isConfirmed) {
+        this.getUserInfo(true);
         localStorage.removeItem('token');
         this.route.navigate(['/login']);
       }
