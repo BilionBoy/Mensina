@@ -8,7 +8,7 @@
           bolt
         </span>
         <div>
-          <h4 style="font-family: 'Poppins-Bold';">{{kpi.totaScore}}</h4>
+          <h4 style="font-family: 'Poppins-Bold';">{{kpi.totaScore}} XP</h4>
           <p>Total de XP</p>
         </div>
       </div>
@@ -19,7 +19,7 @@
         </span>
         @if(position) {
           <div>
-            <h4 style="font-family: 'Poppins-Bold';">{{position}}</h4>
+            <h4 style="font-family: 'Poppins-Bold';">{{position}}° lugar</h4>
             <p>Sua posição</p>
           </div>
         }@else {
@@ -36,7 +36,7 @@
         <p>Realize quizzes para visualizar seu rank de quizzes</p>
         }@else {
         @for(quiz of kpi.quizzesRank; track quiz.quizId) {
-        <li class="list-group-item"><span>{{quiz.quizTitle}}</span> <strong>{{quiz.score}}</strong></li>
+        <li class="list-group-item"><span style="font-family: 'Poppins-regular'!important;">{{quiz.quizTitle}}</span> <strong>{{quiz.score}}</strong></li>
         }
         }
         }
@@ -45,13 +45,13 @@
 
     <div class="block-container categories-section">
       <h5 class="section-title">Categorias</h5>
-      <ul class="list-group">
+      <ul class="list-group" >
         @if(kpi) {
         @if(!kpi.tagsRank || !kpi.tagsRank.length) {
         <p>Realize quizzes para visualizar seu rank de categorias</p>
         }@else {
         @for(quiz of kpi.tagsRank; track quiz.tagId) {
-        <li class="list-group-item"><span>{{quiz.tagDescription}}</span> <strong>{{quiz.totalscore}}</strong></li>
+        <li class="list-group-item"><span  style="font-family: 'Poppins-regular'!important;" >{{quiz.tagDescription}}</span> <strong>{{quiz.totalscore}} XP</strong></li>
         }
         }
         }
