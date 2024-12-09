@@ -1,6 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
 import { inject, PLATFORM_ID } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 const publicRoutes: string[] = ['login', 'cadastro'];
 
@@ -30,7 +31,7 @@ export const authGuard: CanActivateFn = async (route, state) => {
   // If the user is authenticated, validate the token
   if (token) {
     try {
-      const res = await fetch('http://localhost:5000/validate_token', {
+      const res = await fetch(`${environment.URL_API}/validate_token`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

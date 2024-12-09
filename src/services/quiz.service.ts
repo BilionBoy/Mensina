@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IQuizState } from '../interfaces/IQuizState';
 import { IQuestion } from '../interfaces/IQuestion';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -15,8 +16,8 @@ export class QuizService {
     inProgres?: 'inProgres' | 'notInProgres';
   }): Observable<any> {
     let url = !params?.tagId
-      ? 'http://localhost:5000/quiz/'
-      : `http://localhost:5000/quiz/?tag_id=${params.tagId}`;
+      ? `${environment.URL_API}/quiz/`
+      : `${environment.URL_API}/quiz/?tag_id=${params.tagId}`;
 
     url += !params?.tagId ? '?' : '&';
     url += `in_progress=${params?.inProgres === 'inProgres'}`;
@@ -25,13 +26,13 @@ export class QuizService {
 
   getQuizById(quizId: number): Observable<IQuizState> {
     return this.http.get<IQuizState>(
-      `http://localhost:5000/quiz/start/${quizId}`
+      `${environment.URL_API}/quiz/start/${quizId}`
     );
   }
 
   getQuestions(quizId: number): Observable<IQuestion[]> {
     return this.http.get<IQuestion[]>(
-      `http://localhost:5000/quiz/questions/${quizId}`
+      `${environment.URL_API}/quiz/questions/${quizId}`
     );
   }
 
@@ -40,13 +41,13 @@ export class QuizService {
     answerId: number
   ): Observable<{ is_correct: boolean }> {
     return this.http.get<{ is_correct: boolean }>(
-      `http://localhost:5000/quiz/answer_check?answer_id=${answerId}&question_id=${questionId}`
+      `${environment.URL_API}/quiz/answer_check?answer_id=${answerId}&question_id=${questionId}`
     );
   }
 
   finishQuiz(quizId: number): Observable<IQuizState> {
     return this.http.delete<IQuizState>(
-      `http://localhost:5000/quiz/finish/${quizId}`
+      `${environment.URL_API}/quiz/finish/${quizId}`
     );
   }
 }

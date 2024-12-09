@@ -3,12 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IKpi } from '../interfaces/IKpi';
 import { IUser } from '../interfaces/IUser';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = 'http://localhost:5000/user/';
+  private apiUrl = `${environment.URL_API}/user/`;
 
   userInfo?: IUser
 

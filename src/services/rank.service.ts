@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IRank } from '../interfaces/IRank';
+import { environment } from '../environments/environment';
 
 interface IParams {
   update_rank?: boolean
@@ -14,7 +15,7 @@ interface IParams {
 })
 export class RankService {
 
-  private baseUrl = `http://localhost:5000/rank/`;
+  private baseUrl = `${environment.URL_API}/rank/`;
 
   constructor(private http: HttpClient) { }
 
